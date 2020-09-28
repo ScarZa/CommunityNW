@@ -253,6 +253,50 @@
             }
         }
 
+        function selectJSON(content, data, id, name, title, check = null) {
+            $.getJSON("JsonData/" + data, function (data) {
+                var option="<option value=''> " + title + " </option>";
+                for (var keys in data['RECORDS']) {
+            if (parseInt(id) == parseInt(data.RECORDS[keys][id])) {var select = 'selected'; } else { var select = ''; }
+            if(data.RECORDS[keys][id] !=''){option += "<option value='" +data.RECORDS[keys][id]+ "' " + select + "> " + data.RECORDS[keys][name] + " </option>";}
+                
+             }
+      
+                $(content).empty().append(option);
+                $(".select2").select2();
+            });
+
+        }
+
+        function selectJSONwVal(content, data, id, name, title,valname, val, check = null) {
+            $.getJSON("JsonData/" + data, function (data) {
+                var option="<option value=''> " + title + " </option>";
+                for (var keys in data['RECORDS']) {
+            if (parseInt(id) == parseInt(data.RECORDS[keys][id])) {var select = 'selected'; } else { var select = ''; }
+            if(data.RECORDS[keys][id] !='' && data.RECORDS[keys][valname] == val){option += "<option value='" +data.RECORDS[keys][id]+ "' " + select + "> " + data.RECORDS[keys][name] + " </option>";}
+                
+             }
+      
+                $(content).empty().append(option);
+                $(".select2").select2();
+            });
+
+        }
+
+        function getJsonFile(jsonfile, id, fieldchk, fieldkey) {    // ( file.json,ค่าที่ต้องการดึง,ฟิล์ดที่ใช้เปรียบเทียบใน file.json,key ของค่าที่ต้องการ )
+    var Subvals = new $.Deferred();
+    $.getJSON(jsonfile + ".json", function (data) {
+        var vals;
+        for (var keys in data['RECORDS']) {
+            if (parseInt(id) == parseInt(data.RECORDS[keys][fieldchk])) {
+                vals = data.RECORDS[keys][fieldkey];
+            }
+        };
+        Subvals.resolve(vals);
+    });
+    return Subvals;
+}
+
         function selectMash(content, data, title, check = null) {
             $.getJSON("http://10.0.0.11/API-Hosxp/API/" + data, function (CmD) {
                 var option="<option value=''> " + title + " </option>";
@@ -396,69 +440,7 @@
       AssSlideMenuIPD("nav#sidebar");
     }
         AssHeadPatient("#head-detial","","http://10.0.0.11/API-Hosxp/API/");
-        
-    
-    
-        //     $.getJSON('../back/API/detail_patientAPI.php',{data : $.cookie("vn"),data2 : AN},function (data) { console.log(data)
-        //         $.cookie("hn", data[0].hn);
-        //         $.cookie("vstdate", data[0].vstdate);
-        //         $.cookie("sex", data[0].sex);
-        //         $.cookie("birthday", data[0].birthday);
-        //         $.cookie("pdx", data[0].pdx);
-        //         $.cookie("dx0", data[0].dx0);
-        //         $.cookie("dx1", data[0].dx1);
-        //         $.cookie("dx2", data[0].dx2);
-        //         $.cookie("dx3", data[0].dx3);
-        //         AssSlideMenu("nav#sidebar");
-        //         if(an == undefined && doctor != 'Y'){
-        //             $("#patient-detial").append("ชื่อ-สกุล <b>"+data[0].pname+data[0].fname+" "+data[0].lname+"</b><p><p>HN <b>"+data[0].hn+"</b> VN <b>"+data[0].vn+"</b><p><p>วันที่มารับบริการ  <b>"+data[0].tvstdate)+"</b>";  
-        //                 //AssMENU("#index_content");     
-        //         }else if(doctor == 'Y'){
-        //             $("#patient-detial").append("ชื่อ-สกุล <b>"+data[0].pname+data[0].fname+" "+data[0].lname+"</b><p><p>HN <b>"+data[0].hn+"</b> VN <b>"+data[0].vn+"</b><p><p>วันที่มารับบริการ  <b>"+data[0].tvstdate)+"</b>";  
-        //                 AssMENUDoctor("#index_content");     
-        //         }else{
-        //             $("#patient-detial").append("ชื่อ-สกุล <b>"+data[0].pname+data[0].fname+" "+data[0].lname+"</b><p><p>HN <b>"+data[0].hn+"</b> AN <b>"+an+"</b><p><p>วันที่มา Admit  <b>"+data[0].tvstdate)+"</b>";
-        //                 AssMENUIPD("#index_content"); 
-        //             }
-        //             if(data[0].Clozapine100 != null){
-        //                 $("#patient-detial").append("<p><b style='color: red'>High Alert Drug : </b>"+data[0].Clozapine100+" (สั่งล่าสุด "+data[0].Clozapine100Date+")");
-        //             }
-        //             if(data[0].Clozapine25 != null){
-        //                 $("#patient-detial").append("<p><b style='color: red'>High Alert Drug : </b>"+data[0].Clozapine25+" (สั่งล่าสุด "+data[0].Clozapine25Date+")");
-        //             }
-        //             if(data[0].Carbamazepine200 != null){
-        //                 $("#patient-detial").append("<p><b style='color: red'>High Alert Drug : </b>"+data[0].Carbamazepine200+" (สั่งล่าสุด "+data[0].Carbamazepine200Date+")");
-        //             }
-        //             if(data[0].LithiumCarbonate300 != null){
-        //                 $("#patient-detial").append("<p><b style='color: red'>High Alert Drug : </b>"+data[0].LithiumCarbonate300+" (สั่งล่าสุด "+data[0].LithiumCarbonate300Date+")");
-        //             }
-        //             if(data[0].SodiumValproate200 != null){
-        //                 $("#patient-detial").append("<p><b style='color: red'>High Alert Drug : </b>"+data[0].SodiumValproate200+" (สั่งล่าสุด "+data[0].SodiumValproate200Date+")");
-        //             }
-        //             if(data[0].SodiumValproate200CHRONO != null){
-        //                 $("#patient-detial").append("<p><b style='color: red'>High Alert Drug : </b>"+data[0].SodiumValproate200CHRONO+" (สั่งล่าสุด "+data[0].SodiumValproate200CHRONODate+")");
-        //             }
-        //             if(data[0].SodiumValproate500 != null){
-        //                 $("#patient-detial").append("<p><b style='color: red'>High Alert Drug : </b>"+data[0].SodiumValproate500+" (สั่งล่าสุด "+data[0].SodiumValproate500Date+")");
-        //             }
-                          
-        //     // if($.cookie("hn") == data[0].hn){
-        //     //     console.log($.cookie("hn"));console.log(data[0].hn);  
-        //     //     $("div#menu").show();
-        //     //     $("div#SW").hide();
-        //     // }else{
-        //     // $("div#menu").hide();
-        //     // $('#sw-menu').click(function () {
-                
-               
-                
-                
-        //     //     $("div#menu").show();
-        //     //     $("div#SW").hide();
-        //     // });
-        // //}
-        // });
-        })
+        });
     </script>
     <script type="text/javascript">
         function popup(url, name, windowWidth, windowHeight) {

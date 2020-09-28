@@ -1,0 +1,52 @@
+{
+    "RECORDS": [
+        {
+            "emp_education_id": "1",
+            "emp_education_name": "ประถมศึกษา"
+        },
+        {
+            "emp_education_id": "2",
+            "emp_education_name": "มัธยมศึกษาตอนต้น"
+        },
+        {
+            "emp_education_id": "3",
+            "emp_education_name": "มัธยมศึกษาตอนปลาย/ปวช."
+        },
+        {
+            "emp_education_id": "4",
+            "emp_education_name": "ปวส./ปวท."
+        },
+        {
+            "emp_education_id": "5",
+            "emp_education_name": "ปริญญาตรี"
+        },
+        {
+            "emp_education_id": "6",
+            "emp_education_name": "ปริญญาโท"
+        },
+        {
+            "emp_education_id": "7",
+            "emp_education_name": "ปริญญาเอก"
+        },
+        {
+            "emp_education_id": "8",
+            "emp_education_name": "ป.กศ สูง"
+        },
+        {
+            "emp_education_id": "9",
+            "emp_education_name": "อื่น ๆ"
+        },
+        {
+            "emp_education_id": "10",
+            "emp_education_name": "ป.กศ"
+        },
+        {
+            "emp_education_id": "11",
+            "emp_education_name": "มศ.5"
+        },
+        {
+            "emp_education_id": "12",
+            "emp_education_name": "อนุปริญญา"
+        }
+    ]
+}
