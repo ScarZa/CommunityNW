@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Community Network</title>
+    <link rel='SHORTCUT ICON' href='images/logo.png'>
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <link rel="stylesheet" href="plugins/Slidebar/slidebars.css"> -->
+    <link rel="stylesheet" href="template/bootstrap-4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="plugins/Jprint/print.min.css"> -->
+    <link rel="stylesheet" href="plugins/font-awesome-4.6.3/css/font-awesome.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="plugins/select2/select2.min.css">
+
+    <link rel="stylesheet" href="plugins/slidebar/style2.css">
+    <!-- My tools -->
+    <script src="MyTools/createTableAjax.js" type="text/javascript"></script>
+    <script src="MyTools/AJAXCharts.js" type="text/javascript"></script>
+    <script src="MyTools/reportLayout.js" type="text/javascript"></script>
+    <script src="MyTools/tabLayout.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_DocGeneral.js" type="text/javascript"></script>
+    <!-- End My tools -->
+    <link rel="stylesheet" href="plugins/jquery-ui-1.11.4.custom/jquery-ui-1.11.4.custom.css" />
+    <link rel="stylesheet" href="plugins/jquery-ui-1.11.4.custom/SpecialDateSheet.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="plugins/DataTables/datatables.min.css"/> -->
+    <link rel="stylesheet" type="text/css" href="plugins/DataTables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" />
+    <!-- <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'> -->
+
+<!-- CryptoJS -->
+<script src="plugins/src/core.js"></script>
+<script src="plugins/src/lib-typedarrays.js"></script>
+<script src="plugins/src/x64-core.js"></script>
+<script src="plugins/src/enc-utf16.js"></script>
+<script src="plugins/src/enc-base64.js"></script>
+<script src="plugins/src/md5.js"></script>
+<script src="plugins/src/sha1.js"></script>
+<script src="plugins/src/sha256.js"></script>
+<script src="plugins/src/sha224.js"></script>
+<script src="plugins/src/sha512.js"></script>
+<script src="plugins/src/sha384.js"></script>
+<script src="plugins/src/sha3.js"></script>
+<script src="plugins/src/ripemd160.js"></script>
+<script src="plugins/src/hmac.js"></script>
+<script src="plugins/src/pbkdf2.js"></script>
+<script src="plugins/src/evpkdf.js"></script>
+<script src="plugins/src/cipher-core.js"></script>
+<script src="plugins/src/mode-cfb.js"></script>
+<script src="plugins/src/mode-ctr.js"></script>
+<script src="plugins/src/mode-ofb.js"></script>
+<script src="plugins/src/mode-ecb.js"></script>
+<script src="plugins/src/pad-ansix923.js"></script>
+<script src="plugins/src/pad-iso10126.js"></script>
+<script src="plugins/src/pad-zeropadding.js"></script>
+<script src="plugins/src/pad-iso97971.js"></script>
+<script src="plugins/src/pad-nopadding.js"></script>
+<script src="plugins/src/rc4.js"></script>
+<script src="plugins/src/rabbit.js"></script>
+<script src="plugins/src/rabbit-legacy.js"></script>
+<script src="plugins/src/aes.js"></script>
+<script src="plugins/src/tripledes.js"></script>
+
+<!-- YUI -->
+<script src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+
+<!-- Tests -->
+<script src="plugins/test/lib-base-test.js"></script>
+<script src="plugins/test/lib-wordarray-test.js"></script>
+<script src="plugins/test/lib-typedarrays-test.js"></script>
+<script src="plugins/test/x64-word-test.js"></script>
+<script src="plugins/test/x64-wordarray-test.js"></script>
+<script src="plugins/test/enc-hex-test.js"></script>
+<script src="plugins/test/enc-latin1-test.js"></script>
+<script src="plugins/test/enc-utf8-test.js"></script>
+<script src="plugins/test/enc-utf16-test.js"></script>
+<script src="plugins/test/enc-base64-test.js"></script>
+<script src="plugins/test/md5-test.js"></script>
+<script src="plugins/test/sha1-test.js"></script>
+<script src="plugins/test/sha256-test.js"></script>
+<script src="plugins/test/sha224-test.js"></script>
+<script src="plugins/test/sha512-test.js"></script>
+<script src="plugins/test/sha384-test.js"></script>
+<script src="plugins/test/sha3-test.js"></script>
+<script src="plugins/test/ripemd160-test.js"></script>
+<script src="plugins/test/hmac-md5-test.js"></script>
+<script src="plugins/test/hmac-sha224-test.js"></script>
+<script src="plugins/test/hmac-sha256-test.js"></script>
+<script src="plugins/test/hmac-sha384-test.js"></script>
+<script src="plugins/test/hmac-sha512-test.js"></script>
+<script src="plugins/test/pbkdf2-test.js"></script>
+<script src="plugins/test/evpkdf-test.js"></script>
+<script src="plugins/test/mode-cbc-test.js"></script>
+<script src="plugins/test/mode-cfb-test.js"></script>
+<script src="plugins/test/mode-ctr-test.js"></script>
+<script src="plugins/test/mode-ofb-test.js"></script>
+<script src="plugins/test/mode-ecb-test.js"></script>
+<script src="plugins/test/pad-pkcs7-test.js"></script>
+<script src="plugins/test/pad-ansix923-test.js"></script>
+<script src="plugins/test/pad-iso10126-test.js"></script>
+<script src="plugins/test/pad-zeropadding-test.js"></script>
+<script src="plugins/test/pad-iso97971-test.js"></script>
+<script src="plugins/test/lib-cipherparams-test.js"></script>
+<script src="plugins/test/format-openssl-test.js"></script>
+<script src="plugins/test/lib-serializablecipher-test.js"></script>
+<script src="plugins/test/kdf-openssl-test.js"></script>
+<script src="plugins/test/lib-passwordbasedcipher-test.js"></script>
+<script src="plugins/test/rc4-test.js"></script>
+<script src="plugins/test/rabbit-test.js"></script>
+<script src="plugins/test/rabbit-legacy-test.js"></script>
+<script src="plugins/test/cipher-test.js"></script>
+<script src="plugins/test/aes-test.js"></script>
+<script src="plugins/test/des-test.js"></script>
+<script src="plugins/test/tripledes-test.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+       body {
+        font-family: 'Kanit', sans-serif;
+        }
+        h1 {
+        font-family: 'Kanit', sans-serif;
+        }
+        /* unvisited link */
+        a.linkfoot:link {
+            color: white;
+        }
+        .head-color {
+            background-color: rgb(253, 250, 206);
+        }
+
+    </style>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .box {
+          float: right;
+          width: 66.66%;
+          padding: 0px;
+        }
+        
+        .clearfix::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        </style>
+    <style type="text/css">
+    .center {
+    display: block;
+    margin: 0 auto;
+}
+        .scroll 
+        {
+        height: 750px;
+        overflow: auto;
+        }
+        /* div.scroll {
+            height: 600px;
+            width: 100%;  
+            overflow-y: auto;
+        } */
+
+        .block {
+            width: 115px;
+            height: 135px;
+            margin: 0px;
+            background: #FFFFFF;
+            float: right;
+        }
+
+        @media print {
+
+            #div_print,
+            #nav_bc {
+                display: none;
+            }
+        }
+    </style>
+    <style>
+        a:hover {
+          text-decoration: none;
+        }
+        
+        a:active {
+          text-decoration: none;
+        }
+        </style>
+    <script type="text/javascript">
+        function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^?]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+    }
+
+        function loadAjax(content, pagesend, data = null, getfunc = null, datatype = 'json', method = 'POST') {
+            var subgetfunc = getfunc.split("?");
+            $.when($.ajax({
+                url: pagesend,
+                method: method,
+                data: { data: data },
+                dataType: datatype
+            }))
+                .then(function (result, textStatus, jqXHR) {
+                    if (subgetfunc[0] == 'AddUserModal') {
+                        AddUserModal();
+                    } else if (subgetfunc[0] == 'TBUser') {
+                        TBUser(content);
+                    } else if (subgetfunc[0] == 'AddSellerModal') {
+                        AddSellerModal(content);
+                    } else if (subgetfunc[0] == 'TBSeller') {
+                        TBSeller(content);
+                    } else if (subgetfunc[0] == 'TBMed') {
+                        TBMed(content);
+                    } else if (subgetfunc[0] == 'TBBrand') {
+                        TBBrand(content);
+                    } else if (subgetfunc[0] == 'TBImp') {
+                        TBImp(content);
+                    } else if (subgetfunc[0] == 'AddItem') {
+                        AddItem(content,result.data);
+                    } else if (subgetfunc[0] == 'AddDrawItem') {
+                        AddDrawItem(content,result.data);
+                    } else if (subgetfunc[0] == 'AddDrawLotItemModal') {
+                        AddDrawLotItemModal(content);
+                    } else if (subgetfunc[0] == 'TBImp') {
+                        TBImp(content);
+                    } else if (subgetfunc[0] == 'TBDraw') {
+                        TBDraw(content);
+                    } else if (subgetfunc[0] == 'TBM_T') {
+                        TBM_T(content);
+                    }
+                    // else if (subgetfunc[0] == 'logout') {
+                    //     alert(result);
+                    //     loadPage(content, 'content/NoLogon_index.html');
+                    //     location.reload();
+                    // }
+                });
+        }
+
+        function DeleteData(pagesend, table = null, field = null, id = null, pageresend = $.cookie('Readerurl') + 'tempSendDataAPI.php', datatype = 'json', method = 'POST') {
+            if (confirm('กรุณายืนยันการลบอีกครั้ง !!!')) {
+                $.when($.ajax({
+                    url: pagesend,
+                    method: method,
+                    data: { table: table, field: field, id: id },
+                    dataType: datatype
+                })).then(function (result, textStatus, jqXHR) { 
+                    alert(result);
+                    loadAjax('#index_content', $.cookie('Readerurl') + 'tempSendDataAPI.php', '',  pageresend)
+                });
+            }
+        }
+
+        function selectJSON(content, data, id, name, title, check = null) {
+            $.getJSON("JsonData/" + data, function (data) {
+                var option="<option value=''> " + title + " </option>";
+                for (var keys in data['RECORDS']) {
+            if (parseInt(id) == parseInt(data.RECORDS[keys][id])) {var select = 'selected'; } else { var select = ''; }
+            if(data.RECORDS[keys][id] !=''){option += "<option value='" +data.RECORDS[keys][id]+ "' " + select + "> " + data.RECORDS[keys][name] + " </option>";}
+                
+             }
+      
+                $(content).empty().append(option);
+                $(".select2").select2();
+            });
+
+        }
+
+        function selectJSONwVal(content, data, id, name, title,valname, val, check = null) {
+            $.getJSON("JsonData/" + data, function (data) {
+                var option="<option value=''> " + title + " </option>";
+                for (var keys in data['RECORDS']) {
+            if (parseInt(id) == parseInt(data.RECORDS[keys][id])) {var select = 'selected'; } else { var select = ''; }
+            if(data.RECORDS[keys][id] !='' && data.RECORDS[keys][valname] == val){option += "<option value='" +data.RECORDS[keys][id]+ "' " + select + "> " + data.RECORDS[keys][name] + " </option>";}
+                
+             }
+      
+                $(content).empty().append(option);
+                $(".select2").select2();
+            });
+
+        }
+
+        function getJsonFile(jsonfile, id, fieldchk, fieldkey) {    // ( file.json,ค่าที่ต้องการดึง,ฟิล์ดที่ใช้เปรียบเทียบใน file.json,key ของค่าที่ต้องการ )
+    var Subvals = new $.Deferred();
+    $.getJSON(jsonfile + ".json", function (data) {
+        var vals;
+        for (var keys in data['RECORDS']) {
+            if (parseInt(id) == parseInt(data.RECORDS[keys][fieldchk])) {
+                vals = data.RECORDS[keys][fieldkey];
+            }
+        };
+        Subvals.resolve(vals);
+    });
+    return Subvals;
+}
+
+        function selectMash(content, data, title, check = null) {
+            $.getJSON("http://10.0.0.11/API-Hosxp/API/" + data, function (CmD) {
+                var option="<option value=''> " + title + " </option>";
+                for (var key in CmD) {
+                    if (CmD[key].id == check) { var select = 'selected'; } else { var select = ''; }
+                    option +="<option value='" + CmD[key].id + "' " + select + "> " + CmD[key].name + " </option>";
+                } 
+                $(content).empty().append(option);
+                $(".select2").select2();
+            });
+
+        }
+
+        function imageIsLoaded(e) {
+            $("#file").css("color", "green");
+            $('#image_preview').css("display", "block");
+            $('#previewing').attr('src', e.target.result);
+            $('#previewing').attr('width', '150px');
+            //$('#previewing').attr('height', '230px');
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="scroll"></nav>
+        <div id="content">
+        <nav class="navbar sticky-top navbar-expand-sm bg-success"><div class="container-fluid" id="head-nav"></div></nav>
+        
+        <!-- <p> -->
+            <!-- <div class='content-wrapper'> -->
+                
+                <!-- <section class='content'> -->
+                    <!-- <div class="col-lg-12 col-xl-12" id="head-title">&nbsp;</div> -->
+                    <div class="col-lg-12 col-xl-12" id="head-detial">
+                        <!-- <div class="col-lg-8 offset-lg-2 alert alert-success"><h5  id="patient-detial" style="text-align: center"></h5></div> -->
+                    </div>
+                    <div class="col-lg-12 col-xl-12" id="index_content"></div>
+                    <div id='createModal'></div>
+                <!-- </section> -->
+                <!-- <p><br><br> -->
+        <!-- <nav class="navbar fixed-bottom navbar-expand-sm bg-primary"><div class="container-fluid" id="foot-nav"></div></nav> -->
+        </div>
+            
+        <!-- </div> -->
+            <!-- content-wrapper -->
+                </div>
+    </div><!-- TODO: wrapper -->
+    <!-- <input onkeyup="inputDigits(sensor)" type="number" -->
+    <script src="template/jquery-3.3.1.min.js"></script>
+    <script src="template/jquery.cookie.js"></script>
+    <script src="template/bootstrap-4.4.1/js/bootstrap.min.js"></script>
+    <script src="plugins/select2/select2.full.min.js"></script>
+    <!-- <script src="plugins/Jprint/print.min.js"></script> -->
+    <script src="plugins/jquery-ui-1.11.4.custom/jquery-ui-1.11.4.custom.js"></script>
+    <script src="plugins/excellentexport.js"></script>
+    <!-- My script -->
+    <script src="MyTools/DatepickerThai.js" type="text/javascript"></script>
+    <!-- <script src="MyJS/loading.js"></script>
+    <script src="MyJS/spin.js"></script> -->
+    <!-- End My script -->
+    <!-- <script src="plugins/DataTables/jquery.dataTables.min.js"></script>
+        <script src="plugins/DataTables/dataTables.bootstrap.min.js"></script> -->
+    <script src="plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="plugins/DataTables/DataTables-1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <!-- <script type="text/javascript" src="DataTables/datatables.min.js"></script> -->
+    <!--HighChart-->
+    <script src="plugins/Highcharts/code/highcharts.js"></script>
+    <script src="plugins/Highcharts/code/modules/exporting.js"></script>
+    <script src="plugins/Highcharts/code/modules/data.js"></script>
+    <script src="plugins/Highcharts/code/modules/drilldown.js"></script>
+    <script src="plugins/Highcharts/code/highcharts-3d.js"></script>
+    <!-- <script src="plugins/jquery-ui-1.11.4.custom/jquery-ui-1.11.4.custom.js"></script> -->
+
+    <!-- JS content -->
+    <script src="JScontent/navMenu.js" type="text/javascript"></script>
+    <script src="JScontent/assMenu.js" type="text/javascript"></script>
+    <script src="JScontent/assMenuIPD.js" type="text/javascript"></script>
+    <script src="JScontent/assMenuDoctor.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_CGI.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Culture.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Alcohol.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Social.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Social02.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Depress.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_SNAP_IV.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_consoult.js" type="text/javascript"></script>
+    <script src="JScontent/SmenuModel.js" type="text/javascript"></script>
+    <script src="JScontent/DmenuModel.js" type="text/javascript"></script>
+    <script src="JScontent/AmenuModel.js" type="text/javascript"></script>
+    <script src="JScontent/CmenuModel.js" type="text/javascript"></script>
+    <script src="JScontent/OmenuModel.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Clozapine.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Lithium.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Carbamazepine.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Sodium.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_ER.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Doc01.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_CDI.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_MMSE.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_ADL.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_NPIQ.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_EMR.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_SMIV.js" type="text/javascript"></script>
+    <script src="JScontent/assSlideMenu.js" type="text/javascript"></script>
+    <script src="JScontent/assSlideMenuIPD.js" type="text/javascript"></script>
+    <script src="JScontent/assSlideMenuDoc.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_headPatient.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Admit.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_DSI300.js" type="text/javascript"></script>
+    <script src="JScontent/Ass_Token.js" type="text/javascript"></script>
+    <script src="JScontent/RegisModel.js" type="text/javascript"></script>
+    <script src="masked/Ass_Regis.js" type="text/javascript"></script>
+    
+    <!-- End JS content -->
+    
+    <script lang="javascript" type="text/javascript">
+        $(function () {
+            var user = get('user');
+            var vn = get('vn');
+            var an = get('an');
+            var doctor = get('doctor');
+            
+            if(user!=''){
+            if(an == undefined){ var AN = '';}else{ var AN = an;}
+            if(doctor == undefined){ var Doctor = '';}else{ var Doctor = doctor;}
+            $.cookie("user", user);
+            $.cookie("an", AN);
+            $.cookie("doctor", Doctor);
+            $.cookie("vn", vn);
+        }
+    var uri = window.location.toString();
+    if (uri.indexOf("?") > 0) {
+        var clean_uri = uri.substring(0, uri.indexOf("?"));
+        window.history.replaceState({}, document.title, clean_uri);
+    }
+    if (an == undefined && doctor != 'Y') {
+      AssSlideMenu("nav#sidebar");
+    } else if (doctor == 'Y') {
+      AssSlideMenuDoc("nav#sidebar");
+    } else {
+      AssSlideMenuIPD("nav#sidebar");
+    }
+        AssHeadPatient("#head-detial","","http://10.0.0.11/API-Hosxp/API/");
+        });
+    </script>
+    <script type="text/javascript">
+        function popup(url, name, windowWidth, windowHeight) {
+            myleft = (screen.width) ? (screen.width - windowWidth) / 2 : 100;
+            mytop = (screen.height) ? (screen.height - windowHeight) / 2 : 100;
+            properties = "width=" + windowWidth + ",height=" + windowHeight;
+            properties += ",scrollbars=yes, top=" + mytop + ",left=" + myleft;
+            window.open(url, name, properties);
+        }
+
+        function GetjQueryCookie(name, value) {
+            $.cookie(name, value);
+        }
+
+        function parseJwtHead (token) {
+    var base64Url = token.split('.')[0];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+};
+
+        function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+};
+
+function base64url(source) {
+  // Encode in classical base64
+  encodedSource = CryptoJS.enc.Base64.stringify(source);
+
+  // Remove padding equal characters
+  encodedSource = encodedSource.replace(/=+$/, '');
+
+  // Replace characters according to base64url specifications
+  encodedSource = encodedSource.replace(/\+/g, '-');
+  encodedSource = encodedSource.replace(/\//g, '_');
+
+  return encodedSource;
+}
+    </script>
+    <script type="text/javascript">
+        function inputDigits(sensor) {
+            var regExp = /[0-9.-]$/;
+            if (!regExp.test(sensor.value)) {
+                alert("กรอกตัวเลขเท่านั้นครับ");
+                sensor.value = sensor.value.substring(0, sensor.value.length - 1);
+            }
+        }
+    </script>
+    <!--scrip check ตัวอักษร-->
+    <script type="text/javascript">
+        function inputString(sensor) {
+            var regExp = /[A-Za-zก-ฮะ-็่-๋์]$/;
+            if (!regExp.test(sensor.value)) {
+                alert("กรอกตัวอักษรเท่านั้นครับ");
+                sensor.value = sensor.value.substring(0, sensor.value.length - 1);
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // $("#sidebar").mCustomScrollbar({
+            //     theme: "minimal"
+            // });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar, #content').toggleClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+
+</html>

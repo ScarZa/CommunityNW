@@ -1,0 +1,20 @@
+{
+    "RECORDS": [
+        {
+            "role_id": "1",
+            "role_name": "เจ้าหน้าที่ IT"
+        },
+        {
+          "role_id": "2",
+          "role_name": "แพทย์"
+      },
+      {
+        "role_id": "3",
+        "role_name": "พยายบาล"
+      },
+      {
+      "role_id": "4",
+      "role_name": "เจ้าหน้าที่สาธารณสุข"
+      }
+    ]
+}
