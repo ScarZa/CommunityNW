@@ -1,6 +1,6 @@
-var AssRegis = function(content){
+var AssConfirm = function(content){
     this.content = content;
-    this.GetRegisForm = function () {
+    this.GetConfForm = function () {
         $(this.content).empty().append(
             $("<div class='alert alert-success' id='test1'></div>")
             ,$("<div class='alert alert-info' id='block2'></div>")
@@ -10,7 +10,7 @@ var AssRegis = function(content){
 
             );
         
-            $("#test1").empty().append($("<div class='form-group'>  <label class='col-form-label'><u><b> ข้อมูลหน่วยงาน </b></u></label></div>")
+            $("#test1").empty().append($("<div class='form-group'>  <label class='col-form-label'><u><b> ข้อมูลหน่วยงาน test </b></u></label></div>")
        
             ,$("<div class='row  form-group'>"
             // +"<div style='width: 3%;'> </div>" //หน้าว่าง

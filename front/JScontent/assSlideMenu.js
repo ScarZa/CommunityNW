@@ -4,7 +4,8 @@ function AssSlideMenu(content, id = null) {
   $(content).empty().append($("<div class='sidebar-header'><img src='images/logo.png' width='95px' class='center'><p style='font-size:13px;text-align: center;'>โรงพยาบาลจิตเวชเลยราชนครินทร์</p></div>")
                               ,$("<ul class='list-unstyled components' id='list-menu'></ul>"));
   $("#list-menu").empty().append($("<li id='EMR-menu'></li>")
-                                        , $("<li id='jwt-token-menu'></li>")
+    , $("<li id='jwt-token-menu'></li>")
+    , $("<li id='confirm-menu'></li>")
                                         , $("<li id='ER-menu'></li>")
                                         , $("<li id='CGI-menu'></li>")
                                         , $("<li id='SMIv-menu'></li>")
@@ -18,7 +19,8 @@ function AssSlideMenu(content, id = null) {
                                         , $("<li id='culture-menu'></li>")
                                         , $("<li id='consult-menu'></li>"));                    
                                 
-                            $("li#jwt-token-menu").empty().append($("<a id='token' href='#'><img src='images/EMR.png' width='25'> JWT Token</a>"));
+                            $("li#jwt-token-menu").empty().append($("<a id='token' href='#'><img src='images/EMR.png' width='25'> JWT Token</a>"));                          
+                            $("li#confirm-menu").empty().append($("<a id='confirm' href='#'><img src='images/EMR.png' width='25'> Confirm user</a>"));
                             $("li#EMR-menu").empty().append($("<a id='EMR' href='#'><img src='images/EMR.png' width='25'> EMR</a>"));
                             $("li#CGI-menu").empty().append($("<a id='cgi_menu' href='#'><img src='images/cgi.png' width='25'> ประเมิน CGI</a>"));
                             $("li#SMIv-menu").empty().append($("<a id='SMI-V' href='#'><img src='images/icon_set2/compose.ico' width='25'> SMI-V</a>"));
@@ -84,7 +86,8 @@ function AssSlideMenu(content, id = null) {
                                         $("a#ADL").attr("onclick", "$('#head-detial').show();AssADL('#index_content');");
                                         $("a#NPI-Q").attr("onclick", "$('#head-detial').show();AssNPIQ('#index_content');");
                                         $("a#Admit").attr("onclick", "$('#head-detial').show();AssAdmit('#index_content');");
-                                        $("a#token").attr("onclick","$('#head-detial').show();AssToken('#index_content');");
+  $("a#token").attr("onclick", "$('#head-detial').show();AssToken('#index_content');");
+  $("a#confirm").attr("onclick","$('#head-detial').show();TB_ConfirmUser('#index_content');");
   
                                         
 }
