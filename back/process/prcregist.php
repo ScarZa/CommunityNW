@@ -60,67 +60,34 @@ if($member===false){
 }
     print json_encode($res);
     $connDB->close_PDO();
-}elseif ($method == 'edit_lotitem') {
-    $lot_price=0;
-    $li_id = $_POST['li_id'];
-    $lot_id = $_POST['lot_id'];
-    $db_id = $_POST['db_id'];
-    $item_price = $_POST['item_price'];
-    $item_amount = $_POST['item_amount'];
-    $sell_price = $_POST['sell_price'];
-    $expire_date = insert_date($_POST['expire_date']);
+}elseif ($method == 'add_Confirm') {
+    $reg_id = $_POST['reg_id'];
+    $confirm = $_POST['confirm'];
+    $token_key = $_POST['token_key'];
+    $confdate = date('Y-m-d H:i:s');
 
-    $sql = "select receive,sell from drug_brand where db_id= :db_id";
-    $connDB->imp_sql($sql);
-    $execute=array(':db_id' => $db_id);
-    $receive=$connDB->select_a($execute);
-    // $total_receive = (int) $item_amount + (int) $receive['receive'];
-    // $total_now = $total_receive - (int) $receive['sell'];
+    $data = array($confirm,$confdate);
+    $field = array("reg_status","confdate");
+    $table = "registration";
+    $where="reg_id=:reg_id";
+    $execute=array(':reg_id' => $reg_id);
+    $conf = $connDB->update($table, $data, $where, $field, $execute);
 
-    $sql = "select item_price,item_amount from lot_item where li_id= :li_id";
-    $connDB->imp_sql($sql);
-    $execute=array(':li_id' => $li_id);
-    $amount=$connDB->select_a($execute);
-    $total_receive = (int) $item_amount + ((int) $receive['receive']-$amount['item_amount']);
-    $total_now = $total_receive - (int) $receive['sell'];
-
-    $data = array($db_id,$item_price,$item_amount,$sell_price,$expire_date,$total_now);
-    $field = array("db_id","item_price","item_amount","sell_price","expire_date","total_now");
-    $table = "lot_item";
-    $where="li_id=:li_id";
-    $execute=array(':li_id' => $li_id);
-    $edit_lot_item = $connDB->update($table, $data, $where, $field, $execute);
-
-    if($edit_lot_item){
-        $data2 = array($total_receive);
-        $field = array("receive");
-        $table2 = "drug_brand";
-        $where="db_id=:db_id";
-        $execute2=array(':db_id' => $db_id);
-        $edit_drug_brand=$connDB->update($table2, $data2, $where, $field, $execute2); 
-
-        $lot_price += $item_price*$item_amount;
+    if($conf and $confirm==1){
+        $data2 = array($token_key);
+        $field = array("token_key");
+        $table2 = "user_member";
+        $where="reg_id=:reg_id";
+        $execute2=array(':reg_id' => $reg_id);
+        $user_token=$connDB->update($table2, $data2, $where, $field, $execute2); 
+if($user_token){
+    $res = array("messege"=>'พิจารณาเรียบร้อยครับ');
+}else{
+    $res = array("messege"=>'ไม่สามารถพิจารณาได้ครับ!!!! '.$user_token->errorInfo());
+}
+    }else{
+        $res = array("messege"=>'ไม่อนุมัติครับ!!!! ');
     }
-    else if(!$add_lot_item){
-        $res = array("messege"=>'เพิ่มรายการไม่สำเร็จ!!!! '.$edit_lot_item->errorInfo());
-        print json_encode($res);
-    }
-    $sql = "SELECT lot_price,lot_amount FROM lot WHERE lot_id= :lot_id";
-    $connDB->imp_sql($sql);
-    $execute=array(':lot_id' => $lot_id);
-    $chk_lot=$connDB->select_a($execute);
-
-    $lot_price = ($chk_lot['lot_price']-($amount['item_price']*$amount['item_amount'])+$lot_price);
-    $lot_amount = $chk_lot['lot_amount'];
-
-    $data3 = array($lot_price,$lot_amount);
-    $field3 = array("lot_price","lot_amount");
-    $table3 = "lot";
-    $where3="lot_id=:lot_id";
-    $execute3=array(':lot_id' => $lot_id);
-    $edit_lot=$connDB->update($table3, $data3, $where3, $field3, $execute3); 
-
-    $res = array("messege"=>'เพิ่มรายการสำเร็จ!!!!');
     print json_encode($res);
     $connDB->close_PDO();
 }

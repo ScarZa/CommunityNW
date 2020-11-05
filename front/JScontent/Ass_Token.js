@@ -142,7 +142,7 @@ function AssToken(content, id = null) {
         if (tokenKeyHead.alg == 'HS256') {
             var stringifiedHeader = CryptoJS.enc.Utf8.parse(JSON.stringify(tokenKeyHead));
             var encodedHeader = base64url(stringifiedHeader);
-            
+            //////// Encode Process
             var data = tokenKey;
             var stringifiedData = CryptoJS.enc.Utf8.parse(JSON.stringify(data));
             var encodedData = base64url(stringifiedData);

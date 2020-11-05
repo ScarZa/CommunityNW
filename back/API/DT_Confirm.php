@@ -37,6 +37,7 @@ for($i=0;$i<count($num_risk);$i++){
     $series['hos_name'] = $num_risk[$i]['hos_name'];
     $series['fullname'] = $num_risk[$i]['fullname'];
     $series['regdate'] = DateThai2($num_risk[$i]['regdate']);
+    
 array_push($rslt, $series);    
 }
     print json_encode($rslt);

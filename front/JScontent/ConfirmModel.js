@@ -13,25 +13,50 @@ function ConfirmModel() {
     $("h4#ConfirmModelLabel").empty().append("ยืนยัน")
     var Ar = new AssConfirm("span#regis_detail");
     Ar.GetConfForm();
-console.log(recipient)
-    selectJSON("#pname", "pname.json", "provis_code", "name", " เลือกคำนำหน้า ");
-    selectJSON("#role", "role.json", "role_id", "role_name", " เลือกหน้าที่ ");
-    selectJSON("#agency", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาล ");
-    // selectJSON("#chwpart", "province.json", "PROVINCE_ID", "PROVINCE_NAME", " เลือกจังหวัด ");
-    // $("#chwpart").change(function () {
-    //   selectJSONwVal("#amppart", "amphur.json", "AMPHUR_ID", "AMPHUR_NAME", " เลือกอำเภอ ","PROVINCE_ID", $("#chwpart").val());
-    // });
-    // $("#amppart").change(function () {
-    //   selectJSONwVal("#tmbpart", "district.json", "DISTRICT_ID", "DISTRICT_NAME", " เลือกตำบล ","AMPHUR_ID", $("#amppart").val());
-    // });        
+
+    $.getJSON('../back/API/detail_registor.php', { data1: recipient }, function (data) {
+      $("#inf_id").empty().html(data[0].hos_name);
+      $("#agency_tell").empty().html(data[0].agency_tell);
+      $("#role").empty().html(data[0].role_name); 
+      var pname = getJsonFile('JsonData/pname', data[0].pname, "provis_code", "name");
+      $.when(pname).done(function (dataPname) {
+        return $("#fullname").empty().html(dataPname + data[0].fullname);
+      });
+      $("#cid").empty().html(data[0].cid);
+      $("#tell").empty().html(data[0].tell);
+      $("#email").empty().html(data[0].email);
+      $("#line").empty().html(data[0].line);
+      $("#regdate").empty().html(data[0].regdate);
+
+            var header = {
+                    "alg": "HS256",
+                    "typ": "JWT"
+                  };
+                  
+                  var stringifiedHeaderen = CryptoJS.enc.Utf8.parse(JSON.stringify(header));
+                  var encodedHeader = base64url(stringifiedHeaderen);
+            var body_data = {"cid": data[0].cid,
+                        "name": data[0].fullname,
+                        "reg": data[0].timestamp
+                        };
+            var secret = "rploei.go.th";
+            
+                  
+                  var stringifiedDataen = CryptoJS.enc.Utf8.parse(JSON.stringify(body_data));
+                  var encodedData = base64url(stringifiedDataen);
+                  
+                  var token = encodedHeader + "." + encodedData;
+                  
+             var signature = CryptoJS.HmacSHA256(token, secret);
+            signature = base64url(signature);
+            
+            var token_key = token + "." + signature;
+    $("span#regis_detail").append($("<input type='hidden' name='token_key' value='"+token_key+"'>")
+                                ,$("<input type='hidden' name='reg_id' value='"+data[0].reg_id+"'>"));       
+    })
     $("span#regis_detail").append($("<input type='hidden' name='method' value='add_Confirm'>"));
     $("#frmConfirm").on('submit', (function (e) {
       e.preventDefault();
-      if ($("#password").val() != $("#conpassword").val()) {
-        alert("การยืนยัน password ไม่ตรงกันครับ")
-        $("#password").val(""); $("#conpassword").val("");
-        $("#password").focus();
-      } else {
 
         var dataForm = new FormData(this);
         // console.log(dataForm)
@@ -52,8 +77,8 @@ console.log(recipient)
         $.ajax(settings).done(function (result) {
           alert(result.messege);
           modal.modal('hide');
+          TB_ConfirmUser('#index_content');
         })
-      }
     }));
   });
 
