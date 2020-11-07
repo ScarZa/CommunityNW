@@ -7,6 +7,9 @@ $("div#foot-nav").empty().append($("<span style='color: white'>Copyright &copy; 
         ,$("<div class='pull-right hidden-xs'><span id='version' style='color: white'></span></div>"));
 $("#version").append("<b>Version</b> 1.0");    
                     
-$("li#log").append("<a href='#' data-toggle='modal' data-target='#RegisModal' class='btn btn-sm btn-warning' title='ลงทะเบียนเพื่อใช้บริการ' id='register'>ลงทะเบียน</a>")
+$("li#log").append($("<a href='#' data-toggle='modal' data-target='#RegisModal' class='btn btn-sm btn-warning' title='ลงทะเบียนเพื่อใช้บริการ' id='register'>ลงทะเบียน</a>")
+        , $(" <a href='#' data-toggle='modal' data-target='#LoginModel' class='btn btn-sm btn-info' title='ลงทะเบียนเพื่อใช้บริการ' id='login'>เข้าสู่ระบบ</a>")
+);
 
 $("a#register").attr("onclick","RegisModal();");
+$("a#login").attr("onclick","LoginModel();");
