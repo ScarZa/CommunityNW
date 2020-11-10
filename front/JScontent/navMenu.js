@@ -8,8 +8,32 @@ $("div#foot-nav").empty().append($("<span style='color: white'>Copyright &copy; 
 $("#version").append("<b>Version</b> 1.0");    
                     
 $("li#log").append($("<a href='#' data-toggle='modal' data-target='#RegisModal' class='btn btn-sm btn-warning' title='ลงทะเบียนเพื่อใช้บริการ' id='register'>ลงทะเบียน</a>")
-        , $(" <a href='#' data-toggle='modal' data-target='#LoginModel' class='btn btn-sm btn-info' title='ลงทะเบียนเพื่อใช้บริการ' id='login'>เข้าสู่ระบบ</a>")
+        , $(" <a href='#' data-toggle='modal' data-target='#LoginModel' class='btn btn-sm btn-info' title='' id='login'>เข้าสู่ระบบ</a>")
 );
 
-$("a#register").attr("onclick","RegisModal();");
-$("a#login").attr("onclick","LoginModel();");
+// $("a#register").attr("onclick","RegisModal();");
+// $("a#login").attr("onclick", "LoginModel();");
+
+if ($.cookie('reg_id') != undefined) {
+        $("#register").hide();
+        $("#login").hide();
+        $("#logout").show();
+        $("li#log").append($("<a href='#' class='btn btn-sm btn-danger' title='' id='logout'>ออกจากระบบ</a>")
+        );
+        $("a#logout").attr("onclick","Logout();");
+} else {
+        $("#register").show();
+        $("#login").show();
+        $("#logout").hide();
+        $("a#register").attr("onclick","RegisModal();");
+        $("a#login").attr("onclick", "LoginModel();");
+}
+
+function Logout() {
+        $.removeCookie("reg_id");
+        $.removeCookie("token_key");
+        $.removeCookie("role");
+        $.removeCookie("inf_id");
+        alert('logout เรียบร้อยครับ');
+        window.location.reload();
+}

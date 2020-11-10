@@ -13,10 +13,10 @@ var AssLogin = function(content){
             $("#test1").empty().append($("<div class='row  form-group'>"
            
             +"<label class='col-12 col-sm-12 col-md-4 col-lg-4'> USERNAME :</label>  "
-            + "<div class='col-12 col-sm-12 col-md-8 col-lg-8'> <input type='text' class='form-control' name='username' id='username'> </div>"
-            +"<hr>"
+            + "<div class='col-12 col-sm-12 col-md-8 col-lg-8'> <input type='text' class='form-control' name='username' id='username' placeholder='username'></div>"
+            +"<div style='width:100%; '><HR></div>"
             +" <label class='col-sm-12 col-md-4 col-lg-4'> PASSWORD :</label> "
-            +"<div  class='col-sm-12 col-md-8 col-lg-8'> <input type='password' class='form-control' name='password' id='password'> </div>"
+            +"<div  class='col-sm-12 col-md-8 col-lg-8'> <input type='password' class='form-control' name='password' id='password' placeholder='password'></div>"
             )
             );
 

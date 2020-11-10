@@ -1,8 +1,9 @@
 function AssHeadPatient(content, id = null,url = '../back/API/') {
-    
-    $.getJSON("../back/API/Hos_detail.php", { data: 1034 }, function (data) {
+  
+  $.getJSON("../back/API/Hos_detail.php", { data: $.cookie('inf_id') }, function (data) {
+      if(data.hos_name != undefined){
         $(content).empty().append($("<div><h3>"+data.hos_name+"</h3></div>"))
-  $.getJSON(url+"panel_Dashboard.php", { data: data.province, data2: data.amphur }, function (data) {
+  $.getJSON(url+"panel_Dashboard.php", { data: data.province, data2: data.amphur }, function (data) { 
                 //$.cookie("hn", data[0].hn);
                 
     $(content).append($("<div class='card border-warning'><div id='' class='card-body head-color'>"
@@ -17,5 +18,6 @@ function AssHeadPatient(content, id = null,url = '../back/API/') {
       +"</div></div> "));
     
   });
+}
 });
 }

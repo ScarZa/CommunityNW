@@ -2,23 +2,24 @@ function AssSlideMenu(content, id = null) {
 
 
   $(content).empty().append($("<div class='sidebar-header'><img src='images/logo.png' width='95px' class='center'><p style='font-size:13px;text-align: center;'>โรงพยาบาลจิตเวชเลยราชนครินทร์</p></div>")
-                              ,$("<ul class='list-unstyled components' id='list-menu'></ul>"));
-  $("#list-menu").empty().append($("<li id='EMR-menu'></li>")
-    , $("<li id='jwt-token-menu'></li>")
-    , $("<li id='confirm-menu'></li>")
-                                        , $("<li id='ER-menu'></li>")
-                                        , $("<li id='CGI-menu'></li>")
-                                        , $("<li id='SMIv-menu'></li>")
-                                        , $("<li id='alcohol-menu'></li>")
-                                        , $("<li id='child-menu'></li>")
-                                        , $("<li id='older-menu'></li>")
-                                        , $("<li id='law-menu'></li>")
-                                        , $("<li id='depress-menu'></li>")
-                                        , $("<li id='drug-menu'></li>")
-                                        , $("<li id='social-menu'></li>")
-                                        , $("<li id='culture-menu'></li>")
-                                        , $("<li id='consult-menu'></li>"));                    
-                                
+    , $("<ul class='list-unstyled components' id='list-menu'></ul>"));
+  if ($.cookie('reg_id') != undefined) {
+    $("#list-menu").empty().append($("<li id='EMR-menu'></li>")
+      , $("<li id='jwt-token-menu'></li>")
+      , $("<li id='confirm-menu'></li>")
+      , $("<li id='ER-menu'></li>")
+      , $("<li id='CGI-menu'></li>")
+      , $("<li id='SMIv-menu'></li>")
+      , $("<li id='alcohol-menu'></li>")
+      , $("<li id='child-menu'></li>")
+      , $("<li id='older-menu'></li>")
+      , $("<li id='law-menu'></li>")
+      , $("<li id='depress-menu'></li>")
+      , $("<li id='drug-menu'></li>")
+      , $("<li id='social-menu'></li>")
+      , $("<li id='culture-menu'></li>")
+      , $("<li id='consult-menu'></li>"));
+  }
                             $("li#jwt-token-menu").empty().append($("<a id='token' href='#'><img src='images/EMR.png' width='25'> JWT Token</a>"));                          
                             $("li#confirm-menu").empty().append($("<a id='confirm' href='#'><img src='images/EMR.png' width='25'> Confirm user</a>"));
                             $("li#EMR-menu").empty().append($("<a id='EMR' href='#'><img src='images/EMR.png' width='25'> EMR</a>"));
