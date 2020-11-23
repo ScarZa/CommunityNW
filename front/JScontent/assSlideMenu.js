@@ -3,7 +3,7 @@ function AssSlideMenu(content, id = null) {
 
   $(content).empty().append($("<div class='sidebar-header'><img src='images/logo.png' width='95px' class='center'><p style='font-size:13px;text-align: center;'>โรงพยาบาลจิตเวชเลยราชนครินทร์</p></div>")
     , $("<ul class='list-unstyled components' id='list-menu'></ul>"));
-  if ($.cookie('reg_id') != undefined) {
+  if ($.cookie('reg_id') != undefined && $.cookie('reg_id') != 'undefined') {
     $("#list-menu").empty().append($("<li id='EMR-menu'></li>")
       , $("<li id='jwt-token-menu'></li>")
       , $("<li id='confirm-menu'></li>")

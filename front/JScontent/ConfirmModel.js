@@ -73,7 +73,7 @@ function ConfirmModel() {
           cache: false,
           processData: false
         }
-        console.log(settings)
+        //console.log(settings)
         $.ajax(settings).done(function (result) {
           alert(result.messege);
           modal.modal('hide');

@@ -6,7 +6,7 @@ var TabLayout = function(content,numTab=1,name=null){
     }else{
         this.name = 'T';
     }
-    console.log(this.name);
+    //console.log(this.name);
     this.GetTL= function (){
             var layout = "<nav>"
             +"<div class='nav nav-tabs' id='"+this.name+"nav-tab' role='tablist'>"

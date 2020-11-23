@@ -56,7 +56,7 @@ var createTableAjax = function () {
                     cache: false,
                     processData: false
                   }
-                $.when($.ajax(settings)).then( function (dataTB, textStatus, xhr) {
+                $.when($.ajax(settings)).then( function (dataTB, textStatus, xhr) { //console.log(dataTB)
                     if(xhr.readyState==3){
                         $('#' + content + '').html("กำลังโหลดจ้า.... ^_^ ");
                     } 

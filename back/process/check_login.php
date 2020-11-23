@@ -17,7 +17,7 @@ $user_pwd = md5(trim(filter_input(INPUT_POST, 'password',FILTER_SANITIZE_STRING)
 $sql = "SELECT um.reg_id,um.token_key,reg.role,reg.inf_id 
 FROM user_member um
 INNER JOIN registration reg on reg.reg_id = um.reg_id
-where   um.username= :user_account and um.password= :user_pwd";
+where um.username= :user_account and um.password= :user_pwd and reg.reg_status=1";
 $execute=array(':user_account' => $user_account, ':user_pwd' => $user_pwd);
 $dbh->imp_sql($sql);
 $result=$dbh->select_a($execute);
@@ -44,7 +44,8 @@ if($result){
     $where="username=:username and password=:password";
     $execute=array(':username' => $user_account,':password'=>$user_pwd);
     $last_login=$dbh->update($table, $data, $where, $field, $execute);
-    $res = array("messege"=>'ยินดีต้อนรับสู่ระบบ',"reg_id"=>$result['reg_id'],"token_key"=>$result['token_key'],"role"=>$result['role'],"inf_id"=>$result['inf_id']);
+    $reg_id = isset($result['reg_id'])?$result['reg_id']:'';
+    $res = array("messege"=>'ยินดีต้อนรับสู่ระบบ',"reg_id"=>$reg_id,"token_key"=>$result['token_key'],"role"=>$result['role'],"inf_id"=>$result['inf_id']);
 }else{
     $res = array("messege"=>'ชื่อหรือรหัสผ่านผิด กรุณาตรวจสอบอีกครั้ง!!!! ');
 }

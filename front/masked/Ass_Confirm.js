@@ -46,24 +46,25 @@ var AssConfirm = function(content){
         
 
         +"<label class='col-12 col-sm-3 col-md-4 col-lg-2 col-xl-2'  > ชื่อ - สกุล : </label>  "
-        +"<div class='col-12 col-sm-9 col-md-8 col-lg-3 col-xl-2'style='color : black;'>   <span id='fullname'> </span></div>"
+        +"<div class='col-12 col-sm-9 col-md-8 col-lg-3 col-xl-4'  style='color : black;'>   <span id='fullname'> </span></div>"
         
         
         +"<label class='col-12 col-sm-3 col-md-4 col-lg-2 col-xl-2'  > เลขบัตรประชาชน :</label>  "
-        +"<div class='col-12 col-sm-9 col-md-8 col-lg-2 col-xl-2' style='color : black;'>    <span id='cid'> </span></div>"
+        +"<div class='col-12 col-sm-9 col-md-8 col-lg-2 col-xl-4' style='color : black;'>    <span id='cid'> </span></div>"
      
-        +"<label class='col-12 col-sm-3 col-md-4 col-lg-1 col-xl-2'  >โทรศัพท์ : </label>  "
-        +"<div class='col-12 col-sm-9 col-md-8 col-lg-2 col-xl-2' style='color : black;'>   <span id='tell'> </span> </div>"
         +"</div>"
-        
+
         +"<div style='width:100%; '><HR></div>" //เส้นใต้
         )
-        ,$("<div class='row form-group '>"
+        ,$("<div class='row form-group '>" 
+
+        +"<label class='col-12 col-sm-3 col-md-4 col-lg-1 col-xl-1'  >โทรศัพท์ : </label>  "
+        +"<div class='col-12 col-sm-9 col-md-8 col-lg-2 col-xl-2' style='color : black;'>   <span id='tell'> </span> </div>"
+
+         +"<label class='col-12 col-sm-3 col-md-4 col-lg-1 '  >         E-mail : </label>  "
+         +"<div class='col-12 col-sm-9 col-md-8 col-lg-3' style='color : black;'>   <span id='email'> </span></div>  "
         
-         +"<label class='col-12 col-sm-3 col-md-4 col-lg-2 '  >         E-mail : </label>  "
-         +"<div class='col-12 col-sm-9 col-md-8 col-lg-3'style='color : black;'>   <span id='email'> </span></div>  "
-        
-         +"<label class='col-12 col-sm-3 col-md-4 col-lg-2' >      Line ID :</label>  "
+         +"<label class='col-12 col-sm-3 col-md-4 col-lg-1' >      Line ID :</label>  "
          +"<div class='col-12 col-sm-9 col-md-8 col-lg-3'style='color : black;'>   <span id='line'> </span></div>"
 
         +"</div>"
@@ -78,8 +79,8 @@ var AssConfirm = function(content){
         
         ,$("<div class='row  form-group '>"
 
-        +"<div class='col-sm-3 col-lg-2'>  </div>   <input   ' type='radio' id='blankCheckbox' name='confiem' value='1' aria-label='...'>            <label class='col-12 col-sm-3 col-md-3 col-lg-2 justify-content-md-center' justify-content-md-center >      ยืนยัน</label>  "
-        +"<input   type='radio' id='blankCheckbox' name='confiem' value='0' aria-label='...' checked>     <label class='col-12 col-sm-3 col-md-3 col-lg-2' >  ไม่ยืนยัน </label>"
+        +"<div class='col-sm-3 col-lg-2'>  </div>   <input   ' type='radio' id='blankCheckbox' name='confirm' value='1' aria-label='...'>            <label class='col-12 col-sm-3 col-md-3 col-lg-2 justify-content-md-center' justify-content-md-center >      ยืนยัน</label>  "
+        +"<input   type='radio' id='blankCheckbox' name='confirm' value='0' aria-label='...' checked>     <label class='col-12 col-sm-3 col-md-3 col-lg-2' >  ไม่ยืนยัน </label>"
 
 
         +"</div>"

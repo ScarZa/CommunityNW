@@ -13,8 +13,8 @@ $("li#log").append($("<a href='#' data-toggle='modal' data-target='#RegisModal' 
 
 // $("a#register").attr("onclick","RegisModal();");
 // $("a#login").attr("onclick", "LoginModel();");
-
-if ($.cookie('reg_id') != undefined) {
+//console.log($.cookie('reg_id'))
+if ($.cookie('reg_id') != undefined && $.cookie('reg_id') != 'undefined') {
         $("#register").hide();
         $("#login").hide();
         $("#logout").show();
