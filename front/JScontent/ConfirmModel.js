@@ -28,30 +28,9 @@ function ConfirmModel() {
       $("#line").empty().html(data[0].line);
       $("#regdate").empty().html(data[0].regdate);
 
-            var header = {
-                    "alg": "HS256",
-                    "typ": "JWT"
-                  };
-                  
-                  var stringifiedHeaderen = CryptoJS.enc.Utf8.parse(JSON.stringify(header));
-                  var encodedHeader = base64url(stringifiedHeaderen);
-            var body_data = {"cid": data[0].cid,
-                        "name": data[0].fullname,
-                        "reg": data[0].timestamp
-                        };
-            var secret = "rploei.go.th";
-            
-                  
-                  var stringifiedDataen = CryptoJS.enc.Utf8.parse(JSON.stringify(body_data));
-                  var encodedData = base64url(stringifiedDataen);
-                  
-                  var token = encodedHeader + "." + encodedData;
-                  
-             var signature = CryptoJS.HmacSHA256(token, secret);
-            signature = base64url(signature);
-            
-            var token_key = token + "." + signature;
-    $("span#regis_detail").append($("<input type='hidden' name='token_key' value='"+token_key+"'>")
+      var token_key = TokenEncode(data[0].cid,data[0].fullname,data[0].timestamp);
+
+      $("span#regis_detail").append($("<input type='hidden' name='token_key' value='" + token_key + "'>")
                                 ,$("<input type='hidden' name='reg_id' value='"+data[0].reg_id+"'>"));       
     })
     $("span#regis_detail").append($("<input type='hidden' name='method' value='add_Confirm'>"));

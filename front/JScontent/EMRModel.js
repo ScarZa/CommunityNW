@@ -13,39 +13,48 @@ function EMRModal(content, id = null) {
     $("h4#EMRModalLabel").empty().append("patient EMR");
     $("#frmEMR").append($("<input type='hidden' name='method' value='EMR'>")
                       , $("<input type='hidden' name='an' value='" + recipient + "'>")
-                      , $("<input type='hidden' name='mem_id' value='" + $.cookie('reg_id') + "'>"));
+      , $("<input type='hidden' name='mem_id' value='" + $.cookie('reg_id') + "'>"));
+    ////// ในอนาคตต้องให้ยืนยัน cid
     
-    let myForm = document.getElementById('frmEMR');
-    var dataForm = new FormData(myForm);
-    var settings = {
-      type: "POST",
-      url: "../back/process/addLog.php",
-      async: true,
-      crossDomain: true,
-      data: dataForm,
-      contentType: false,
-      cache: false,
-      processData: false
-    }
-    //console.log(settings)
-    $.ajax(settings).done(function (result) {
-      alert(result.messege);
+    $.getJSON('../back/API/detail_registor.php', { data1: $.cookie('reg_id') }, function (data) { 
 
-      var Ar = new AssEMRNW("span#EMR_detail");
-      Ar.GetEMRNWForm();
+      var token_key = TokenEncode(data[0].cid,data[0].fullname,data[0].timestamp);
+      
+      if (token_key == $.cookie('token_key')) {
+        let myForm = document.getElementById('frmEMR');
+        var dataForm = new FormData(myForm);
+        var settings = {
+          type: "POST",
+          url: "../back/process/addLog.php",
+          async: true,
+          crossDomain: true,
+          data: dataForm,
+          contentType: false,
+          cache: false,
+          processData: false
+        }
+        //console.log(settings)
+        $.ajax(settings).done(function (result) {
+          alert(result.messege);
 
-      var PL = new TabLayout('#Rx-body', 2, 'T');
-      PL.GetTL();
-      $("#Tl0").empty().append("IPD Home Med");
-      $("#Tl1").empty().append("OPD Med");
-      $("#Tc0").empty().append($("<div id='IPDMed'></div>"));
-      $("#Tc1").empty().append($("<div id='OPDMed'></div>"));
+          var Ar = new AssEMRNW("span#EMR_detail");
+          Ar.GetEMRNWForm();
+
+          var PL = new TabLayout('#Rx-body', 2, 'T');
+          PL.GetTL();
+          $("#Tl0").empty().append("IPD Home Med");
+          $("#Tl1").empty().append("OPD Med");
+          $("#Tc0").empty().append($("<div id='IPDMed'></div>"));
+          $("#Tc1").empty().append($("<div id='OPDMed'></div>"));
 
       
-      $("#vdate").append($("<div class='row list-group' id='vdate_list'></div>"))
-      AddData("detail_EMRpatientAPI.php",'', recipient);
-      })
-    
+          $("#vdate").append($("<div class='row list-group' id='vdate_list'></div>"))
+          AddData("detail_EMRpatientAPI.php", '', recipient);
+        });
+      } else {
+        alert("Token key ไม่ถูกต้องครับ!!!");
+      }
+    });  
     
   });
 }

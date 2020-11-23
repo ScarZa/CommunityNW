@@ -30,7 +30,9 @@ $data2 = isset($_POST['data2'])?$_POST['data2']:(isset($_GET['data2'])?$_GET['da
     ,regdate 
     FROM registration reg
     INNER JOIN infirmary inf on inf.inf_id = reg.inf_id
-    WHERE reg.reg_id = :reg_id and reg.reg_status = 0 ORDER BY reg_id DESC";
+    WHERE reg.reg_id = :reg_id 
+    #and reg.reg_status = 0 
+    ORDER BY reg_id DESC";
     $conn_DB->imp_sql($sql);
     $execute=array(':reg_id'=>$data);
     $rslt=$conn_DB->select_a($execute);
