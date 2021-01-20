@@ -65,6 +65,7 @@ if($member===false){
     $confirm = $_POST['confirm'];
     $token_key = $_POST['token_key'];
     $confdate = date('Y-m-d H:i:s');
+    $mem_status = $_POST['mem_status'];
 
     $data = array($confirm,$confdate);
     $field = array("reg_status","confdate");
@@ -74,8 +75,8 @@ if($member===false){
     $conf = $connDB->update($table, $data, $where, $field, $execute);
 
     if($conf and $confirm==1){
-        $data2 = array($token_key);
-        $field = array("token_key");
+        $data2 = array($mem_status,$token_key);
+        $field = array("mem_status","token_key");
         $table2 = "user_member";
         $where="reg_id=:reg_id";
         $execute2=array(':reg_id' => $reg_id);

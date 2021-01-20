@@ -77,12 +77,11 @@ var AssConfirm = function(content){
 
         $("#block3").empty().append($("<div class='form-group'><label class='col-form-label'><u><b> พิจารณา   </b></u></label></div>")
         
-        ,$("<div class='row  form-group '>"
-
-        +"<div class='col-sm-3 col-lg-2'>  </div>   <input   ' type='radio' id='blankCheckbox' name='confirm' value='1' aria-label='...'>            <label class='col-12 col-sm-3 col-md-3 col-lg-2 justify-content-md-center' justify-content-md-center >      ยืนยัน</label>  "
-        +"<input   type='radio' id='blankCheckbox' name='confirm' value='0' aria-label='...' checked>     <label class='col-12 col-sm-3 col-md-3 col-lg-2' >  ไม่ยืนยัน </label>"
-
-
+        ,$("<div class='row form-group '>"
+            + "<label class='col-12 col-sm-3 col-md-4 col-lg-2'> เลือกสถานะ : </label><div class='col-12 col-sm-9 col-md-8 col-lg-3'><select name='mem_status' id='mem_status' class='form-control select2 form-control-sm' required></select></div>"
+            +"<div style='width:100%; '><HR></div>"
+        +"<div class='row col-lg-12'><div class='col-sm-3 col-lg-2'>  </div>   <input   ' type='radio' id='blankCheckbox' name='confirm' value='1' aria-label='...'>            <label class='col-12 col-sm-3 col-md-3 col-lg-2 justify-content-md-center' justify-content-md-center >      ยืนยัน</label>  "
+        +"<input type='radio' id='blankCheckbox' name='confirm' value='0' aria-label='...' checked>     <label class='col-12 col-sm-3 col-md-3 col-lg-2' >  ไม่ยืนยัน </label>"
         +"</div>"
         )
         

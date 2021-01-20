@@ -72,4 +72,20 @@ if($user_token){
     }
     print json_encode($res);
     $connDB->close_PDO();
+}elseif ($method == 'DCP') {
+    $mem_id = $_POST['mem_id'];
+    $an = $_POST['an'];
+    $regdate = date('Y-m-d H:i:s');
+
+    $data = array($mem_id,$an,2,$regdate);
+    //$field = array('id','hcode','vdate','vn','hn','sex','dob','pdx','dx0','dx1','dx2','dx3','cgis_score','clinic','user','dupdate');
+    $table = "request_log";
+    $request_log = $connDB->insert($table, $data);
+    if($request_log){
+      $res = array("messege"=>'บันทึก Log สำเร็จ!!!!');
+}else{
+      $res = array("messege"=>'บันทึก Log ไม่สำเร็จ!!!!');
+}
+    print json_encode($res);
+    $connDB->close_PDO();
 }

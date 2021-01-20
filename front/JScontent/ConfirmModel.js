@@ -28,6 +28,8 @@ function ConfirmModel() {
       $("#line").empty().html(data[0].line);
       $("#regdate").empty().html(data[0].regdate);
 
+      $("#mem_status").append($("<option value='USER'> ผู้ใช้งาน</option><option value='ADMIN'> ผู้ดูแลระบบ</option>"))
+
       var token_key = TokenEncode(data[0].cid,data[0].fullname,data[0].timestamp);
 
       $("span#regis_detail").append($("<input type='hidden' name='token_key' value='" + token_key + "'>")

@@ -5,7 +5,6 @@ function AssHeadPatient(content, id = null,url = '../back/API/') {
         $(content).empty().append($("<div><h3>"+data.hos_name+"</h3></div>"))
   $.getJSON(url+"panel_Dashboard.php", { data: data.province, data2: data.amphur }, function (data2) { 
                 //$.cookie("hn", data[0].hn);
-                
     $(content).append($("<div class='card border-warning'><div id='' class='card-body head-color'>"
       +"<div class='row'>"
       //+"<div class='row col-lg-12 col-md-12 col-sm-12'>"

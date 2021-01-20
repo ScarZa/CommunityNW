@@ -14,7 +14,7 @@ $dbh->conn_PDO();
 //$conv=new convers_encode();
 $user_account = md5(trim(filter_input(INPUT_POST, 'username',FILTER_SANITIZE_STRING)));
 $user_pwd = md5(trim(filter_input(INPUT_POST, 'password',FILTER_SANITIZE_STRING)));
-$sql = "SELECT um.reg_id,um.token_key,reg.role,reg.inf_id 
+$sql = "SELECT um.reg_id,um.token_key,reg.role,reg.inf_id,um.mem_status
 FROM user_member um
 INNER JOIN registration reg on reg.reg_id = um.reg_id
 where um.username= :user_account and um.password= :user_pwd and reg.reg_status=1";
@@ -45,7 +45,7 @@ if($result){
     $execute=array(':username' => $user_account,':password'=>$user_pwd);
     $last_login=$dbh->update($table, $data, $where, $field, $execute);
     $reg_id = isset($result['reg_id'])?$result['reg_id']:'';
-    $res = array("messege"=>'ยินดีต้อนรับสู่ระบบ',"reg_id"=>$reg_id,"token_key"=>$result['token_key'],"role"=>$result['role'],"inf_id"=>$result['inf_id']);
+    $res = array("messege"=>'ยินดีต้อนรับสู่ระบบ',"reg_id"=>$reg_id,"token_key"=>$result['token_key'],"role"=>$result['role'],"inf_id"=>$result['inf_id'],"mem_status"=>$result['mem_status']);
 }else{
     $res = array("messege"=>'ชื่อหรือรหัสผ่านผิด กรุณาตรวจสอบอีกครั้ง!!!! ');
 }

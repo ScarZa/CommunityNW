@@ -1,27 +1,27 @@
-function EMRModal(content, id = null) {
-  $("#createModal").empty().append("<div class='modal' id='EMRModal' role='dialog' aria-labelledby='exampleModalLabel'>"
+function DCPModal(content, id = null) {
+  $("#createModal").empty().append("<div class='modal' id='DCPModal' role='dialog' aria-labelledby='exampleModalLabel'>"
     + "<div class='modal-dialog modal-xl' role='document'><div class='modal-content'><div class='modal-header'>"
-    + "<h4 class='modal-title' id='EMRModalLabel'></h4>"
+    + "<h4 class='modal-title' id='DCPModalLabel'></h4>"
     + "<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>"
-    + "</div><form action='' name='frmEMR' id='frmEMR' method='post' enctype='multipart/form-data'><div class='modal-body' id='modelregis'><span id='EMR_detail'></span></div>"
+    + "</div><form action='' name='frmEMR' id='frmEMR' method='post' enctype='multipart/form-data'><div class='modal-body' id='modelregis'><span id='DCP_detail'></span></div>"
     + "<div class='modal-footer'><button type='button' class='btn btn-danger' data-dismiss='modal'>ปิด</button></div></form></div></div></div>");
-  $('#EMRModal').on('show.bs.modal', function (event) {
+  $('#DCPModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
     var recipient = button.data('whatever')
     var modal = $(this)
     modal.find('.modal-title').text()
-    $("h4#EMRModalLabel").empty().append("patient EMR");
-    $("#frmEMR").append($("<input type='hidden' name='method' value='EMR'>")
+    $("h4#DCPModalLabel").empty().append("Discharge plan");
+    $("#frmEMR").append($("<input type='hidden' name='method' value='DCP'>")
                       , $("<input type='hidden' name='an' value='" + recipient + "'>")
       , $("<input type='hidden' name='mem_id' value='" + $.cookie('reg_id') + "'>"));
     ////// ในอนาคตต้องให้ยืนยัน cid
     
     $.getJSON('../back/API/detail_registor.php', { data1: $.cookie('reg_id') }, function (data) { 
-      var cid = prompt("กรุณายืนยันเลขบัตรประชาชนด้วยครับ");
-      var token_keyConf = TokenEncode(cid,data[0].fullname,data[0].timestamp);
+      // var cid = prompt("กรุณายืนยันเลขบัตรประชาชนด้วยครับ");
+      // var token_keyConf = TokenEncode($.cookie('cid'),data[0].fullname,data[0].timestamp);
       var token_key = TokenEncode(data[0].cid,data[0].fullname,data[0].timestamp);
       
-      if (token_key == token_keyConf) {
+      if (token_key == $.cookie('token_key')) {
         let myForm = document.getElementById('frmEMR');
         var dataForm = new FormData(myForm);
         var settings = {
@@ -38,8 +38,8 @@ function EMRModal(content, id = null) {
         $.ajax(settings).done(function (result) {
           alert(result.messege);
 
-          var Ar = new AssEMRNW("span#EMR_detail");
-          Ar.GetEMRNWForm();
+          var Ar = new AssDCPNW("span#DCP_detail");
+          Ar.GetDCPNWForm();
 
           var PL = new TabLayout('#Rx-body', 2, 'T');
           PL.GetTL();
@@ -49,7 +49,7 @@ function EMRModal(content, id = null) {
           $("#Tc1").empty().append($("<div id='OPDMed'></div>"));
 
       
-          $("#vdate").append($("<div class='row list-group' id='vdate_list'></div>"))
+          //$("#vdate").append($("<div class='row list-group' id='vdate_list'></div>"))
           AddData("detail_EMRpatientAPI.php", '', recipient);
         });
       } else {

@@ -40,6 +40,7 @@ function LoginModel() {
           $.cookie('token_key', result.token_key);
           $.cookie('role', result.role);
           $.cookie('inf_id', result.inf_id);
+          $.cookie('mem_status', result.mem_status);
           modal.modal('hide');
           location.reload();
           //TB_ConfirmUser('#index_content');
