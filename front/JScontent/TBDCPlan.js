@@ -20,7 +20,7 @@ function TB_DCPlan(content, id = null) {
         $("#contentGr").empty().append($("<form action='' name='frmCC' id='frmCC' method='post' enctype='multipart/form-data'>"
             + "<div class='row'><div class='col-lg-12' id='cgi-post'>"
             + "<div class='card border-success'>"
-          + "<div class='card-header'><b>รายชื่อผู้ขอลงทะเบียน</b></div>"
+          + "<div class='card-header'><i  class='fa fa-search' aria-hidden='true'></i><b>  ค้นหาผู้ป่วย</b></div>"
           +"<p><div class='col-lg-10 offset-lg-2 col-md-10 offset-md-2 col-sm-12 col-xs-12' style='text-align: right;'><input type='text' id='search-patient' placeholder='ค้นหา ชื่อ/สกุล/HN/AN'></div>"
             + "<div id='P-data' class='card-body'></div></div><p>"
             + "</div>"
