@@ -3,11 +3,15 @@ var AssDCPNW = function(content){
     this.GetDCPNWForm = function () {
         $(this.content).empty().append(
           $("<div class='row' id='cgi-post'>"
-          + "<div id='EMR-data' class='col-lg-12 scroll'></div>"
+          + "<div id='EMR-data' class='col-lg-12 roll'></div>"
+          + "<div id='test1' class='col-lg-12 scroll'></div>"
+          + "<div id='test2' class='col-lg-12 scroll'></div>"
+
           +"</div>")
             );
         
             $("#EMR-data").append($("<div class='row'><div class='' id='ass-EMR'></div></div>"))
+
             $("#ass-EMR").append($("<div class='card text-white bg-info mb-3'><div class='card-header'><b>ข้อมูลทั่วไป</b></div><div id='' class='card-body'>"
                                     +"<div class='row'>"
                                     +"<div class='col-lg-2 col-md-12 col-sm-12'> <img id='pics-panel' width='150' /></div>"
@@ -45,29 +49,258 @@ var AssDCPNW = function(content){
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>Dx.2 : </b></div><div class='row col-lg-9 col-md-6 col-sm-6' id='dxname2'> </div></div>"
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>DX.3 : </b></div><div class='row col-lg-9 col-md-6 col-sm-6' id='dxname3'> </div></div>"
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>Dx.4 : </b></div><div class='row col-lg-9 col-md-6 col-sm-6' id='dxname4'> </div></div>"
-                                    +"</div></div><p></p>")
-                                ,$("<div class='card border-success'><div class='card-header'><b>Screening</b></div><div id='' class='card-body'>"
-                                +"<div class='col-lg-12 col-md-12 col-sm-12 alert alert-success'><div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-2 col-md-4 col-sm-4' style='text-align:right;'><b>น้ำหนัก : </b></div><div class='row col-lg-2 col-md-8 col-sm-8' id='bw'></div>"
-                                    +"<div class='col-lg-1 col-md-4 col-sm-4' style='text-align:right;'><b>สูง : </b></div><div class='row col-lg-2 col-md-8 col-sm-8' id='height'> </div>"
-                                    +"<div class='col-lg-1 col-md-4 col-sm-4' style='text-align:right;'><b>ฺBMI : </b></div><div class='row col-lg-2 col-md-8 col-sm-8' id='bmi'> </div></div>"
-                                    +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-2 col-md-4 col-sm-4' style='text-align:right;'><b>Temp. : </b></div><div class='row col-lg-2 col-md-8 col-sm-8' id='temp'> </div>"
-                                    +"<div class='col-lg-1 col-md-4 col-sm-4' style='text-align:right;'><b>PR : </b></div><div class='row col-lg-2 col-md-8 col-sm-8' id='pr'> </div>"
-                                    +"<div class='col-lg-1 col-md-4 col-sm-4' style='text-align:right;'><b>RR : </b></div><div class='row col-lg-2 col-md-8 col-sm-8' id='rr'> </div>"
-                                    +"<div class='col-lg-1 col-md-4 col-sm-4' style='text-align:right;'><b>BP : </b></div><div class='row col-lg-2 col-md-8 col-sm-8' id='bps'> </div></div>"
-                                    // +"<div class='col-lg-12 row'><div class='col-lg-2' style='text-align:right;'><b>CGI-S : </b></div><div class='row col-lg-2' id='cgi'></div>"
-                                    // +"<div class='col-lg-1' style='text-align:right;'><b>9Q : </b></div><div class='row col-lg-2' id='Q9'> </div>"
-                                    // +"<div class='col-lg-1' style='text-align:right;'><b>8Q : </b></div><div class='row col-lg-2' id='Q8'> </div></div>"
-                                    +"</div>"
-                                +"<div class='col-lg-12'>"
-                                    +"<p class='row alert alert-info' id='cc'><b>CC : </b></p>"
-                                    +"<p class='row alert alert-primary' role='alert' id='hpi'><b>HPI : </b></p>"
-                                    +"<p class='row alert alert-warning' id='pmh'><b>PMH : </b></p></div>"
-                                    +"</div></div><p></p>")
-                                ,$("<div class='card border-success'><div class='card-header'><b>Rx Order</b></div><div id='Rx-body' class='card-body'>"
-                                    +"</div></div><p></p>")
-                                // ,$("<div class='card border-success'><div class='card-header'><b>ผลการประเมิน</b></div><div id='graph-body' class='card-body'>"
-                                //     +"</div></div>")
-                                );
+                                    +"</div></div><p></p>"
+                                    )
+////////////////////////////////////////////////////////////
+
+                                ,$("<div class='card border-warning mb-3' style='text-align : center; ' ><div class='card-header'><h5>บันทึกการจำหน่ายผู้ป่วยสำหรับการติดตามในชุมชน</h5><b id='vstdate'></b> <b id='vsttime'></b> <b id='ovstistname'></b> <b id='nextdate' style='color: red'></b></div><div id='' class='card-body'>"
+                                +"<div class='row  form-group '>"
+                   
+                                +"<label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > สรุปการจำหน่ายผู้ป่วย </label>  "
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <select name='dc_type' id='dc_type' class='col-12 col-sm-12 col-md-8 col-lg-6 form-control select2 form-control-sm' required></select><br></div>"
+                                
+                               
+                          
+                                +"<div class='row col-12 col-sm-12 col-md-4 col-lg-3'><label class='col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left;'>ประเภทผู้ป่วย </label> </div>"
+                                +"<div class='custom-control custom-checkbox   col-12 col-sm-12 col-md-4 col-lg-9' id='patient_type'>"
+                                
+                              
+                                +"</div>"
+                                
+                                
+                                
+                                
+                               
+                 
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > สรุปการจำหน่ายผู้ป่วย </label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:canter;' > เกี่ยวข้องเป็น</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > ที่อยู่ที่ติดต่อได้ติดตามเยี่ยม</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <input  type='text' class='form-control col-12 col-sm-12 col-md-8 col-lg-12' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:canter;' > เกี่ยวข้องเป็น</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:canter;' > เกี่ยวข้องเป็น</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:canter;' > เกี่ยวข้องเป็น</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+
+                            
+                               
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 '  style='text-align : left;' > ประวัติการเจ็บป่วยสำหรับเครือข่าย </div>  "
+                                +"<div class=' col-12 col-sm-12 col-md-4 col-lg-9'  >"
+                                +"<input  type='text' class='form-control ' id='formGroupExampleInput' placeholder='Example input'></select><br>"
+                                +"<input  type='text' class='form-control ' id='formGroupExampleInput' placeholder='Example input'></select><br>"
+                                 +"</div>"
+                                
+                                 
+                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามทางโทรศัพท์</label>  "
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
+                                 +"<input type='radio' id='customRadio1' name='customRadio' class='custom-control-input'>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio1'>ไม่ยินยอม</label></div>"
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<input type='radio' id='customRadio2' name='customRadio' class='custom-control-input'>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio2'>ยินยอม</label></div>"
+  
+                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย โดยรพจ.เลยฯ </label>  "
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
+                                 +"<input type='radio' id='customRadio3' name='customRadio' class='custom-control-input'>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio3'>ไม่ยินยอม</label></div>"
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<input type='radio' id='customRadio4' name='customRadio' class='custom-control-input'>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio4'>ยินยอม</label></div>"
+ 
+                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย จากเครือข่ายโดย จนท.สธ.</label>  "
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
+                                 +"<input type='radio' id='customRadio5' name='customRadio' class='custom-control-input'>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio5'>ไม่ยินยอม</label></div>"
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<input type='radio' id='customRadio6' name='customRadio' class='custom-control-input'>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio6'>ยินยอม</label></div>"
+                                 
+                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > ประสงค์รับยาต่อที่รพ.ใกล้บ้าน</label>  "
+
+                                +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ไม่ยินยอม</label></div>"
+                                
+                                +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ยินยอม</label></div><br><br><br>"
+                                
+                               
+
+                                +"<label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' >  รพ.ที่ใกล้บ้าน</label> "
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <select name='agency' id='agency' class='col-12 col-sm-12 col-md-8 col-lg-12 form-control select2 form-control-sm' required></select><br></div>"
+
+                                +"<label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > รพ.สต.ที่ส่งต่อ</label>  "
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <select name='agency' id='agency' class='col-12 col-sm-12 col-md-8 col-lg-12 form-control select2 form-control-sm' required></select><br></div>"
+
+                            
+                                +"<div class='col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 ' style='text-align:left;' > ปัญหาที่พบโดยสหวิชาชีพระหว่างเข้ารับการรักษา</label> </div> "
+                                +"<div class='custom-control custom-radio mb-3 col-12 col-sm-12 col-md-4 col-lg-8'  >"
+
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>พฤติกรรมก้าวร้าวรบกวนผู้อื่นหรือวุ่นวาย</label></div>"
+                                
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ความคิดหรือพฤติกรรมฆ่าตัวตาย มีการทำร้ายตัวเอง (Suicide)</label></div>"
+
+                                
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ปัญหาดื่มสุราหรือใช้ยาเสพติด </label></div>"
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาด้านความทรงจำ การรับรู้สถานที่ เวลา บุคคล     </label></div>"
+                                
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>มีปัญหาเกี่ยวข้องกับกับการเจ็บป่วยหรือพิการทางกาย   </label></div>"
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาที่เกี่ยวข้องกับประสาทหลอนและหลงผิด     </label></div>"
+                                
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>อารมณ์ซึมเศร้า        </label></div>"
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาทางจิตและพฤติกรรมอื่นๆ       </label></div>"
+                                
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ปัญหาในการสร้างสัมพันธ์ภาพทางสังคม   </label></div>"
+
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาที่เกี่ยวข้องกับชีวิตประจำวัน</label></div></div>"
+
+
+                                +"<div class='col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 ' style='text-align:left;' > สรุปปัญหาผู้ป่วย / วางแผนจำหน่าย</label> </div> "
+                                +"<div class='custom-control custom-radio mb-3 col-12 col-sm-12 col-md-4 col-lg-8'  >"
+
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>พฤติกรรมก้าวร้าวรบกวนผู้อื่นหรือวุ่นวาย</label></div>"
+
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ความคิดหรือพฤติกรรมฆ่าตัวตาย มีการทำร้ายตัวเอง (Suicide)</label></div>"
+
+
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ปัญหาดื่มสุราหรือใช้ยาเสพติด </label></div>"
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาด้านความทรงจำ การรับรู้สถานที่ เวลา บุคคล     </label></div>"
+
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>มีปัญหาเกี่ยวข้องกับกับการเจ็บป่วยหรือพิการทางกาย   </label></div>"
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาที่เกี่ยวข้องกับประสาทหลอนและหลงผิด     </label></div>"
+
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>อารมณ์ซึมเศร้า        </label></div>"
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาทางจิตและพฤติกรรมอื่นๆ       </label></div>"
+
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ปัญหาในการสร้างสัมพันธ์ภาพทางสังคม   </label></div>"
+
+                                +"<div class='custom-control custom-radio'>"
+                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
+                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาที่เกี่ยวข้องกับชีวิตประจำวัน</label></div>"
+
+                                
+                                // +"<label for='exampleFormControlTextarea1'>Example textarea</label>"
+                                +"<textarea class='form-control col-12 col-sm-12 col-md-4 col-lg-12' id='exampleFormControlTextarea1'placeholder='บรรยายสรุปปัญหาที่ต้องการให้เครือข่ายดูแล' rows='3'></textarea></div>"
+                                
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                +"<div class='custom-control custom-checkbox'>"
+                                +"<input type='checkbox' class='custom-control-input' id='customCheck1' name='patient_type01'>"
+                                +"<label class='custom-control-label' for='customCheck1'>Check this custom checkbox</label>"
+                                +"</div>"
+                              
+                              +"<div class='custom-control custom-checkbox'>"
+                                +"<input type='checkbox' class='custom-control-input' id='patient_type02'>"
+                                +"<label class='custom-control-label' for='patient_type02'>Check this custom checkbox</label>"
+                              +"</div>"
+                              
+                              +"<div class='custom-control custom-checkbox'>"
+                              +"<input type='checkbox' class='custom-control-input' id='customCheck3' >"
+                              +"<label class='custom-control-label' for='customCheck3'>Check this custom checkbox</label>"
+                              +"</div>"             
+                              
+                              
+                              
+      )   
+                     
+
+
+
+
+                 
+                 
+                 
+                 
+                 
+                 
+
+
+
+
+
+                 
+                 
+                 )
+               
+                 
+                   
+       
+                  
+               
+                                 
+                                    
+                                    
+
+
+
+     
             
     }
 }
