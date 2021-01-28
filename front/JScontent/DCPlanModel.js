@@ -50,7 +50,7 @@ function DCPModal(content, id = null) {
 
       
           //$("#vdate").append($("<div class='row list-group' id='vdate_list'></div>"))
-          AddData("detail_EMRpatientAPI.php", '', recipient);
+          AddData("detail_DCplanAPI.php", '', recipient);
         });
       } else {
         alert("เลขบัตรประชาชนไม่ถูกต้องครับ!!!");
@@ -62,19 +62,7 @@ function DCPModal(content, id = null) {
                                 
 
 function AddData(json, id1, id2 ) {
-  $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) {
-
-    $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/vsdate_Data.php', { data: data[0].hn }, function (data) {
-      $("div#vdate_list").empty();
-      $.each(data, function (i, item) {
-        $("div#vdate_list").append($("<a href='#' id='li_vdate" + i + "' class='list-group-item list-group-item-action list-group-item-secondary'><b>" + data[i].vstdate + "</b> <b style='font-size:13px'>" + data[i].vsttime + " น.</b></a>")
-        )
-        if (item.an) { $("#li_vdate" + i).attr("style", "color: red"); }
-        $("#li_vdate" + i).click(function () {
-          AddData("detail_EMRpatientAPI.php", item.vn);
-        })
-      });
-    });
+  $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) { console.log(data)
 
         $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/check_image.php', { data1: data[0].hn }, function (datai) {
             if (datai.cc == '') { var img = 'images/person.png' } else { var img = 'http://10.0.0.11/API-Hosxp/API/CommuNW/show_image.php?hn=' + data[0].hn }
@@ -153,16 +141,32 @@ function AddData(json, id1, id2 ) {
               $("#allergic").append("<div class='col-lg-12' style='color :yellow'>"+value.drugallergy+"</div><br>");
             });
       });
-      $("#OPDMed").empty();
-      $("#IPDMed").empty();
-      var column1 = ["รายการ", "วิธีใช้","จำนวน","ราคา"];
-      var CTbOPD = new createTableAjax();
-      CTbOPD.GetNewTableAjax('OPDMed', 'http://10.0.0.11/API-Hosxp/API/CommuNW/DT_DrugOPD.php?'+data[0].vn, 'http"//10.0.0.11/API-Hosxp/API/tempSendDataAPI.php', column1
-          , null, null, null, null, false, false, null, false, null, false, null, null, null, null, null, null);
-  
-      var CTbIPD = new createTableAjax();
-      CTbIPD.GetNewTableAjax('IPDMed', 'http://10.0.0.11/API-Hosxp/API/CommuNW/DT_DrugIPD.php?'+data[0].vn, 'http"//10.0.0.11/API-Hosxp/API/tempSendDataAPI.php', column1
-          , null, null, null, null, false, false, null, false, null, false, null, null, null, null, null, null);
+     
+    selectJSON("#dc_type", "DC_type.json", "dct_id", "dct_name", " เลือกคำนำหน้า ");
+    selectJSON("#hos_nearby", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ใกล้บ้าน ");
+    selectJSON("#hos_forward", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ส่งต่อ ");
+
+    $.getJSON('../back/API/patient_type_Data.php', function (data) {
+      $("#patient_type").empty();
+      $.each(data, function (key, value) {
+        $("#patient_type").append($("<div class='col-lg-12 row'><div class='col-lg-12 row'><div class='col-lg-1'>&nbsp;</div><div class='col-lg-11'><input class='ace' type='checkbox' name='patient_type" + value.dcs_id + "' value='" + value.dcs_id + "' ><span class='lbl'> " + value.dcs_name + "</span></div></div></div>"))
+      });
+    });
+
+    $.getJSON('../back/API/problem_prof_Data.php', function (data) {
+      $("#problem_prof").empty();
+      $.each(data, function (key, value) {
+        $("#problem_prof").append($("<div class='col-lg-12 row'><div class='col-lg-12 row'><div class='col-lg-1'>&nbsp;</div><div class='col-lg-11'><input class='ace' type='checkbox' name='problem_prof" + value.ap_id + "' value='" + value.ap_id + "' ><span class='lbl'> " + value.ap_name + "</span></div></div></div>"))
+      });
+    });
+
+    $.getJSON('../back/API/follow10_Data.php', function (data) {
+      $("#dc_conclude").empty();
+      $.each(data, function (key, value) {
+        $("#dc_conclude").append($("<div class='col-lg-12 row'><div class='col-lg-12 row'><div class='col-lg-1'>&nbsp;</div><div class='col-lg-11'><input class='ace' type='checkbox' name='dc_conclude" + value.f10_id + "' value='" + value.f10_id + "' ><span class='lbl'> " + value.f10_name + "</span></div></div></div>"))
+      });
+    });
+
     });
     
 
