@@ -142,7 +142,7 @@ function AddData(json, id1, id2 ) {
             });
       });
      
-    selectJSON("#dc_type", "DC_type.json", "dct_id", "dct_name", " เลือกคำนำหน้า ");
+    selectJSON("#dc_type", "DC_type.json", "dct_id", "dct_name", " เลือกจำหน่ายผู้ป่วย ");
     selectJSON("#hos_nearby", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ใกล้บ้าน ");
     selectJSON("#hos_forward", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ส่งต่อ ");
 

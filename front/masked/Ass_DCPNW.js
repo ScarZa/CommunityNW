@@ -4,8 +4,8 @@ var AssDCPNW = function(content){
         $(this.content).empty().append(
           $("<div class='row' id='cgi-post'>"
           + "<div id='EMR-data' class='col-lg-12 roll'></div>"
-          + "<div id='test1' class='col-lg-12 scroll'></div>"
-          + "<div id='test2' class='col-lg-12 scroll'></div>"
+          // + "<div id='test1' class='col-lg-12 scroll'></div>"
+          // + "<div id='test2' class='col-lg-12 scroll'></div>"
 
           +"</div>")
             );
@@ -53,7 +53,7 @@ var AssDCPNW = function(content){
                                     )
 ////////////////////////////////////////////////////////////
 
-                                ,$("<div class='card border-warning mb-3' style='text-align : center; ' ><div class='card-header'><h5>บันทึกการจำหน่ายผู้ป่วยสำหรับการติดตามในชุมชน</h5><b id='vstdate'></b> <b id='vsttime'></b> <b id='ovstistname'></b> <b id='nextdate' style='color: red'></b></div><div id='' class='card-body'>"
+                                ,$("<div class='card border-warning mb-3'><div class='card-header' style='text-align : center; ' ><h5>บันทึกการจำหน่ายผู้ป่วยสำหรับการติดตามในชุมชน</h5><b id='vstdate'></b> <b id='vsttime'></b> <b id='ovstistname'></b> <b id='nextdate' style='color: red'></b></div><div id='' class='card-body'>"
                                 +"<div class='row  form-group '>"
                    
                                 +"<label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > สรุปการจำหน่ายผู้ป่วย </label>  "
@@ -154,120 +154,20 @@ var AssDCPNW = function(content){
 
                             
                                 +"<div class='col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 ' style='text-align:left;' > ปัญหาที่พบโดยสหวิชาชีพระหว่างเข้ารับการรักษา</label> </div> "
-                                +"<div class='custom-control custom-radio mb-3 col-12 col-sm-12 col-md-4 col-lg-8'  >"
-
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>พฤติกรรมก้าวร้าวรบกวนผู้อื่นหรือวุ่นวาย</label></div>"
-                                
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ความคิดหรือพฤติกรรมฆ่าตัวตาย มีการทำร้ายตัวเอง (Suicide)</label></div>"
+                                +"<div class='custom-control custom-radio mb-3 col-12 col-sm-12 col-md-4 col-lg-8'  ><div id='problem_prof'></div>"
 
                                 
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ปัญหาดื่มสุราหรือใช้ยาเสพติด </label></div>"
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาด้านความทรงจำ การรับรู้สถานที่ เวลา บุคคล     </label></div>"
-                                
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>มีปัญหาเกี่ยวข้องกับกับการเจ็บป่วยหรือพิการทางกาย   </label></div>"
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาที่เกี่ยวข้องกับประสาทหลอนและหลงผิด     </label></div>"
-                                
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>อารมณ์ซึมเศร้า        </label></div>"
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาทางจิตและพฤติกรรมอื่นๆ       </label></div>"
-                                
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ปัญหาในการสร้างสัมพันธ์ภาพทางสังคม   </label></div>"
-
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาที่เกี่ยวข้องกับชีวิตประจำวัน</label></div></div>"
+                                +"</div>"
 
 
                                 +"<div class='col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 ' style='text-align:left;' > สรุปปัญหาผู้ป่วย / วางแผนจำหน่าย</label> </div> "
-                                +"<div class='custom-control custom-radio mb-3 col-12 col-sm-12 col-md-4 col-lg-8'  >"
+                                +"<div class='custom-control custom-radio mb-3 col-12 col-sm-12 col-md-4 col-lg-8' ><div id='dc_conclude'></div>"
 
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>พฤติกรรมก้าวร้าวรบกวนผู้อื่นหรือวุ่นวาย</label></div>"
-
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ความคิดหรือพฤติกรรมฆ่าตัวตาย มีการทำร้ายตัวเอง (Suicide)</label></div>"
-
-
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ปัญหาดื่มสุราหรือใช้ยาเสพติด </label></div>"
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาด้านความทรงจำ การรับรู้สถานที่ เวลา บุคคล     </label></div>"
-
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>มีปัญหาเกี่ยวข้องกับกับการเจ็บป่วยหรือพิการทางกาย   </label></div>"
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาที่เกี่ยวข้องกับประสาทหลอนและหลงผิด     </label></div>"
-
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>อารมณ์ซึมเศร้า        </label></div>"
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาทางจิตและพฤติกรรมอื่นๆ       </label></div>"
-
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ปัญหาในการสร้างสัมพันธ์ภาพทางสังคม   </label></div>"
-
-                                +"<div class='custom-control custom-radio'>"
-                                +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio7'>ปัญหาที่เกี่ยวข้องกับชีวิตประจำวัน</label></div>"
-
+                              
                                 
                                 // +"<label for='exampleFormControlTextarea1'>Example textarea</label>"
                                 +"<textarea class='form-control col-12 col-sm-12 col-md-4 col-lg-12' id='exampleFormControlTextarea1'placeholder='บรรยายสรุปปัญหาที่ต้องการให้เครือข่ายดูแล' rows='3'></textarea></div>"
                                 
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                                +"<div class='custom-control custom-checkbox'>"
-                                +"<input type='checkbox' class='custom-control-input' id='customCheck1' name='patient_type01'>"
-                                +"<label class='custom-control-label' for='customCheck1'>Check this custom checkbox</label>"
-                                +"</div>"
-                              
-                              +"<div class='custom-control custom-checkbox'>"
-                                +"<input type='checkbox' class='custom-control-input' id='patient_type02'>"
-                                +"<label class='custom-control-label' for='patient_type02'>Check this custom checkbox</label>"
-                              +"</div>"
-                              
-                              +"<div class='custom-control custom-checkbox'>"
-                              +"<input type='checkbox' class='custom-control-input' id='customCheck3' >"
-                              +"<label class='custom-control-label' for='customCheck3'>Check this custom checkbox</label>"
-                              +"</div>"             
-                              
-                              
-                              
       )   
                      
 
