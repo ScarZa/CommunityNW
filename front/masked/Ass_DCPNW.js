@@ -58,42 +58,40 @@ var AssDCPNW = function(content){
                    
                                 +"<label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > สรุปการจำหน่ายผู้ป่วย </label>  "
                                 +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <select name='dc_type' id='dc_type' class='col-12 col-sm-12 col-md-8 col-lg-6 form-control select2 form-control-sm' required></select><br></div>"
-                                
-                               
-                          
+                                +"<HR style='width:100%; '>"
                                 +"<div class='row col-12 col-sm-12 col-md-4 col-lg-3'><label class='col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left;'>ประเภทผู้ป่วย </label> </div>"
                                 +"<div class='custom-control custom-checkbox   col-12 col-sm-12 col-md-4 col-lg-9' id='patient_type'>"
                                 
                               
                                 +"</div>"
-                                
+                                +"<HR style='width:100%; '>"
                                 
                                 
                                 
                                
                  
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > สรุปการจำหน่ายผู้ป่วย </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:canter;' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > ผู้ให้ข้อมูล</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='biographer' placeholder='ผู้ให้ข้อมูล'></select><br></div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative' placeholder='เกี่ยวข้องเป็น'></select><br></div>"
 
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > ที่อยู่ที่ติดต่อได้ติดตามเยี่ยม</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <input  type='text' class='form-control col-12 col-sm-12 col-md-8 col-lg-12' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <input  type='text' class='form-control col-12 col-sm-12 col-md-8 col-lg-12' id='patient_add' placeholder='ที่อยุ่ที่ติดต่อได้ติดตามเยี่ยม'></select><br></div>"
 
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:canter;' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='tel0' placeholder='เบอร์โทร'></select><br></div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative0' placeholder='เกียวข้องเป็น'></select><br></div>"
 
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:canter;' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='tel1' placeholder='เบอร์โทร1'></select><br></div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative1' placeholder='relative1'></select><br></div>"
 
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:canter;' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='formGroupExampleInput' placeholder='Example input'></select><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='tel2' placeholder='เบอร์โทร2'></select><br></div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative2' placeholder='เกี่ยวข้องเป็น2'></select><br></div>"
 
                             
                                
@@ -102,7 +100,7 @@ var AssDCPNW = function(content){
                                 +"<input  type='text' class='form-control ' id='formGroupExampleInput' placeholder='Example input'></select><br>"
                                 +"<input  type='text' class='form-control ' id='formGroupExampleInput' placeholder='Example input'></select><br>"
                                  +"</div>"
-                                
+                                 +"<HR style='width:100%; '>"
                                  
                                  +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามทางโทรศัพท์</label>  "
                                  
@@ -134,7 +132,7 @@ var AssDCPNW = function(content){
                                  +"<input type='radio' id='customRadio6' name='customRadio' class='custom-control-input'>"
                                  +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio6'>ยินยอม</label></div>"
                                  
-                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > ประสงค์รับยาต่อที่รพ.ใกล้บ้าน</label>  "
+                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 mb-3 ' style='text-align:left;' > ประสงค์รับยาต่อที่รพ.ใกล้บ้าน</label>  "
 
                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
                                 +"<input type='radio' id='customRadio7' name='customRadio' class='custom-control-input'>"
@@ -144,29 +142,30 @@ var AssDCPNW = function(content){
                                 +"<input type='radio' id='customRadio8' name='customRadio' class='custom-control-input'>"
                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='customRadio8'>ยินยอม</label></div><br><br><br>"
                                 
-                               
-
-                                +"<label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' >  รพ.ที่ใกล้บ้าน</label> "
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <select name='agency' id='agency' class='col-12 col-sm-12 col-md-8 col-lg-12 form-control select2 form-control-sm' required></select><br></div>"
-
-                                +"<label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > รพ.สต.ที่ส่งต่อ</label>  "
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <select name='agency' id='agency' class='col-12 col-sm-12 col-md-8 col-lg-12 form-control select2 form-control-sm' required></select><br></div>"
-
                             
-                                +"<div class='col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 ' style='text-align:left;' > ปัญหาที่พบโดยสหวิชาชีพระหว่างเข้ารับการรักษา</label> </div> "
+
+                                +"<label class='col-12 col-sm-12 col-md-4 col-lg-3  mb-3'   >  รพ.ที่ใกล้บ้าน</label> "
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 mb-3 '>   <select name='agency' id='agency' class='col-12 col-sm-12 col-md-8 col-lg-12 form-control select2 form-control-sm' required ></select><br></div>"
+
+                                +"<label class='col-12 col-sm-12 col-md-4 col-lg-3  mb-3'  > รพ.สต.ที่ส่งต่อ</label>  "
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 mb-3'>   <select name='agency' id='agency' class='col-12 col-sm-12 col-md-8 col-lg-12 form-control select2 form-control-sm' required></select><br></div>"
+                                +"<HR style='width:100%; '>"
+                            
+                                +"<div class='row col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 '  > ปัญหาที่พบโดยสหวิชาชีพระหว่างเข้ารับการรักษา</label> </div> "
                                 +"<div class='custom-control custom-radio mb-3 col-12 col-sm-12 col-md-4 col-lg-8'  ><div id='problem_prof'></div>"
 
                                 
                                 +"</div>"
+                                +"<HR style='width:100%; color: 'orange; '>"
 
-
-                                +"<div class='col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 ' style='text-align:left;' > สรุปปัญหาผู้ป่วย / วางแผนจำหน่าย</label> </div> "
-                                +"<div class='custom-control custom-radio mb-3 col-12 col-sm-12 col-md-4 col-lg-8' ><div id='dc_conclude'></div>"
+                                +"<div class='row col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 ' style='text-align:left;' > สรุปปัญหาผู้ป่วย / วางแผนจำหน่าย</label> </div> "
+                                +"<div class='custom-control custom-radio mb-3 col-12 col-sm-12 col-md-4 col-lg-8' ><div class='mb-3' id='dc_conclude'></div>"
 
                               
                                 
                                 // +"<label for='exampleFormControlTextarea1'>Example textarea</label>"
-                                +"<textarea class='form-control col-12 col-sm-12 col-md-4 col-lg-12' id='exampleFormControlTextarea1'placeholder='บรรยายสรุปปัญหาที่ต้องการให้เครือข่ายดูแล' rows='3'></textarea></div>"
+                                
+                                +"<textarea class='form-control col-12 col-sm-12 col-md-4 col-lg-12 ' id='exampleFormControlTextarea1'placeholder='บรรยายสรุปปัญหาที่ต้องการให้เครือข่ายดูแล' rows='3'></textarea></div>"
                                 
       )   
                      
