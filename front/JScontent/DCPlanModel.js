@@ -41,12 +41,12 @@ function DCPModal(content, id = null) {
           var Ar = new AssDCPNW("span#DCP_detail");
           Ar.GetDCPNWForm();
 
-          var PL = new TabLayout('#Rx-body', 2, 'T');
-          PL.GetTL();
-          $("#Tl0").empty().append("IPD Home Med");
-          $("#Tl1").empty().append("OPD Med");
-          $("#Tc0").empty().append($("<div id='IPDMed'></div>"));
-          $("#Tc1").empty().append($("<div id='OPDMed'></div>"));
+          // var PL = new TabLayout('#Rx-body', 2, 'T');
+          // PL.GetTL();
+          // $("#Tl0").empty().append("IPD Home Med");
+          // $("#Tl1").empty().append("OPD Med");
+          // $("#Tc0").empty().append($("<div id='IPDMed'></div>"));
+          // $("#Tc1").empty().append($("<div id='OPDMed'></div>"));
 
       
           //$("#vdate").append($("<div class='row list-group' id='vdate_list'></div>"))
@@ -86,8 +86,12 @@ function AddData(json, id1, id2 ) {
         $("#disease").empty().append(data[0].disease);
         //$("#allergic").empty().append(data[0].drugallergy);
         $("#vstdate").empty().append('วันที่รับบริการ : '+data[0].vstdate);
-        $("#vsttime").empty().append('เวลา : '+data[0].vsttime+' น.');
-        $("#ovstistname").empty().append('ประเภท : '+data[0].ovstistname);
+        $("#vsttime").empty().append('เวลา : ' + data[0].vsttime + ' น.');
+        $("#admit").empty().append('รับรักษาครั้งที่ : '+data[0].admit);
+        $("#ovstistname").empty().append('ประเภท : ' + data[0].ovstistname);
+        $("#dchdate").empty().append('วันที่จำหน่าย : '+data[0].dchdate);
+        $("#dchtime").empty().append('เวลาจำหน่าย : ' + data[0].dchtime + ' น.');
+        $("#lastvisit").empty().append('จำนวนวันที่ Admit : '+data[0].admdate+' วัน');
         $("#nextdate").empty().append('นัดครั้งต่อไป : '+data[0].nextdate);
         $("#ptname2").empty().append(data[0].ptname2);
         $("#Dhospital").empty().append(data[0].Dhospital);
@@ -131,9 +135,18 @@ function AddData(json, id1, id2 ) {
         $("#cgi").empty().append(data[0].cgi);
         $("#Q9").empty().append(data[0].Q9);
         $("#Q8").empty().append(data[0].Q8);
-        $("#cc").empty().append("CC : "+data[0].cc);
-        $("#hpi").empty().append("HPI : "+data[0].hpi);
-        $("#pmh").empty().append("PMH : "+data[0].pmh);
+        $("#cc").val(data[0].cc);
+        $("#hpi").val(data[0].hpi);
+        $("#pmh").empty().append("PMH : " + data[0].pmh);
+        $("#biographer").val(data[0].biographer);
+        $("#relative").val(data[0].relative);
+        $("#patient_add").val(data[0].informaddr);
+        $("#tel0").val(data[0].hometel);
+        //$("#relative0").val(data[0].relative0);
+        $("#tel1").val(data[0].informtel);
+        $("#relative1").val(data[0].relative1);
+        $("#tel2").val(data[0].tel2);
+        $("#relative2").val(data[0].relative2);
 
         $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/allergy_Data.php', { data: data[0].hn }, function (data) {
           $("#allergic").empty();
@@ -146,24 +159,37 @@ function AddData(json, id1, id2 ) {
     selectJSON("#hos_nearby", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ใกล้บ้าน ");
     selectJSON("#hos_forward", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ส่งต่อ ");
 
-    $.getJSON('../back/API/patient_type_Data.php', function (data) {
+    $.getJSON('../back/API/patient_type_Data.php', function (datapt) {
       $("#patient_type").empty();
-      $.each(data, function (key, value) {
-        $("#patient_type").append($("<div class='col-lg-12 row'><div class='col-lg-12 row'><div class='col-lg-1'>&nbsp;</div><div class='col-lg-11'><input class='ace' type='checkbox' name='patient_type" + value.dcs_id + "' value='" + value.dcs_id + "' ><span class='lbl'> " + value.dcs_name + "</span></div></div></div>"))
+      $.each(datapt, function (key, value) {
+        $("#patient_type").append($("<div class='col-lg-11'><input  class='custom-control-input' type='checkbox' id='pt"+value.dcs_id+"' name='patient_type" + value.dcs_id + "' value='" + value.dcs_id + "' >"
+          +" <label class='custom-control-label' for='pt"+value.dcs_id+"'>  " + value.dcs_name + "</label></div>"))
       });
-    });
+      
+      if (data[0].mpdx == 'F20' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type1]").attr("checked", "checked"); console.log('Full remission (F20) ± 3S')}
+      if (data[0].mpdx == 'F32') { $("input[type=checkbox][name=patient_type2]").attr("checked", "checked"); console.log('Full remission (F35) ± 3S') }
+      if (data[0].mpdx == 'F10' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type3]").attr("checked", "checked");  console.log('F10 + 3S')}
+      if ((data[0].mpdx + data[0].spdx) == 'F155' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type4]").attr("checked", "checked");  console.log('F15.5 + 3S')}
+      if (data[0].typep_3 == '3') { $("input[type=checkbox][name=patient_type5]").attr("checked", "checked");  console.log('Suicide')}
+      if (data[0].typep == '2') { $("input[type=checkbox][name=patient_type6]").attr("checked", "checked");  console.log('ยาเสพติด')}
+      if (data[0].smiv != '0') { $("input[type=checkbox][name=patient_type7]").attr("checked", "checked");  console.log('SMI-V')}
+      if (data[0].lawpsych_chk == 'Y') { $("input[type=checkbox][name=patient_type8]").attr("checked", "checked");  console.log('นิติจิตเวช')}
 
+    });
+    
     $.getJSON('../back/API/problem_prof_Data.php', function (data) {
       $("#problem_prof").empty();
       $.each(data, function (key, value) {
-        $("#problem_prof").append($("<div class='col-lg-12 row'><div class='col-lg-12 row'><div class='col-lg-1'>&nbsp;</div><div class='col-lg-11'><input class='ace' type='checkbox' name='problem_prof" + value.ap_id + "' value='" + value.ap_id + "' ><span class='lbl'> " + value.ap_name + "</span></div></div></div>"))
+        $("#problem_prof").append($("<div class='col-lg-11'><input class='custom-control-input' type='checkbox' id='ap"+value.ap_id+"' name='problem_prof" + value.ap_id + "' value='" + value.ap_id + "' >"
+          +" <label class='custom-control-label' for='ap"+value.ap_id+"'>  " + value.ap_name + "</label></div>"))
       });
     });
 
     $.getJSON('../back/API/follow10_Data.php', function (data) {
       $("#dc_conclude").empty();
       $.each(data, function (key, value) {
-        $("#dc_conclude").append($("<div class='col-lg-12 row'><div class='col-lg-12 row'><div class='col-lg-1'>&nbsp;</div><div class='col-lg-11'><input class='ace' type='checkbox' name='dc_conclude" + value.f10_id + "' value='" + value.f10_id + "' ><span class='lbl'> " + value.f10_name + "</span></div></div></div>"))
+        $("#dc_conclude").append($("<div class='col-lg-11'><input class='custom-control-input' type='checkbox' id='f10"+value.f10_id+"' name='dc_conclude" + value.f10_id + "' value='" + value.f10_id + "' >"
+          +" <label class='custom-control-label' for='f10"+value.f10_id+"'>  " + value.f10_name + "</label></div>"))
       });
     });
 
