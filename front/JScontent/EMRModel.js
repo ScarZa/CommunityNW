@@ -63,7 +63,7 @@ function EMRModal(content, id = null) {
                                 
 
 function AddDataEMR(json, id1, id2 ) { 
-  $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) { 
+  $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) { console.log(data)
 
     $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/vsdate_Data.php', { data: data[0].hn }, function (data) {
       $("div#vdate_list").empty();

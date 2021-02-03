@@ -70,7 +70,7 @@ function DCPModal(content, id = null) {
               processData: false
           }
           
-            $.ajax(settings).done(function (result) {
+            $.ajax(settings).done(function (result) { console.log(result)
               
               var form = new FormData();
               form.append("dcp_id", result.dcp_id);
@@ -90,6 +90,7 @@ function DCPModal(content, id = null) {
               processData: false,
               mimeType: "multipart/form-data",
               contentType: false,
+              crossDomain: true,
               data: form
           }
             
