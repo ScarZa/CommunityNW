@@ -71,20 +71,31 @@ function DCPModal(content, id = null) {
           }
           
             $.ajax(settings).done(function (result) {
-              console.log(result);
+              
+              var form = new FormData();
+              form.append("dcp_id", result.dcp_id);
+              form.append("hn", result.hn);
+              form.append("vn", result.vn);
+              form.append("an", result.an);
+              form.append("assent_tel", result.assent_tel);
+              form.append("assent_jvl", result.assent_jvl);
+              form.append("assent_cn", result.assent_cn);
+              form.append("assent_drug", result.assent_drug);
+              form.append("recorder", result.recorder);
+              
             var settings2 = {
-              type: "POST",
               url: "http://10.0.0.11/API-Hosxp/API/CommuNW/prcdcplan.php",
-              async: true,
-              crossDomain: true,
-              data: { "dcp_id" : result.dcp_id, "hn" : result.hn, "an" : result.an, "vn": result.vn, "assent_tel" : result.assent_tel, "assent_jvl" : result.assent_jvl, "assent_cn" : result.assent_cn, "assent_drug" : result.assent_drug,"recorder": result.recorder},
+              method: "POST",
+              timeout: 0,
+              processData: false,
+              mimeType: "multipart/form-data",
               contentType: false,
-              cache: false,
-              processData: false
+              data: form
           }
-            console.log(settings2);
-          $.ajax(settings2).done(function (result2) {
-            alert(result2.messege);
+            
+              $.ajax(settings2).done(function (result2) {
+                var res2 = JSON.parse(result2); console.log(res2);
+            alert(res2.messege);
             modal.modal('hide');
             TB_DCPlan('#index_content');
           })
