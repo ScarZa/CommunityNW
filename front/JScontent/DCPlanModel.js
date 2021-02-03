@@ -84,7 +84,7 @@ function DCPModal(content, id = null) {
               form.append("recorder", result.recorder);
               
             var settings2 = {
-              url: "http://10.0.0.11/API-Hosxp/API/CommuNW/prcdcplan.php",
+              url: "http://1.179.191.130/API-Hosxp/API/CommuNW/prcdcplan.php",
               method: "POST",
               timeout: 0,
               processData: false,
@@ -115,11 +115,11 @@ function DCPModal(content, id = null) {
                                 
 
 function AddData(json, id1, id2 ) {
-  $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) { 
+  $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) { 
     $("#frmEMR").append($("<input type='hidden' name='hn' value='"+data[0].hn+"'>")
                       , $("<input type='hidden' name='vn' value='" + data[0].vn + "'>"));
-        $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/check_image.php', { data1: data[0].hn }, function (datai) {
-            if (datai.cc == '') { var img = 'images/person.png' } else { var img = 'http://10.0.0.11/API-Hosxp/API/CommuNW/show_image.php?hn=' + data[0].hn }
+        $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/check_image.php', { data1: data[0].hn }, function (datai) {
+            if (datai.cc == '') { var img = 'images/person.png' } else { var img = 'http://1.179.191.130/API-Hosxp/API/CommuNW/show_image.php?hn=' + data[0].hn }
             $("#pics-panel").attr("src", img)
         });
         $("#fullname").empty().append(data[0].fullname);
@@ -202,7 +202,7 @@ function AddData(json, id1, id2 ) {
         $("#tel2").val(data[0].tel2);
         $("#relative2").val(data[0].relative2);
 
-        $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/allergy_Data.php', { data: data[0].hn }, function (data) {
+        $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/allergy_Data.php', { data: data[0].hn }, function (data) {
           $("#allergic").empty();
           $.each( data, function( key, value ) {
               $("#allergic").append("<div class='col-lg-12' style='color :yellow'>"+value.drugallergy+"</div><br>");

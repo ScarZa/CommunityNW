@@ -28,7 +28,7 @@ function TB_FollowUP(content, province,amphur) {
             
                 var column1 = ["AN","CID","ชื่อ - นามสกุล","ที่อยู่","วันที่ D/C","รายละเอียด"];
                 var CTb = new createTableAjax();
-                CTb.GetNewTableAjax('P-data', 'http://10.0.0.11/API-Hosxp/API/CommuNW/DT_followup.php?'+province+"?"+amphur+"?"+$.cookie('reg_id'), '../back/API/tempSendDataAPI.php', column1
+                CTb.GetNewTableAjax('P-data', 'http://1.179.191.130/API-Hosxp/API/CommuNW/DT_followup.php?'+province+"?"+amphur+"?"+$.cookie('reg_id'), '../back/API/tempSendDataAPI.php', column1
                 ,null,null,null,null,false,false,null,true,'EMRModal',false,null,null,null,null,null,'dbtb');
 
             }

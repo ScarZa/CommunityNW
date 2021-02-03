@@ -48,9 +48,10 @@ function EMRModal(content, id = null) {
           $("#Tc0").empty().append($("<div id='IPDMed'></div>"));
           $("#Tc1").empty().append($("<div id='OPDMed'></div>"));
 
-      
+          
           $("#vdate").append($("<div class='row list-group' id='vdate_list'></div>"))
-          AddData("detail_EMRpatientAPI.php", '', recipient);
+          
+          AddDataEMR("detail_EMRpatientAPI.php", '', recipient);
         });
       } else {
         alert("เลขบัตรประชาชนไม่ถูกต้องครับ!!!");
@@ -61,23 +62,23 @@ function EMRModal(content, id = null) {
 }
                                 
 
-function AddData(json, id1, id2 ) {
-  $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) {
+function AddDataEMR(json, id1, id2 ) { 
+  $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) { 
 
-    $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/vsdate_Data.php', { data: data[0].hn }, function (data) {
+    $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/vsdate_Data.php', { data: data[0].hn }, function (data) {
       $("div#vdate_list").empty();
       $.each(data, function (i, item) {
         $("div#vdate_list").append($("<a href='#' id='li_vdate" + i + "' class='list-group-item list-group-item-action list-group-item-secondary'><b>" + data[i].vstdate + "</b> <b style='font-size:13px'>" + data[i].vsttime + " น.</b></a>")
         )
         if (item.an) { $("#li_vdate" + i).attr("style", "color: red"); }
         $("#li_vdate" + i).click(function () {
-          AddData("detail_EMRpatientAPI.php", item.vn);
+          AddDataEMR("detail_EMRpatientAPI.php", item.vn);
         })
       });
     });
 
-        $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/check_image.php', { data1: data[0].hn }, function (datai) {
-            if (datai.cc == '') { var img = 'images/person.png' } else { var img = 'http://10.0.0.11/API-Hosxp/API/CommuNW/show_image.php?hn=' + data[0].hn }
+        $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/check_image.php', { data1: data[0].hn }, function (datai) {
+            if (datai.cc == '') { var img = 'images/person.png' } else { var img = 'http://1.179.191.130/API-Hosxp/API/CommuNW/show_image.php?hn=' + data[0].hn }
             $("#pics-panel").attr("src", img)
         });
         $("#fullname").empty().append(data[0].fullname);
@@ -147,7 +148,7 @@ function AddData(json, id1, id2 ) {
         $("#hpi").empty().append("HPI : "+data[0].hpi);
         $("#pmh").empty().append("PMH : "+data[0].pmh);
 
-        $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/allergy_Data.php', { data: data[0].hn }, function (data) {
+        $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/allergy_Data.php', { data: data[0].hn }, function (data) {
           $("#allergic").empty();
           $.each( data, function( key, value ) {
               $("#allergic").append("<div class='col-lg-12' style='color :yellow'>"+value.drugallergy+"</div><br>");
@@ -157,11 +158,11 @@ function AddData(json, id1, id2 ) {
       $("#IPDMed").empty();
       var column1 = ["รายการ", "วิธีใช้","จำนวน","ราคา"];
       var CTbOPD = new createTableAjax();
-      CTbOPD.GetNewTableAjax('OPDMed', 'http://10.0.0.11/API-Hosxp/API/CommuNW/DT_DrugOPD.php?'+data[0].vn, 'http"//10.0.0.11/API-Hosxp/API/tempSendDataAPI.php', column1
+      CTbOPD.GetNewTableAjax('OPDMed', 'http://1.179.191.130/API-Hosxp/API/CommuNW/DT_DrugOPD.php?'+data[0].vn, 'http"//10.0.0.11/API-Hosxp/API/tempSendDataAPI.php', column1
           , null, null, null, null, false, false, null, false, null, false, null, null, null, null, null, null);
   
       var CTbIPD = new createTableAjax();
-      CTbIPD.GetNewTableAjax('IPDMed', 'http://10.0.0.11/API-Hosxp/API/CommuNW/DT_DrugIPD.php?'+data[0].vn, 'http"//10.0.0.11/API-Hosxp/API/tempSendDataAPI.php', column1
+      CTbIPD.GetNewTableAjax('IPDMed', 'http://1.179.191.130/API-Hosxp/API/CommuNW/DT_DrugIPD.php?'+data[0].vn, 'http"//10.0.0.11/API-Hosxp/API/tempSendDataAPI.php', column1
           , null, null, null, null, false, false, null, false, null, false, null, null, null, null, null, null);
     });
     
