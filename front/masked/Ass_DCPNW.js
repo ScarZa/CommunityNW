@@ -71,27 +71,27 @@ var AssDCPNW = function(content){
                                
                  
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > ผู้ให้ข้อมูล</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='biographer' placeholder='ผู้ให้ข้อมูล'><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='biographer' name='biographer' placeholder='ผู้ให้ข้อมูล'><br></div>"
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative' placeholder='เกี่ยวข้องเป็น'><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative' name='relative' placeholder='เกี่ยวข้องเป็น'><br></div>"
 
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > ที่อยู่ที่ติดต่อได้ติดตามเยี่ยม</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <input  type='text' class='form-control col-12 col-sm-12 col-md-8 col-lg-12' id='patient_add' placeholder='ที่อยุ่ที่ติดต่อได้ติดตามเยี่ยม'><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <input  type='text' class='form-control col-12 col-sm-12 col-md-8 col-lg-12' id='patient_add' name='patient_add' placeholder='ที่อยุ่ที่ติดต่อได้ติดตามเยี่ยม'><br></div>"
 
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='tel0' placeholder='เบอร์โทร'><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='tel0' name='tel0' placeholder='เบอร์โทร'><br></div>"
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative0' placeholder='เกียวข้องเป็น'><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative0' name='relative0' placeholder='เกียวข้องเป็น'><br></div>"
 
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='tel1' placeholder='เบอร์โทร1'><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='tel1' name='tel1' placeholder='เบอร์โทร1'><br></div>"
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative1' placeholder='เกี่ยวข้องเป็น1'><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative1' name='relative1' placeholder='เกี่ยวข้องเป็น1'><br></div>"
 
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='tel2' placeholder='เบอร์โทร2'><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='tel2' name='tel2' placeholder='เบอร์โทร2'><br></div>"
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative2' placeholder='เกี่ยวข้องเป็น2'><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative2' name='relative2' placeholder='เกี่ยวข้องเป็น2'><br></div>"
 
                             
                                
@@ -165,7 +165,7 @@ var AssDCPNW = function(content){
                                 
                                 // +"<label for='exampleFormControlTextarea1'>Example textarea</label>"
                                 
-                                +"<textarea class='form-control col-12 col-sm-12 col-md-4 col-lg-12 ' id='dc_con_detial'placeholder='บรรยายสรุปปัญหาที่ต้องการให้เครือข่ายดูแล' rows='3'></textarea></div>"
+                                +"<textarea class='form-control col-12 col-sm-12 col-md-4 col-lg-12 ' id='dc_con_detial' name='dc_con_detial' placeholder='บรรยายสรุปปัญหาที่ต้องการให้เครือข่ายดูแล' rows='3'></textarea></div>"
                                 
       )   
                      

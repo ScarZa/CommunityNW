@@ -4,7 +4,7 @@ function DCPModal(content, id = null) {
     + "<h4 class='modal-title' id='DCPModalLabel'></h4>"
     + "<button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>"
     + "</div><form action='' name='frmEMR' id='frmEMR' method='post' enctype='multipart/form-data'><div class='modal-body' id='modelregis'><span id='DCP_detail'></span></div>"
-    + "<div class='modal-footer'><button type='button' class='btn btn-danger' data-dismiss='modal'>ปิด</button></div></form></div></div></div>");
+    + "<div class='modal-footer'><input type='submit' class='btn btn-success' value='บันทึก'> <button type='button' class='btn btn-danger' data-dismiss='modal'>ปิด</button></div></form></div></div></div>");
   $('#DCPModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
     var recipient = button.data('whatever')
@@ -51,7 +51,49 @@ function DCPModal(content, id = null) {
       
           //$("#vdate").append($("<div class='row list-group' id='vdate_list'></div>"))
           AddData("detail_DCplanAPI.php", '', recipient);
+
+          $("#frmEMR").on('submit', (function (e) {
+          e.preventDefault();
+          var dataForm = new FormData(this);
+          // console.log(dataForm)
+          // for (var value of dataForm.values()) {
+          //     console.log(value);
+          // }
+          var settings = {
+              type: "POST",
+              url: "../back/process/prcdcplan.php",
+              async: true,
+              crossDomain: true,
+              data: dataForm,
+              contentType: false,
+              cache: false,
+              processData: false
+          }
+          
+            $.ajax(settings).done(function (result) {
+              console.log(result);
+            var settings2 = {
+              type: "POST",
+              url: "http://10.0.0.11/API-Hosxp/API/CommuNW/prcdcplan.php",
+              async: true,
+              crossDomain: true,
+              data: { "dcp_id" : result.dcp_id, "hn" : result.hn, "an" : result.an, "vn": result.vn, "assent_tel" : result.assent_tel, "assent_jvl" : result.assent_jvl, "assent_cn" : result.assent_cn, "assent_drug" : result.assent_drug,"recorder": result.recorder},
+              contentType: false,
+              cache: false,
+              processData: false
+          }
+            console.log(settings2);
+          $.ajax(settings2).done(function (result2) {
+            alert(result2.messege);
+            modal.modal('hide');
+            TB_DCPlan('#index_content');
+          })
+          })
+      }));
         });
+
+        
+        
       } else {
         alert("เลขบัตรประชาชนไม่ถูกต้องครับ!!!");
       }
@@ -62,8 +104,9 @@ function DCPModal(content, id = null) {
                                 
 
 function AddData(json, id1, id2 ) {
-  $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) { console.log(data)
-
+  $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) { 
+    $("#frmEMR").append($("<input type='hidden' name='hn' value='"+data[0].hn+"'>")
+                      , $("<input type='hidden' name='vn' value='" + data[0].vn + "'>"));
         $.getJSON('http://10.0.0.11/API-Hosxp/API/CommuNW/check_image.php', { data1: data[0].hn }, function (datai) {
             if (datai.cc == '') { var img = 'images/person.png' } else { var img = 'http://10.0.0.11/API-Hosxp/API/CommuNW/show_image.php?hn=' + data[0].hn }
             $("#pics-panel").attr("src", img)
@@ -166,14 +209,14 @@ function AddData(json, id1, id2 ) {
           +" <label class='custom-control-label' for='pt"+value.dcs_id+"'>  " + value.dcs_name + "</label></div>"))
       });
       
-      if (data[0].mpdx == 'F20' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type1]").attr("checked", "checked"); console.log('Full remission (F20) ± 3S')}
-      if (data[0].mpdx == 'F32') { $("input[type=checkbox][name=patient_type2]").attr("checked", "checked"); console.log('Full remission (F35) ± 3S') }
-      if (data[0].mpdx == 'F10' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type3]").attr("checked", "checked");  console.log('F10 + 3S')}
-      if ((data[0].mpdx + data[0].spdx) == 'F155' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type4]").attr("checked", "checked");  console.log('F15.5 + 3S')}
-      if (data[0].typep_3 == '3') { $("input[type=checkbox][name=patient_type5]").attr("checked", "checked");  console.log('Suicide')}
-      if (data[0].typep == '2') { $("input[type=checkbox][name=patient_type6]").attr("checked", "checked");  console.log('ยาเสพติด')}
-      if (data[0].smiv != '0') { $("input[type=checkbox][name=patient_type7]").attr("checked", "checked");  console.log('SMI-V')}
-      if (data[0].lawpsych_chk == 'Y') { $("input[type=checkbox][name=patient_type8]").attr("checked", "checked");  console.log('นิติจิตเวช')}
+      if (data[0].mpdx == 'F20' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type1]").attr("checked", "checked");}
+      if (data[0].mpdx == 'F32') { $("input[type=checkbox][name=patient_type2]").attr("checked", "checked"); }
+      if (data[0].mpdx == 'F10' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type3]").attr("checked", "checked"); }
+      if ((data[0].mpdx + data[0].spdx) == 'F155' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type4]").attr("checked", "checked"); }
+      if (data[0].typep_3 == '3') { $("input[type=checkbox][name=patient_type5]").attr("checked", "checked"); }
+      if (data[0].typep == '2') { $("input[type=checkbox][name=patient_type6]").attr("checked", "checked"); }
+      if (data[0].smiv != '0') { $("input[type=checkbox][name=patient_type7]").attr("checked", "checked"); }
+      if (data[0].lawpsych_chk == 'Y') { $("input[type=checkbox][name=patient_type8]").attr("checked", "checked"); }
 
     });
     
