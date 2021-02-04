@@ -43,6 +43,7 @@ function Logout() {
         $.removeCookie("token_key");
         $.removeCookie("role");
         $.removeCookie("inf_id");
+        $.removeCookie("mem_status");
         alert('logout เรียบร้อยครับ');
         window.location.reload();
 }

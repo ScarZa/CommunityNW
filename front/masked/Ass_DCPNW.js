@@ -57,7 +57,7 @@ var AssDCPNW = function(content){
                                 +"<div class='row  form-group '>"
                    
                                 +"<label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > สรุปการจำหน่ายผู้ป่วย </label>  "
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <select name='dc_type' id='dc_type' class='col-12 col-sm-12 col-md-8 col-lg-6 form-control select2 form-control-sm' required></select><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9'>   <select name='dc_type' id='dc_type' class='col-12 col-sm-12 col-md-8 col-lg-6 form-control select2 form-control-sm' required></select></div>"
                                 +"<HR style='width:100%; '>"
                                 +"<div class='row col-12 col-sm-12 col-md-4 col-lg-3'><label class='col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left;'>ประเภทผู้ป่วย </label> </div>"
                                 +"<div class='custom-control custom-checkbox   col-12 col-sm-12 col-md-4 col-lg-9' id='patient_type'>"
