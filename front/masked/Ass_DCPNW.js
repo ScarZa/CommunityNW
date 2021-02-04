@@ -70,7 +70,7 @@ var AssDCPNW = function(content){
                                 
                                
                  
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > ผู้ให้ข้อมูล</label>  </div>"
+                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > ผู้ให้ข้อมูล (ผู้รับกลับ)</label>  </div>"
                                 +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='biographer' name='biographer' placeholder='ผู้ให้ข้อมูล'><br></div>"
                                 +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
                                 +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <input type='text' class='form-control' id='relative' name='relative' placeholder='เกี่ยวข้องเป็น'><br></div>"
@@ -102,52 +102,52 @@ var AssDCPNW = function(content){
                                  +"</div>"
                                  +"<HR style='width:100%; '>"
                                  
-                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามทางโทรศัพท์</label>  "
-                                 
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
-                                 +"<input type='radio' id='assent_tel0' name='assent_tel' class='custom-control-input' value='0' checked>"
-                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_tel0'>ไม่ยินยอม</label></div>"
-                                 
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
-                                 +"<input type='radio' id='assent_tel1' name='assent_tel' class='custom-control-input' value='1'>"
-                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_tel1'>ยินยอม</label></div>"
-  
-                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย โดยรพจ.เลยฯ </label>  "
-                                 
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
-                                 +"<input type='radio' id='assent_jvl0' name='assent_jvl' class='custom-control-input' value='0' checked>"
-                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_jvl0'>ไม่ยินยอม</label></div>"
-                                 
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
-                                 +"<input type='radio' id='assent_jvl1' name='assent_jvl' class='custom-control-input' value='1'>"
-                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_jvl1'>ยินยอม</label></div>"
- 
-                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย จากเครือข่ายโดย จนท.สธ.</label>  "
-                                 
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
-                                 +"<input type='radio' id='assent_cn0' name='assent_cn' class='custom-control-input' value='0' checked>"
-                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_cn0'>ไม่ยินยอม</label></div>"
-                                 
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
-                                 +"<input type='radio' id='assent_cn1' name='assent_cn' class='custom-control-input' value='1'>"
-                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_cn1'>ยินยอม</label></div>"
-                                 
                                  +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 mb-3 ' style='text-align:left;' > ประสงค์รับยาต่อที่รพ.ใกล้บ้าน</label>  "
 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<input type='radio' id='assent_drug1' name='assent_drug' class='custom-control-input' value='1' checked>"
+                                    + "<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_drug1'>ยินยอม</label></div>"
+                                    
                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
-                                +"<input type='radio' id='assent_drug0' name='assent_drug' class='custom-control-input' value='0' checked>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_drug0'>ไม่ยินยอม</label></div>"
+                                +"<input type='radio' id='assent_drug0' name='assent_drug' class='custom-control-input' value='0'>"
+                                    + "<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_drug0'>ไม่ยินยอม</label></div>"
+                                    + "<HR style='width:100%;'>"   
+                                    
+                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามทางโทรศัพท์</label>  "
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<input type='radio' id='assent_tel1' name='assent_tel' class='custom-control-input' value='1' checked>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_tel1'>ยินยอม</label></div>"
+  
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
+                                 +"<input type='radio' id='assent_tel0' name='assent_tel' class='custom-control-input' value='0'>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_tel0'>ไม่ยินยอม</label></div>"
+                                 
+                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย โดยรพจ.เลยฯ </label>  "
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<input type='radio' id='assent_jvl1' name='assent_jvl' class='custom-control-input' value='1' checked>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_jvl1'>ยินยอม</label></div>"
+ 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
+                                 +"<input type='radio' id='assent_jvl0' name='assent_jvl' class='custom-control-input' value='0'>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_jvl0'>ไม่ยินยอม</label></div>"
+                                 
+                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย จากเครือข่ายโดย จนท.สธ.</label>  "
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<input type='radio' id='assent_cn1' name='assent_cn' class='custom-control-input' value='1' checked>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_cn1'>ยินยอม</label></div>"
+                                 
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3' >"
+                                 +"<input type='radio' id='assent_cn0' name='assent_cn' class='custom-control-input' value='0'>"
+                                 +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_cn0'>ไม่ยินยอม</label></div>"
+                                 +"<HR style='width:100%; '>"
                                 
-                                +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
-                                +"<input type='radio' id='assent_drug1' name='assent_drug' class='custom-control-input' value='1'>"
-                                +"<label class='custom-control-label col-12 col-sm-12 col-md-4 col-lg-12' style='text-align : left ;' for='assent_drug1'>ยินยอม</label></div><br><br><br>"
-                                
-                            
-
                                 +"<label class='col-12 col-sm-12 col-md-4 col-lg-3  mb-3'   >  รพ.ที่ใกล้บ้าน</label> "
                                 +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 mb-3 '>   <select name='hos_nearby' id='hos_nearby' class='col-12 col-sm-12 col-md-8 col-lg-12 form-control select2 form-control-sm' required ></select><br></div>"
 
-                                +"<label class='col-12 col-sm-12 col-md-4 col-lg-3  mb-3'  > รพ.สต.ที่ส่งต่อ</label>  "
+                                +"<label class='col-12 col-sm-12 col-md-4 col-lg-3  mb-3'  > รพ.สต.ที่ส่งต่อ (เฉพาะข้อมูล)</label>  "
                                 +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 mb-3'>   <select name='hos_forward' id='hos_forward' class='col-12 col-sm-12 col-md-8 col-lg-12 form-control select2 form-control-sm' required></select><br></div>"
                                 +"<HR style='width:100%; '>"
                             
