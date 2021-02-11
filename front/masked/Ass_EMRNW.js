@@ -64,6 +64,8 @@ var AssEMRNW = function(content){
                                     +"<p class='row alert alert-warning' id='pmh'><b>PMH : </b></p></div>"
                                     +"</div></div><p></p>")
                                 ,$("<div class='card border-success'><div class='card-header'><b>Rx Order</b></div><div id='Rx-body' class='card-body'>"
+                                    + "</div></div><p></p>")
+                                ,$("<div class='card border-success'><div class='card-header'><b>Lab Order</b></div><div id='Lab-body' class='card-body'>"
                                     +"</div></div><p></p>")
                                 // ,$("<div class='card border-success'><div class='card-header'><b>ผลการประเมิน</b></div><div id='graph-body' class='card-body'>"
                                 //     +"</div></div>")

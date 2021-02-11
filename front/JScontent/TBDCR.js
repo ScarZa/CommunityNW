@@ -1,7 +1,7 @@
-function TB_FollowUP(content, province,amphur,inf) {
+function TB_DCR(content) {
     var RL = new ReportLayout(content);
     RL.GetRL();
-    var title = " ผู้ป่วยติดตามดูแลต่อเนื่องในพื้นที่ ";
+    var title = " ผู้ป่วยที่ทำ D/C plan ";
     $("nav#nav_bc").hide();
     // $("li#page").empty().text(title)
     // $("h2").empty().prepend("<img src='images/icon_set2/compose.ico' width='40'> ").append(title);
@@ -20,15 +20,15 @@ function TB_FollowUP(content, province,amphur,inf) {
         $("#contentGr").empty().append($("<form action='' name='frmCC' id='frmCC' method='post' enctype='multipart/form-data'>"
             + "<div class='row'><div class='col-lg-12' id='cgi-post'>"
             + "<div class='card border-success'>"
-            + "<div class='card-header'><b>รายชื่อผู้ป่วยที่ยินยอมให้เปิดเผยข้อมูลเพื่อการติดตาม</b></div>"
+            + "<div class='card-header'><b>รายชื่อผู้ป่วยที่ผู้ป่วยที่ทำ D/C plan</b></div>"
             + "<div id='P-data' class='card-body'></div></div><p>"
             + "</div>"
             //+ "<div class='col-lg-6'><div class='row col-lg-12' id='sub-contentTB'></div><div class='row col-lg-12' id='sub-contentGr'></div></div>"
             +"</div></form>"));
             
-                var column1 = ["AN","CID","ชื่อ - นามสกุล","ที่อยู่","วันที่ D/C","รายละเอียด"];
+                var column1 = ["AN","CID","ชื่อ - นามสกุล","ที่อยู่","วันที่ D/C","โทรศัพท์","รพจ.เลยฯ","เครือข่าย","รับยาใกล้บ้าน","รายละเอียด"];
                 var CTb = new createTableAjax();
-                CTb.GetNewTableAjax('P-data', 'http://1.179.191.130/API-Hosxp/API/CommuNW/DT_followup.php?'+province+"?"+amphur+"?"+$.cookie('reg_id'), '../back/API/tempSendDataAPI.php', column1
-                ,null,null,null,null,false,false,null,true,'EMRModal',false,null,null,null,null,null,'dbtb');
+                CTb.GetNewTableAjax('P-data', 'http://1.179.191.130/API-Hosxp/API/CommuNW/DT_DCR.php?', '../back/API/tempSendDataAPI.php', column1
+                ,null,null,null,null,false,false,null,true,'DCRModal',false,null,null,null,null,null,'dbtb');
 
             }

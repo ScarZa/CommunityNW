@@ -209,6 +209,17 @@ function AddData(json, id1, id2 ) {
             });
       });
      
+    $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/DT_checkDrugIPD.php', { data1: data[0].vn }, function (data) {
+      
+      $.each(data, function (key, value) { console.log(value)
+        if (value.icode == '1570019' || value.icode == '1480094' || value.icode == '1480087' || value.icode == '1520038' || value.icode == '1460145' || value.icode == '1550013' || value.icode == '1630052') {
+          $("#inject").append($("<HR style='width:100%;'>")
+            ,$("<div class='col-lg-3 offset col-lg-9'><u><b>ยาฉีด</b></u></div>")
+            , $("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + value.drugName + " : </b></div><div class='row col-lg-9 col-md-6 col-sm-6''><input type='text' class='form-control' id='inject' name='inject' placeholder='รายละเอียดการฉีด'></div></div>"));
+        }
+      });
+    });
+
     selectJSON("#dc_type", "DC_type.json", "dct_id", "dct_name", " เลือกจำหน่ายผู้ป่วย ");
     selectJSON("#hos_nearby", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ใกล้บ้าน ");
     selectJSON("#hos_forward", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ส่งต่อ ");
@@ -242,8 +253,19 @@ function AddData(json, id1, id2 ) {
     $.getJSON('../back/API/follow10_Data.php', function (data) {
       $("#dc_conclude").empty();
       $.each(data, function (key, value) {
-        $("#dc_conclude").append($("<div class='col-lg-11'><input class='custom-control-input' type='checkbox' id='f10"+value.f10_id+"' name='dc_conclude" + value.f10_id + "' value='" + value.f10_id + "' >"
-          +" <label class='custom-control-label' for='f10"+value.f10_id+"'>  " + value.f10_name + "</label></div>"))
+        $("#dc_conclude").append($("<div class='col-lg-11'><input class='custom-control-input' type='checkbox' id='f10" + value.f10_id + "' name='dc_conclude" + value.f10_id + "' value='" + value.f10_id + "' >"
+          + " <label class='custom-control-label' for='f10" + value.f10_id + "'>  " + value.f10_name + "</label></div><div class='col-lg-12 offset-lg-1' id='activity"+value.f10_id+"'></div>"));
+        $.getJSON('../back/API/followActivity_Data.php', { data: value.f10_id }, function (dataaf) {
+          $.each(dataaf, function (key, valueaf) {
+            $("#activity" + value.f10_id).append($("<input class='' type='checkbox' id='act" + valueaf.af_id + "' name='act" + valueaf.af_id + "' value='" + valueaf.af_id + "' > "
+              + "  <label class='' for='act" + valueaf.af_id + "'>  " + valueaf.activity + "</label><br>"))
+          });
+          $("#activity" + value.f10_id).append("<HR style='width:100%;'></HR>");
+          $("#activity" + value.f10_id).hide();
+        });
+        $("input[type=checkbox][name=dc_conclude" + value.f10_id+"]").click(function () {
+          if ($("input[type=checkbox][name=dc_conclude" + value.f10_id+"]:checked").prop("checked") == true) { $("div#activity" + value.f10_id).show(); } else { $("div#activity" + value.f10_id).hide(); }
+      });
       });
     });
 

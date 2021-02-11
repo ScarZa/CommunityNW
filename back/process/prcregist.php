@@ -37,8 +37,8 @@ if ($method == 'add_regist') {
     $line = $_POST['line'];
     $agency = $_POST['agency'];
     $agency_tel = $_POST['agency_tel'];
-    $username = md5(trim(filter_input(INPUT_POST, 'username',FILTER_SANITIZE_STRING)));
-    $password = md5(trim(filter_input(INPUT_POST, 'password',FILTER_SANITIZE_STRING)));
+    $username = md5(string_to_ascii(trim(filter_input(INPUT_POST, 'username',FILTER_SANITIZE_STRING))));
+    $password = md5(string_to_ascii(trim(filter_input(INPUT_POST, 'password',FILTER_SANITIZE_STRING))));
     $regdate = date('Y-m-d H:i:s');
 
     $data = array($role,$pname,$fname,$lname,$cid,$email,$tel,$line,$agency,$agency_tel,$regdate,0);

@@ -4,6 +4,7 @@ function AssHeadPatient(content, id = null,url = '../back/API/') {
                             , $("<div class='col-lg-12 col-xl-12' id='head-subdetial'>"));
     selectJSON("#search-hos", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาล");
     $("select#search-hos").change(function () {
+      $("#index_content").empty();
       AddHeadPT("#head-subdetial",$("select#search-hos").val(),url);
     });
   } else {
@@ -30,7 +31,7 @@ $.getJSON(url+"panel_Dashboard.php", { data: data.province, data2: data.amphur }
     //+"</div > "
     +"</div></div> "));
   $("#followup").click(function () { 
-      TB_FollowUP("#index_content",data.province, data.amphur);
+      TB_FollowUP("#index_content",data.province, data.amphur, inf);
     });
 });
 }

@@ -21,9 +21,11 @@ function AssSlideMenu(content, id = null) {
       // , $("<li id='social-menu'></li>")
       // , $("<li id='culture-menu'></li>")
       // , $("<li id='consult-menu'></li>")
+      , $("<li id='DC-reveal-menu'></li>")
     );
   }
                             $("li#DC-plan-menu").empty().append($("<a id='DCP' href='#'><img src='images/icon_set2/compose.ico' width='25'> D/C Plan</a>")); 
+                            $("li#DC-reveal-menu").empty().append($("<a id='DCR' href='#'><img src='images/icon_set2/compose.ico' width='25'> ทะเบียนบันทึก D/C Plan</a>")); 
                             $("li#jwt-token-menu").empty().append($("<a id='token' href='#'><img src='images/EMR.png' width='25'> JWT Token</a>"));                          
                             $("li#confirm-menu").empty().append($("<a id='confirm' href='#'><img src='images/icon_set2/check.ico' width='25'> Confirm user</a>"));
                             $("li#EMR-menu").empty().append($("<a id='EMR' href='#'><img src='images/EMR.png' width='25'> EMR</a>"));
@@ -94,5 +96,5 @@ function AssSlideMenu(content, id = null) {
   $("a#token").attr("onclick", "$('#head-detial').show();AssToken('#index_content');");
   $("a#confirm").attr("onclick","$('#head-detial').show();TB_ConfirmUser('#index_content');");
   $("a#DCP").attr("onclick","$('#head-detial').show();TB_DCPlan('#index_content');");
-                                        
+  $("a#DCR").attr("onclick","$('#head-detial').show();TB_DCR('#index_content');");                                  
 }

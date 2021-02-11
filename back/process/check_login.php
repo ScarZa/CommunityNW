@@ -4,7 +4,7 @@ header('Content-type: text/json; charset=utf-8');
 function __autoload($class_name) {
     include_once '../class/' . $class_name . '.php';
 }
-
+include '../function/string_to_ascii.php';
 $dbh=new dbPDO_mng();
 $read="../connection/conn_DB.txt";
 $dbh->para_read($read);
@@ -12,8 +12,8 @@ $dbh->para_read($read);
 $dbh->conn_PDO();
 //print_r($dbh);
 //$conv=new convers_encode();
-$user_account = md5(trim(filter_input(INPUT_POST, 'username',FILTER_SANITIZE_STRING)));
-$user_pwd = md5(trim(filter_input(INPUT_POST, 'password',FILTER_SANITIZE_STRING)));
+$user_account = md5(string_to_ascii(trim(filter_input(INPUT_POST, 'username',FILTER_SANITIZE_STRING))));
+$user_pwd = md5(string_to_ascii(trim(filter_input(INPUT_POST, 'password',FILTER_SANITIZE_STRING))));
 $sql = "SELECT um.reg_id,um.token_key,reg.role,reg.inf_id,um.mem_status
 FROM user_member um
 INNER JOIN registration reg on reg.reg_id = um.reg_id
