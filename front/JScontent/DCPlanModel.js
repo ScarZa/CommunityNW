@@ -214,8 +214,8 @@ function AddData(json, id1, id2 ) {
       $.each(data, function (key, value) { console.log(value)
         if (value.icode == '1570019' || value.icode == '1480094' || value.icode == '1480087' || value.icode == '1520038' || value.icode == '1460145' || value.icode == '1550013' || value.icode == '1630052') {
           $("#inject").append($("<HR style='width:100%;'>")
-            ,$("<div class='col-lg-3 offset col-lg-9'><u><b>ยาฉีด</b></u></div>")
-            , $("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + value.drugName + " : </b></div><div class='row col-lg-9 col-md-6 col-sm-6''><input type='text' class='form-control' id='inject' name='inject' placeholder='รายละเอียดการฉีด'></div></div>"));
+            ,$("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
+            , $("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + value.drugName + " : </b></div><div class='col-lg-9 col-md-6 col-sm-6'><input type='text' class='form-control' id='inject' name='inject' placeholder='รายละเอียดการฉีด'></div></div>"));
         }
       });
     });
