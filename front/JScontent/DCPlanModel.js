@@ -210,12 +210,15 @@ function AddData(json, id1, id2 ) {
       });
      
     $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/DT_checkDrugIPD.php', { data1: data[0].vn }, function (data) {
-      
-      $.each(data, function (key, value) { console.log(value)
+      var c = 0;
+      $.each(data, function (key, value) { 
         if (value.icode == '1570019' || value.icode == '1480094' || value.icode == '1480087' || value.icode == '1520038' || value.icode == '1460145' || value.icode == '1550013' || value.icode == '1630052') {
           $("#inject").append($("<HR style='width:100%;'>")
-            ,$("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
-            , $("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + value.drugName + " : </b></div><div class='col-lg-9 col-md-6 col-sm-6'><input type='text' class='form-control' id='inject' name='inject' placeholder='รายละเอียดการฉีด'></div></div>"));
+            , $("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
+            , $("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + value.drugName + " : </b></div><div class='col-lg-9 col-md-6 col-sm-6'><input type='text' class='form-control' id='inject" + c + "' name='inject" + c + "' placeholder='รายละเอียดการฉีด'></div></div>")
+            , $("<input type='hidden' id='iname" + c + "' name='iname" + c + "' value='" + value.drugName + "'>")
+            , $("<input type='hidden' id='icode" + c + "' name='icode" + c + "' value='" + value.icode + "'>"));
+          c++;
         }
       });
     });

@@ -49,7 +49,8 @@ var AssDCRNW = function(content){
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>Dx.2 : </b></div><div class='row col-lg-9 col-md-6 col-sm-6' id='dxname2'> </div></div>"
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>DX.3 : </b></div><div class='row col-lg-9 col-md-6 col-sm-6' id='dxname3'> </div></div>"
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>Dx.4 : </b></div><div class='row col-lg-9 col-md-6 col-sm-6' id='dxname4'> </div></div>"
-                                    +"</div></div><p></p>"
+                                    +"<div class='col-lg-12 col-md-12 col-sm-12 row' id='inject'></div>"
+                                    + "</div></div><p></p>"
                                     )
 ////////////////////////////////////////////////////////////
 

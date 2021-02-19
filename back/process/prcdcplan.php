@@ -79,13 +79,50 @@ if ($method == 'DCP') {
     $dc_conclude09 = isset($_POST['dc_conclude9'])?$_POST['dc_conclude9']:'';
     $dc_conclude10 = isset($_POST['dc_conclude10'])?$_POST['dc_conclude10']:'';
     $dc_con_detial = isset($_POST['dc_con_detial'])?$_POST['dc_con_detial']:'';
+    $icode0 = isset($_POST['icode0'])?$_POST['icode0']:'';
+    $iname0 = isset($_POST['iname0'])?$_POST['iname0']:'';
+    $inject0 = isset($_POST['inject0'])?$_POST['inject0']:'';
+    $icode1 = isset($_POST['icode1'])?$_POST['icode1']:'';
+    $iname1 = isset($_POST['iname1'])?$_POST['iname1']:'';
+    $inject1 = isset($_POST['inject1'])?$_POST['inject1']:'';
+    $act1 = isset($_POST['act1'])?$_POST['act1']:'';
+    $act2 = isset($_POST['act2'])?$_POST['act2']:'';
+    $act3 = isset($_POST['act3'])?$_POST['act3']:'';
+    $act4 = isset($_POST['act4'])?$_POST['act4']:'';
+    $act5 = isset($_POST['act5'])?$_POST['act5']:'';
+    $act6 = isset($_POST['act6'])?$_POST['act6']:'';
+    $act7 = isset($_POST['act7'])?$_POST['act7']:'';
+    $act8 = isset($_POST['act8'])?$_POST['act8']:'';
+    $act9 = isset($_POST['act9'])?$_POST['act9']:'';
+    $act10 = isset($_POST['act10'])?$_POST['act10']:'';
+    $act11 = isset($_POST['act11'])?$_POST['act11']:'';
+    $act12 = isset($_POST['act12'])?$_POST['act12']:'';
+    $act13 = isset($_POST['act13'])?$_POST['act13']:'';
+    $act14 = isset($_POST['act14'])?$_POST['act14']:'';
+    $act15 = isset($_POST['act15'])?$_POST['act15']:'';
+    $act16 = isset($_POST['act16'])?$_POST['act16']:'';
+    $act17 = isset($_POST['act17'])?$_POST['act17']:'';
+    $act18 = isset($_POST['act18'])?$_POST['act18']:'';
+    $act19 = isset($_POST['act19'])?$_POST['act19']:'';
+    $act20 = isset($_POST['act20'])?$_POST['act20']:'';
+    $act21 = isset($_POST['act21'])?$_POST['act21']:'';
+    $act22 = isset($_POST['act22'])?$_POST['act22']:'';
+    $act23 = isset($_POST['act23'])?$_POST['act23']:'';
+    $act24 = isset($_POST['act24'])?$_POST['act24']:'';
+    $act25 = isset($_POST['act25'])?$_POST['act25']:'';
+    $act26 = isset($_POST['act26'])?$_POST['act26']:'';
+    $act27 = isset($_POST['act27'])?$_POST['act27']:'';
+    $act28 = isset($_POST['act28'])?$_POST['act28']:'';
+    $act29 = isset($_POST['act29'])?$_POST['act29']:'';
     $recorder = $_POST['mem_id'];
     $regdate = date('Y-m-d H:i:s');
 
     $data = array($hn,$vn,$an,$dc_type,$patient_type01,$patient_type02,$patient_type03,$patient_type04,$patient_type05,$patient_type06,$patient_type07,$patient_type08,$patient_type09,$patient_type10
     ,$biographer,$relative,$patient_add,$tel0,$relative0,$tel1,$relative1,$tel2,$relative2,$cc,$hpi,$assent_tel,$assent_jvl,$assent_cn,$assent_drug,$hos_nearby,$hos_forward
     ,$problem_prof01,$problem_prof02,$problem_prof03,$problem_prof04,$problem_prof05,$problem_prof06,$problem_prof07,$problem_prof08,$problem_prof09,$problem_prof10
-    ,$dc_conclude01,$dc_conclude02,$dc_conclude03,$dc_conclude04,$dc_conclude05,$dc_conclude06,$dc_conclude07,$dc_conclude08,$dc_conclude09,$dc_conclude10,$dc_con_detial,$recorder,$regdate);
+    ,$dc_conclude01,$dc_conclude02,$dc_conclude03,$dc_conclude04,$dc_conclude05,$dc_conclude06,$dc_conclude07,$dc_conclude08,$dc_conclude09,$dc_conclude10,$dc_con_detial
+    ,$icode0,$iname0,$inject0,$icode1,$iname1,$inject1,$act1,$act2,$act3,$act4,$act5,$act6,$act7,$act8,$act9,$act10,$act11,$act12,$act13,$act14,$act15,$act16,$act17,$act18,$act19,$act20
+    ,$act21,$act22,$act23,$act24,$act25,$act26,$act27,$act28,$act29,$recorder,$regdate);
     //$field = array('id','hcode','vdate','vn','hn','sex','dob','pdx','dx0','dx1','dx2','dx3','cgis_score','clinic','user','dupdate');
     $table = "dcplan";
     $dcplan = $connDB->insert($table, $data);

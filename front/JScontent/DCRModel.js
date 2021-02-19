@@ -152,7 +152,12 @@ function AddDataDCR(json, id1, id2 ) {
 
     });
     
-    $.getJSON('../back/API/detail_DCR.php', { data2: id2 }, function (data) {
+  $.getJSON('../back/API/detail_DCR.php', { data2: id2 }, function (data) { 
+    $("#inject").append($("<HR style='width:100%;'>")
+      , $("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
+      , $("<div class='row col-lg-12 col-md-12 col-sm-12 ' id='inject_item'></div>"));
+    if (data.iname0 != '') { $("#inject_item").append("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname0 + " : </b></div><div class='col-lg-9 col-md-6 col-sm-6'>" + data.inject0 + "</div></div><br>") }
+    if (data.iname1 != ''){ $("#inject_item").append("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname1 + " : </b></div><div class='col-lg-9 col-md-6 col-sm-6'>"+data.inject1+"</div></div>")}
       $("#cc").empty().append(data.cc+'<br>');
       $("#hpi").empty().append(data.hpi);
       $("#biographer").empty().append(data.biographer);
@@ -198,16 +203,65 @@ function AddDataDCR(json, id1, id2 ) {
       if (data.ap10 != '') { $("#problem_prof").append(data.ap10 + '<br>'); }
 
       $("#dc_conclude").empty();
-      if (data.fol1 != '') { $("#dc_conclude").append(data.fol1 + '<br>'); }
-      if (data.fol2 != '') { $("#dc_conclude").append(data.fol2 + '<br>'); }
-      if (data.fol3 != '') { $("#dc_conclude").append(data.fol3 + '<br>'); }
-      if (data.fol4 != '') { $("#dc_conclude").append(data.fol4 + '<br>'); }
-      if (data.fol5 != '') { $("#dc_conclude").append(data.fol5 + '<br>'); }
-      if (data.fol6 != '') { $("#dc_conclude").append(data.fol6 + '<br>'); }
-      if (data.fol7 != '') { $("#dc_conclude").append(data.fol7 + '<br>'); }
-      if (data.fol8 != '') { $("#dc_conclude").append(data.fol8 + '<br>'); }
-      if (data.fol9 != '') { $("#dc_conclude").append(data.fol9 + '<br>'); }
-      if (data.fol10 != '') { $("#dc_conclude").append(data.fol10 + '<br>'); }
+      if (data.fol1 != '') {
+        $("#dc_conclude").append('<b>'+data.fol1 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol1'></span></div><HR style='width:100%; '>");
+        if (data.act1 != '') { $("#fol1").append(' - ' + data.act1 + '<br>') }
+        if (data.act2 != '') { $("#fol1").append(' - ' + data.act2 + '<br>') }
+        if (data.act3 != '') { $("#fol1").append(' - ' + data.act3 + '<br>') }
+          }
+      if (data.fol2 != '') {
+        $("#dc_conclude").append('<b>'+data.fol2 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol2'></span></div><HR style='width:100%; '>");
+        if (data.act4 != '') { $("#fol2").append(' - ' + data.act4 + '<br>') }
+        if (data.act5 != '') { $("#fol2").append(' - ' + data.act5 + '<br>') }
+        if (data.act6 != '') { $("#fol2").append(' - ' + data.act6 + '<br>') }
+      }
+      if (data.fol3 != '') {
+        $("#dc_conclude").append('<b>' + data.fol3 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol3'></span></div><HR style='width:100%; '>");
+        if (data.act7 != '') { $("#fol3").append(' - ' + data.act7 + '<br>') }
+        if (data.act8 != '') { $("#fol3").append(' - ' + data.act8 + '<br>') }
+        if (data.act9 != '') { $("#fol3").append(' - ' + data.act9 + '<br>') }
+        if (data.act10 != '') { $("#fol3").append(' - ' + data.act10 + '<br>') }
+      }
+      if (data.fol4 != '') {
+        $("#dc_conclude").append('<b>' + data.fol4 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol4'></span></div><HR style='width:100%; '>");
+        if (data.act11 != '') { $("#fol4").append(' - ' + data.act11 + '<br>') }
+        if (data.act12 != '') { $("#fol4").append(' - ' + data.act12 + '<br>') }
+      }
+      if (data.fol5 != '') {
+        $("#dc_conclude").append('<b>' + data.fol5 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol5'></span></div><HR style='width:100%; '>");
+        if (data.act13 != '') { $("#fol5").append(' - ' + data.act13 + '<br>') }
+        if (data.act14 != '') { $("#fol5").append(' - ' + data.act14 + '<br>') }
+      }
+      if (data.fol6 != '') {
+        $("#dc_conclude").append('<b>' + data.fol6 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol6'></span></div><HR style='width:100%; '>");
+        if (data.act15 != '') { $("#fol6").append(' - ' + data.act15 + '<br>') }
+        if (data.act16 != '') { $("#fol6").append(' - ' + data.act16 + '<br>') }
+        if (data.act17 != '') { $("#fol6").append(' - ' + data.act17 + '<br>') }
+        if (data.act18 != '') { $("#fol6").append(' - ' + data.act18 + '<br>') }
+      }
+      if (data.fol7 != '') {
+        $("#dc_conclude").append('<b>' + data.fol7 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol7'></span></div><HR style='width:100%; '>");
+        if (data.act19 != '') { $("#fol7").append(' - ' + data.act19 + '<br>') }
+        if (data.act20 != '') { $("#fol7").append(' - ' + data.act20 + '<br>') }
+      }
+      if (data.fol8 != '') {
+        $("#dc_conclude").append('<b>' + data.fol8 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol8'></span></div><HR style='width:100%; '>");
+        if (data.act21 != '') { $("#fol8").append(' - ' + data.act21 + '<br>') }
+        if (data.act22 != '') { $("#fol8").append(' - ' + data.act22 + '<br>') }
+        if (data.act23 != '') { $("#fol8").append(' - ' + data.act23 + '<br>') }
+      }
+      if (data.fol9 != '') {
+        $("#dc_conclude").append('<b>' + data.fol9 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol9'></span></div><HR style='width:100%; '>");
+        if (data.act24 != '') { $("#fol9").append(' - ' + data.act24 + '<br>') }
+        if (data.act25 != '') { $("#fol9").append(' - ' + data.act25 + '<br>') }
+        if (data.act26 != '') { $("#fol9").append(' - ' + data.act26 + '<br>') }
+      }
+      if (data.fol10 != '') {
+        $("#dc_conclude").append('<b>' + data.fol10 + "</b><br> <div class='row'><u class='col-lg-3 col-md-3'>แผนการช่วยเหลือ</u>  <span class='row col-lg-9 col-md-9' id='fol10'></span></div><HR style='width:100%; '>");
+        if (data.act27 != '') { $("#fol10").append(' - ' + data.act27 + '<br>') }
+        if (data.act28 != '') { $("#fol10").append(' - ' + data.act28 + '<br>') }
+        if (data.act29 != '') { $("#fol10").append(' - ' + data.act29 + '<br>') }
+      }
       $("#dc_con_detial").empty().append(data.dc_con_detial);
 
     });
