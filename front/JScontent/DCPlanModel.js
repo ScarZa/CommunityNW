@@ -94,10 +94,54 @@ function DCPModal(content, id = null) {
           }
             
               $.ajax(settings2).done(function (result2) {
-                var res2 = JSON.parse(result2); console.log(res2);
-            alert(res2.messege);
-            modal.modal('hide');
-            TB_DCPlan('#index_content');
+                var res2 = JSON.parse(result2);
+                console.log(res2); 
+                var form2 = new FormData();
+
+                for (var i = 0; i < res2.detailPT.length; i++) {
+                  $.each(res2.detailPT[i], function (key, value) {
+                    form2.append(key, value);
+                  });
+                }
+                 
+                for (var i = 0; i < res2.drugIPD.length; i++) {
+                  $.each(res2.drugIPD[i], function (key, value) {
+                    var keyname = key + '[]';
+                    form2.append(keyname, value);
+                  });
+                }
+
+                for (var i = 0; i < res2.drugOPD.length; i++) {
+                  $.each(res2.drugOPD[i], function (key, value) {
+                    var keyname = key + '[]';
+                    form2.append(keyname, value);
+                  });
+                }
+
+                for (var i = 0; i < res2.drugallergy.length; i++) {
+                  $.each(res2.drugallergy[i], function (key, value) {
+                    var keyname = key + '[]';
+                    form2.append(keyname, value);
+                  });
+                }
+                for (var value of form2.keys()) {
+                    console.log(value);
+                }
+                var settings3 = {
+                  type: "POST",
+                  url: "../back/process/prcdcplan.php",
+                  async: true,
+                  crossDomain: true,
+                  data: form2,
+                  contentType: false,
+                  cache: false,
+                  processData: false
+                }
+                $.ajax(settings3).done(function (result3) { console.log(result3)
+                  alert(result3.messege);
+                  modal.modal('hide');
+                  TB_DCPlan('#index_content');
+                 })
           })
           })
       }));
@@ -214,8 +258,8 @@ function AddData(json, id1, id2 ) {
       $.each(data, function (key, value) { 
         if (value.icode == '1570019' || value.icode == '1480094' || value.icode == '1480087' || value.icode == '1520038' || value.icode == '1460145' || value.icode == '1550013' || value.icode == '1630052') {
           $("#inject").append($("<HR style='width:100%;'>")
-            , $("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
-            , $("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + value.drugName + " : </b></div><div class='col-lg-9 col-md-6 col-sm-6'><input type='text' class='form-control' id='inject" + c + "' name='inject" + c + "' placeholder='รายละเอียดการฉีด'></div></div>")
+            , $("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
+            , $("<div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>" + value.drugName + " : </b></div><div class='col-lg-8 col-md-6 col-sm-6'><input type='text' class='form-control' id='inject" + c + "' name='inject" + c + "' placeholder='รายละเอียดการฉีด'></div></div>")
             , $("<input type='hidden' id='iname" + c + "' name='iname" + c + "' value='" + value.drugName + "'>")
             , $("<input type='hidden' id='icode" + c + "' name='icode" + c + "' value='" + value.icode + "'>"));
           c++;

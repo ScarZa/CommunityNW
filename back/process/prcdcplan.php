@@ -166,4 +166,117 @@ if($user_token){
     }
     print json_encode($res);
     $connDB->close_PDO();
+}elseif ($method == 'DCP_data') {
+    $hn = $_POST['hn'];
+    $vn = $_POST['vn'];
+    $an = $_POST['an'];
+    $admit = $_POST['admit'];
+    $smiv = $_POST['smiv'];
+    $lastvisit = isset($_POST['lastvisit'])?$_POST['lastvisit']:'';
+    $admdate = isset($_POST['admdate'])?$_POST['admdate']:'';
+    $nextdate = isset($_POST['nextdate'])?$_POST['nextdate']:'';
+    $pttype_expire = isset($_POST['pttype_expire'])?$_POST['pttype_expire']:'';
+    $expire_date = isset($_POST['expire_date'])?$_POST['expire_date']:'';
+    $vstdate = $_POST['vstdate'];
+    $vsttime = $_POST['vsttime'];
+    $dchdate = isset($_POST['dchdate'])?$_POST['dchdate']:'';
+    $dchtime = isset($_POST['dchtime'])?$_POST['dchtime']:'';
+    $Dhospital = isset($_POST['Dhospital'])?$_POST['Dhospital']:'';
+    $fullname = $_POST['fullname'];
+    $sex = $_POST['sex'];
+    $address = $_POST['address'];
+    $cid = $_POST['cid'];
+    $birthday = $_POST['birthday'];
+    $bloodgrp = isset($_POST['bloodgrp'])?$_POST['bloodgrp']:'';
+    //$drugallergy = isset($_POST['drugallergy'])?$_POST['drugallergy']:'';
+    $disease = isset($_POST['disease'])?$_POST['disease']:'';
+    $age = $_POST['age'];
+    $nation_name = isset($_POST['nation_name'])?$_POST['nation_name']:'';
+    $religion_name = isset($_POST['religion_name'])?$_POST['religion_name']:'';
+    $edu_name = isset($_POST['edu_name'])?$_POST['edu_name']:'';
+    $occ_name = isset($_POST['occ_name'])?$_POST['occ_name']:'';
+    $mpdx = isset($_POST['mpdx'])?$_POST['mpdx']:'';
+    $spdx = isset($_POST['spdx'])?$_POST['spdx']:'';
+    $dxname1 = isset($_POST['dxname1'])?$_POST['dxname1']:'';
+    $dxname2 = isset($_POST['dxname2'])?$_POST['dxname2']:'';
+    $dxname3 = isset($_POST['dxname3'])?$_POST['dxname3']:'';
+    $dxname4 = isset($_POST['dxname4'])?$_POST['dxname4']:'';
+    $ptname1 = isset($_POST['ptname1'])?$_POST['ptname1']:'';
+    $ptname2 = isset($_POST['ptname2'])?$_POST['ptname2']:'';
+    $refername = isset($_POST['refername'])?$_POST['refername']:'';
+    $ovstistname = isset($_POST['ovstistname'])?$_POST['ovstistname']:'';
+    $docName = $_POST['docName'];
+    $typep = isset($_POST['typep'])?$_POST['typep']:'';
+    $typep_1 = isset($_POST['typep_1'])?$_POST['typep_1']:'';
+    $typep_3 = isset($_POST['typep_3'])?$_POST['typep_3']:'';
+    $lawpsych_chk = isset($_POST['lawpsych_chk'])?$_POST['lawpsych_chk']:'';
+    $bw = isset($_POST['bw'])?$_POST['bw']:'';
+    $height = isset($_POST['height'])?$_POST['height']:'';
+    $bmi = isset($_POST['bmi'])?$_POST['bmi']:'';
+    $temp = isset($_POST['temp'])?$_POST['temp']:'';
+    $pr = isset($_POST['pr'])?$_POST['pr']:'';
+    $rr = isset($_POST['rr'])?$_POST['rr']:'';
+    $bps = isset($_POST['bps'])?$_POST['bps']:'';
+    $bpd = isset($_POST['bpd'])?$_POST['bpd']:'';
+    $Q9 = isset($_POST['Q9'])?$_POST['Q9']:'';
+    $Q8 = isset($_POST['Q8'])?$_POST['Q8']:'';
+    $cgi = isset($_POST['cgi'])?$_POST['cgi']:'';
+    $Clozapine100 = isset($_POST['Clozapine100'])?$_POST['Clozapine100']:'';
+    $Clozapine100Date = isset($_POST['Clozapine100Date'])?$_POST['Clozapine100Date']:'';
+    $Clozapine25 = isset($_POST['Clozapine25'])?$_POST['Clozapine25']:'';
+    $Clozapine25Date = isset($_POST['Clozapine25Date'])?$_POST['Clozapine25Date']:'';
+    $Carbamazepine200 = isset($_POST['Carbamazepine200'])?$_POST['Carbamazepine200']:'';
+    $Carbamazepine200Date = isset($_POST['Carbamazepine200Date'])?$_POST['Carbamazepine200Date']:'';
+    $LithiumCarbonate300 = isset($_POST['LithiumCarbonate300'])?$_POST['LithiumCarbonate300']:'';
+    $LithiumCarbonate300Date = isset($_POST['LithiumCarbonate300Date'])?$_POST['LithiumCarbonate300Date']:'';
+    $SodiumValproate200 = isset($_POST['SodiumValproate200'])?$_POST['SodiumValproate200']:'';
+    $SodiumValproate200Date = isset($_POST['SodiumValproate200Date'])?$_POST['SodiumValproate200Date']:'';
+    $SodiumValproate200CHRONO = isset($_POST['SodiumValproate200CHRONO'])?$_POST['SodiumValproate200CHRONO']:'';
+    $SodiumValproate200CHRONODate = isset($_POST['SodiumValproate200CHRONODate'])?$_POST['SodiumValproate200CHRONODate']:'';
+    $SodiumValproate500 = isset($_POST['aSodiumValproate500ct1'])?$_POST['SodiumValproate500']:'';
+    $SodiumValproate500Date = isset($_POST['SodiumValproate500Date'])?$_POST['SodiumValproate500Date']:'';
+    $recorder = $_POST['recorder'];
+    $regdate = date('Y-m-d H:i:s');
+
+    $data = array($hn,$vn,$an,$admit,$smiv,$lastvisit,$admdate,$nextdate,$pttype_expire,$expire_date,$vstdate,$vsttime,$dchdate,$dchtime
+    ,$Dhospital,$fullname,$sex,$address,$cid,$birthday,$bloodgrp,$disease,$age,$nation_name,$religion_name,$edu_name,$occ_name,$mpdx,$spdx,$dxname1
+    ,$dxname2,$dxname3,$dxname4,$ptname1,$ptname2,$refername,$ovstistname,$docName,$typep,$typep_1
+    ,$typep_3,$lawpsych_chk,$bw,$height,$bmi,$temp,$pr,$rr,$bps,$bpd,$Q9
+    ,$Q8,$cgi,$Clozapine100,$Clozapine100Date,$Clozapine25,$Clozapine25Date,$Carbamazepine200,$Carbamazepine200Date,$LithiumCarbonate300,$LithiumCarbonate300Date,$SodiumValproate200
+    ,$SodiumValproate200Date,$SodiumValproate200CHRONO,$SodiumValproate200CHRONODate,$SodiumValproate500,$SodiumValproate500Date,$recorder,$regdate);
+    //$field = array('id','hcode','vdate','vn','hn','sex','dob','pdx','dx0','dx1','dx2','dx3','cgis_score','clinic','user','dupdate');
+    $table = "data_forward";
+    $dcplan = $connDB->insert($table, $data);
+    if($dcplan != false){
+      
+        $drugname = isset($_POST['drugName'])?$_POST['drugName']:'';   
+        if($drugname !=''){
+            foreach ($drugname as $key => $value) {
+                $drugName = $value;
+                $shortlist=$_POST['shortlist'][$key];
+                $qty=$_POST['qty'][$key];
+               
+                $data = array($dcplan,$drugName,$shortlist,$qty);
+                $table = "data_ipddrug";
+                $ipdd = $connDB->insert($table, $data);
+            }
+        }
+
+        $Drugallergy = isset($_POST['drugallergy'])?$_POST['drugallergy']:'';   
+        if($Drugallergy !=''){
+            foreach ($Drugallergy as $key => $value) {
+                $drugallergy = $value;
+               
+                $data = array($dcplan,$drugallergy);
+                $table = "data_dgallergy";
+                $dglg = $connDB->insert($table, $data);
+            }
+        }
+    $res = array("messege"=>'บันทึก Discharge plan สำเร็จ!!!!');
+
+}else{
+  $res = array("messege"=>'บันทึก Discharge plan ไม่สำเร็จ!!!!');
+}
+    print json_encode($res);
+    $connDB->close_PDO();
 }

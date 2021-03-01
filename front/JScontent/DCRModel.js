@@ -154,10 +154,10 @@ function AddDataDCR(json, id1, id2 ) {
     
   $.getJSON('../back/API/detail_DCR.php', { data2: id2 }, function (data) { 
     $("#inject").append($("<HR style='width:100%;'>")
-      , $("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
+      , $("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
       , $("<div class='row col-lg-12 col-md-12 col-sm-12 ' id='inject_item'></div>"));
-    if (data.iname0 != '') { $("#inject_item").append("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname0 + " : </b></div><div class='col-lg-9 col-md-6 col-sm-6'>" + data.inject0 + "</div></div><br>") }
-    if (data.iname1 != ''){ $("#inject_item").append("<div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname1 + " : </b></div><div class='col-lg-9 col-md-6 col-sm-6'>"+data.inject1+"</div></div>")}
+    if (data.iname0 != '') { $("#inject_item").append("<div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname0 + " : </b></div><div class='col-lg-8 col-md-6 col-sm-6'>" + data.inject0 + "</div></div><br>") }
+    if (data.iname1 != ''){ $("#inject_item").append("<div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname1 + " : </b></div><div class='col-lg-8 col-md-6 col-sm-6'>"+data.inject1+"</div></div>")}
       $("#cc").empty().append(data.cc+'<br>');
       $("#hpi").empty().append(data.hpi);
       $("#biographer").empty().append(data.biographer);
