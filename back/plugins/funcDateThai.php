@@ -23,16 +23,24 @@
 		$strMonthThai=$strMonthCut[$strMonth];
 		return "$strDay $strMonthThai $strYear ";
 	}
-			function DateThai3($strDate3)
+		function DateThai3($strDate3)
 	{
-		$strYear = date("Y",strtotime($strDate3))+543;
-		$strMonth= date("n",strtotime($strDate3));
-		$strDay= date("j",strtotime($strDate3));
-		$strHour= date("H",strtotime($strDate2));
-		$strMinute= date("i",strtotime($strDate3));
-		$strSeconds= date("s",strtotime($strDate3));
+		$Date = explode("-", $strDate3);
+		$day = (int)$Date[2];
+		$month = $Date[1];
+		$year = $Date[0]+543;
 		$strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
-		$strMonthThai=$strMonthCut[$strMonth];
-		return "$strDay $strMonthThai $strYear ";
+		$strMonthThai=$strMonthCut[(int)$month];
+		return "$day $strMonthThai $year";
+	}
+		function DateThai4($strDate4)
+	{
+		$Date = explode("-", $strDate4);
+		$day = (int)$Date[2];
+		$month = $Date[1];
+		$year = $Date[0]+543;
+		$strMonthCut = Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
+		$strMonthThai=$strMonthCut[(int)$month];
+		return "$day $strMonthThai $year";
 	}
  ?>

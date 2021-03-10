@@ -1,22 +1,5 @@
 <?php
-session_save_path("../session/");
-//session_start(); 
-header('Content-type: text/json; charset=utf-8');
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Headers: access");
-// header("Access-Control-Allow-Methods: GET,POST");
-// header("Access-Control-Allow-Credentials: true");
-// header('Content-Type: application/json;charset=utf-8');
-function __autoload($class_name) {
-    include '../class/' . $class_name . '.php';
-}
-include '../function/string_to_ascii.php';
-set_time_limit(0);
-$connDB = new EnDeCode();
-$read = "../connection/conn_DB.txt";
-$connDB->para_read($read);
-$connDB->Read_Text();
-$connDB->conn_PDO();
+include 'headprocessAPI.php';
 
 function insert_date($take_date_conv) {
     $take_date = explode("-", $take_date_conv);
@@ -24,7 +7,7 @@ function insert_date($take_date_conv) {
     $take_date = "$take_date_year-" . @$take_date[1] . "-" . @$take_date[0] . "";
     return $take_date;
 }
-$conv=new convers_encode();
+
 $method = isset($_POST['method']) ? $_POST['method'] : $_GET['method'];
 if ($method == 'add_regist') {
     $role = $_POST['role'];

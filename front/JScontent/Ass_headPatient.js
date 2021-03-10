@@ -23,11 +23,13 @@ $.getJSON(url+"panel_Dashboard.php", { data: data.province, data2: data.amphur }
   $(contenthead).append($("<div class='card border-warning'><div id='' class='card-body head-color'>"
     +"<div class='row'>"
     //+"<div class='row col-lg-12 col-md-12 col-sm-12'>"
-    + "<span  class='row col-lg-12 col-md-12 col-sm-12' id=''>"
-    + "<div class='col-lg-4 col-md-4 col-sm-12'><a href='#' class='btn btn-success btn-lg btn-block'>ผู้ป่วยในพื้นที่ทั้งหมด : <b>"+data2.total+"</b> คน</a></div>"
-    + "<div class='col-lg-4 col-md-4 col-sm-12'><a href='#' class='btn btn-danger btn-lg btn-block'>ผู้ป่วยในพื้นที่ ที่กำลัง Admit : <b>"+data2.admit+"</b> คน</a></div>"
-    + "<div class='col-lg-4 col-md-4 col-sm-12'><a href='#' id='followup' class='btn btn-warning btn-lg btn-block'>ผู้ป่วยติดตามดูแลต่อเนื่องในพื้นที่ : <b>"+data2.follow_up+"</b> คน</a></div>"
-      + "</span></div>"
+    //+ "<span  class='col-lg-12 col-md-12 col-sm-12' id=''>"
+    + "<div class='col-lg-3 col-md-3 col-sm-12'><a href='#' class='btn btn-success btn-lg btn-block'>ผู้ป่วยในพื้นที่ทั้งหมด : <span class='badge badge-warning'><b>"+data2.total+"</b> คน</span></a></div>"
+    + "<div class='col-lg-3 col-md-3 col-sm-12'><a href='#' class='btn btn-danger btn-lg btn-block'>ผู้ป่วยในพื้นที่ ที่กำลัง Admit : <span class='badge badge-warning'><b>"+data2.admit+"</b> คน</span></a></div>"
+    + "<div class='col-lg-3 col-md-3 col-sm-12'><a href='#' id='' class='btn btn-info btn-lg btn-block'>ผู้ป่วยติดตามดูแลต่อเนื่องในพื้นที่ (มีภูมิลำเนาในพื้นที่) : <span class='badge badge-warning'><b>" + data2.follow_up + "</b> คน</span></a></div>"
+    + "<div class='col-lg-3 col-md-3 col-sm-12'><a href='#' id='followup' class='btn btn-warning btn-lg btn-block'>ผู้ป่วยยินยอมติดตามที่อาศัยอยู่ในพื้นที่ : <span class='badge badge-danger'><b>"+data.hos+"</b> คน</span></a></div>"
+    //+ "</span>"
+      +"</div > "
     //+"</div > "
     +"</div></div> "));
   $("#followup").click(function () { 

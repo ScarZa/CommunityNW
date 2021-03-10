@@ -231,6 +231,8 @@
                         TBDraw(content);
                     } else if (subgetfunc[0] == 'TBM_T') {
                         TBM_T(content);
+                    }else if (subgetfunc[0] == 'TB_DCR') {
+                        TB_DCR(content);
                     }
                     // else if (subgetfunc[0] == 'logout') {
                     //     alert(result);
@@ -240,7 +242,7 @@
                 });
         }
 
-        function DeleteData(pagesend, table = null, field = null, id = null, pageresend = $.cookie('Readerurl') + 'tempSendDataAPI.php', datatype = 'json', method = 'POST') {
+        function DeleteData(pagesend, table = null, field = null, id = null, pageresend = null, datatype = 'json', method = 'POST') {
             if (confirm('กรุณายืนยันการลบอีกครั้ง !!!')) {
                 $.when($.ajax({
                     url: pagesend,
@@ -249,7 +251,7 @@
                     dataType: datatype
                 })).then(function (result, textStatus, jqXHR) { 
                     alert(result);
-                    loadAjax('#index_content', $.cookie('Readerurl') + 'tempSendDataAPI.php', '',  pageresend)
+                    loadAjax('#index_content', '../back/API/tempSendDataAPI.php', '',  pageresend)
                 });
             }
         }
@@ -258,7 +260,7 @@
             $.getJSON("JsonData/" + data, function (data) {
                 var option="<option value=''> " + title + " </option>";
                 for (var keys in data['RECORDS']) {
-            if (parseInt(id) == parseInt(data.RECORDS[keys][id])) {var select = 'selected'; } else { var select = ''; }
+            if (parseInt(check) == parseInt(data.RECORDS[keys][id])) {var select = 'selected'; } else { var select = ''; } 
             if(data.RECORDS[keys][id] !=''){option += "<option value='" +data.RECORDS[keys][id]+ "' " + select + "> " + data.RECORDS[keys][name] + " </option>";}
                 
              }
@@ -425,6 +427,7 @@
     <script src="JScontent/TBDCR.js" type="text/javascript"></script>
     <script src="JScontent/DCRModel.js" type="text/javascript"></script>
     <script src="masked/Ass_DCRNW.js" type="text/javascript"></script>
+    <script src="JScontent/DCPlanEditModel.js" type="text/javascript"></script>
     <!-- End JS content -->
     
     <script lang="javascript" type="text/javascript">

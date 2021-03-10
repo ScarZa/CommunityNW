@@ -26,9 +26,9 @@ function TB_DCR(content) {
             //+ "<div class='col-lg-6'><div class='row col-lg-12' id='sub-contentTB'></div><div class='row col-lg-12' id='sub-contentGr'></div></div>"
             +"</div></form>"));
             
-                var column1 = ["AN","CID","ชื่อ - นามสกุล","ที่อยู่","วันที่ D/C","โทรศัพท์","รพจ.เลยฯ","เครือข่าย","รับยาใกล้บ้าน","รายละเอียด"];
+                var column1 = ["AN","CID","ชื่อ - นามสกุล","ที่อยู่","วันที่ D/C","โทรศัพท์","รพจ.เลยฯ","เครือข่าย","รับยาใกล้บ้าน","รายละเอียด","แก้ไข","ลบ"];
                 var CTb = new createTableAjax();
                 CTb.GetNewTableAjax('P-data', 'http://1.179.191.130/API-Hosxp/API/CommuNW/DT_DCR.php?', '../back/API/tempSendDataAPI.php', column1
-                ,null,null,null,null,false,false,null,true,'DCRModal',false,null,null,null,null,null,'dbtb');
+                ,'DCPEModal','dcplan','an','TB_DCR',true,false,null,true,'DCRModal',false,null,null,null,null,null,'dbtb');
 
             }

@@ -1,21 +1,5 @@
 <?php 
-header('Content-type: text/json; charset=utf-8');
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: access");
-header("Access-Control-Allow-Methods: GET,POST");
-header("Access-Control-Allow-Credentials: true");
-
-function __autoload($class_name) {
-    include '../class/' . $class_name . '.php';
-}
-include_once ('../plugins/funcDateThai.php');
-set_time_limit(0);
-$conn_DB= new EnDeCode();
-$conv=new convers_encode();
-$read="../connection/conn_DB.txt";
-$conn_DB->para_read($read);
-$conn_DB->Read_Text();
-$conn_DB->conn_PDO();
+include 'headAPI.php';
 $result = array();
 $series = array();
 $data = isset($_POST['data'])?$_POST['data']:(isset($_GET['data'])?$_GET['data']:'');
@@ -35,7 +19,6 @@ $data2 = isset($_POST['data2'])?$_POST['data2']:(isset($_GET['data2'])?$_GET['da
     $rslt=$conn_DB->select_a($execute);
 
 
-//print_r($rslt);
 
 //for($i=0;$i<count($rslt);$i++){
   // $series['recorder'] =$recorder;
@@ -48,9 +31,9 @@ $data2 = isset($_POST['data2'])?$_POST['data2']:(isset($_GET['data2'])?$_GET['da
   $series['smiv'] = $rslt['smiv'];
   $series['lastvisit'] = $rslt['lastvisit'];
   $series['admdate'] = $rslt['admdate'];
-  $series['nextdate'] = isset($rslt['nextdate'])?DateThai1($rslt['nextdate']):'';
-  $series['pttype_expire'] = isset($rslt['pttype_expire'])?DateThai1($rslt['pttype_expire']):'';
-  $series['expire_date'] = isset($rslt['expire_date'])?DateThai1($rslt['expire_date']):'';
+  $series['nextdate'] = isset($rslt['nextdate'])?(($rslt['nextdate']=='0000-00-00')?'':DateThai1($rslt['nextdate'])):'';
+  $series['pttype_expire'] = isset($rslt['pttype_expire'])?(($rslt['pttype_expire']=='0000-00-00')?'':DateThai3($rslt['pttype_expire'])):'';
+  $series['expire_date'] = isset($rslt['expire_date'])?(($rslt['expire_date']=='0000-00-00')?'':DateThai1($rslt['expire_date'])):'';
   $series['vstdate'] = DateThai2($rslt['vstdate']);
   $series['vsttime'] = $rslt['vsttime'];
   $series['dchdate'] = isset($rslt['dchdate'])?DateThai2($rslt['dchdate']):'';

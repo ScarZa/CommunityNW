@@ -1,22 +1,7 @@
 <?php
-session_save_path("../session/");
-//session_start(); 
-header('Content-type: text/json; charset=utf-8');
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Headers: access");
-// header("Access-Control-Allow-Methods: GET,POST");
-// header("Access-Control-Allow-Credentials: true");
-// header('Content-Type: application/json;charset=utf-8');
-function __autoload($class_name) {
-    include '../class/' . $class_name . '.php';
-}
-include '../function/string_to_ascii.php';
-set_time_limit(0);
-$connDB = new EnDeCode();
-$read = "../connection/conn_DB.txt";
-$connDB->para_read($read);
-$connDB->Read_Text();
-$connDB->conn_PDO();
+
+include 'headprocessAPI.php';
+
 
 function insert_date($take_date_conv) {
     $take_date = explode("-", $take_date_conv);
@@ -24,7 +9,7 @@ function insert_date($take_date_conv) {
     $take_date = "$take_date_year-" . @$take_date[1] . "-" . @$take_date[0] . "";
     return $take_date;
 }
-$conv=new convers_encode();
+
 $method = isset($_POST['method']) ? $_POST['method'] : $_GET['method'];
 if ($method == 'EMR') {
     $mem_id = $_POST['mem_id'];
@@ -78,6 +63,22 @@ if($user_token){
     $regdate = date('Y-m-d H:i:s');
 
     $data = array($mem_id,$an,2,$regdate);
+    //$field = array('id','hcode','vdate','vn','hn','sex','dob','pdx','dx0','dx1','dx2','dx3','cgis_score','clinic','user','dupdate');
+    $table = "request_log";
+    $request_log = $connDB->insert($table, $data);
+    if($request_log){
+      $res = array("messege"=>'บันทึก Log สำเร็จ!!!!');
+}else{
+      $res = array("messege"=>'บันทึก Log ไม่สำเร็จ!!!!');
+}
+    print json_encode($res);
+    $connDB->close_PDO();
+}elseif ($method == 'DCPE') {
+    $mem_id = $_POST['mem_id'];
+    $an = $_POST['an'];
+    $regdate = date('Y-m-d H:i:s');
+
+    $data = array($mem_id,$an,4,$regdate);
     //$field = array('id','hcode','vdate','vn','hn','sex','dob','pdx','dx0','dx1','dx2','dx3','cgis_score','clinic','user','dupdate');
     $table = "request_log";
     $request_log = $connDB->insert($table, $data);

@@ -50,7 +50,7 @@ function DCRModal(content, id = null) {
 
       
           //$("#vdate").append($("<div class='row list-group' id='vdate_list'></div>"))
-          AddDataDCR("detail_DCplanAPI.php", '', recipient);
+          AddDataDCR("detail_EMRpatientAPI.php", '', recipient);
 
           
         });
@@ -67,13 +67,14 @@ function DCRModal(content, id = null) {
                                 
 
 function AddDataDCR(json, id1, id2 ) {
-  $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/' + json, { data: id1, data2: id2 }, function (data) { 
+  $.getJSON('../back/API/' + json, { data: id1, data2: id2 }, function (data) { console.log(data)
     $("#frmEMR").append($("<input type='hidden' name='hn' value='"+data[0].hn+"'>")
                       , $("<input type='hidden' name='vn' value='" + data[0].vn + "'>"));
         $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/check_image.php', { data1: data[0].hn }, function (datai) {
             if (datai.cc == '') { var img = 'images/person.png' } else { var img = 'http://1.179.191.130/API-Hosxp/API/CommuNW/show_image.php?hn=' + data[0].hn }
             $("#pics-panel").attr("src", img)
         });
+        $("h4#EMRModalLabel").append("<b style='color:red'> AN : "+data[0].an+"</b>")
         $("#fullname").empty().append(data[0].fullname);
         $("#hn").empty().append(data[0].hn);
         $("#vn").empty().append(data[0].vn);
@@ -83,15 +84,12 @@ function AddDataDCR(json, id1, id2 ) {
         $("#mrname").empty().append(data[0].mrname);
         $("#ptname1").empty().append(data[0].ptname1+' ('+data[0].Dhospital+')');
         $("#address").empty().append(data[0].address);
-        $("#informaddr").empty().append(data[0].informaddr);
-        $("#hometel").empty().append("&nbsp; <i class='fa fa-phone-square'></i> เบอร์โทร : "+data[0].hometel);
-        $("#informtel").empty().append("&nbsp;&nbsp; <i class='fa fa-phone-square'></i> เบอร์โทร : "+data[0].informtel);
         $("#nationality").empty().append(data[0].nation_name);
         $("#religion").empty().append(data[0].religion_name);
         $("#blood").empty().append(data[0].bloodgrp);
         $("#disease").empty().append(data[0].disease);
         //$("#allergic").empty().append(data[0].drugallergy);
-        $("#vstdate").empty().append('วันที่รับบริการ : '+data[0].vstdate);
+        $("#vstdate").empty().append('วันที่รับ Admit : '+data[0].vstdate);
         $("#vsttime").empty().append('เวลา : ' + data[0].vsttime + ' น.');
         $("#admit").empty().append('รับรักษาครั้งที่ : '+data[0].admit);
         $("#ovstistname").empty().append('ประเภท : ' + data[0].ovstistname);
@@ -105,28 +103,32 @@ function AddDataDCR(json, id1, id2 ) {
         $("#expire_date").empty().append(data[0].expire_date);
         $("#docName").empty().append(data[0].docName);
         $("#clinic").empty().append(data[0].clinic);
-        $("#Alert_Drug").empty();
-        if(data[0].Clozapine100 != null){
-            $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>"+data[0].Clozapine100+" ( สั่งล่าสุด "+data[0].Clozapine100Date+")</b></div><br>");
+    $("#Alert_Drug").empty();
+    $.getJSON('../back/API/DT_DrugIPD.php', { data1: data[0].fw_id }, function (dataD) { console.log(dataD)
+      $.each(dataD, function (key, value) {
+        if (data[0].Clozapine100 == value.drugName) {
+          $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>" + data[0].Clozapine100 + " ( สั่งล่าสุด " + data[0].Clozapine100Date + ")</b></div><br>");
         }
-        if(data[0].Clozapine25 != null){
-            $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>"+data[0].Clozapine25+" ( สั่งล่าสุด "+data[0].Clozapine25Date+")</b></div><br>");
+        if (data[0].Clozapine25 == value.drugName) {
+          $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>" + data[0].Clozapine25 + " ( สั่งล่าสุด " + data[0].Clozapine25Date + ")</b></div><br>");
         }
-        if(data[0].Carbamazepine200 != null){
-            $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>"+data[0].Carbamazepine200+" ( สั่งล่าสุด "+data[0].Carbamazepine200Date+")</b></div><br>");
+        if (data[0].Carbamazepine200 == value.drugName) {
+          $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>" + data[0].Carbamazepine200 + " ( สั่งล่าสุด " + data[0].Carbamazepine200Date + ")</b></div><br>");
         }
-        if(data[0].LithiumCarbonate300 != null){
-            $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>"+data[0].LithiumCarbonate300+" ( สั่งล่าสุด "+data[0].LithiumCarbonate300Date+")</b></div><br>");
+        if (data[0].LithiumCarbonate300 == value.drugName) {
+          $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>" + data[0].LithiumCarbonate300 + " ( สั่งล่าสุด " + data[0].LithiumCarbonate300Date + ")</b></div><br>");
         }
-        if(data[0].SodiumValproate200 != null){
-            $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>"+data[0].SodiumValproate200+" ( สั่งล่าสุด "+data[0].SodiumValproate200Date+")</b></div><br>");
+        if (data[0].SodiumValproate200 == value.drugName) {
+          $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>" + data[0].SodiumValproate200 + " ( สั่งล่าสุด " + data[0].SodiumValproate200Date + ")</b></div><br>");
         }
-        if(data[0].SodiumValproate200CHRONO != null){
-            $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>"+data[0].SodiumValproate200CHRONO+" ( สั่งล่าสุด "+data[0].SodiumValproate200CHRONODate+")</b></div><br>");
+        if (data[0].SodiumValproate200CHRONO == value.drugName) {
+          $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>" + data[0].SodiumValproate200CHRONO + " ( สั่งล่าสุด " + data[0].SodiumValproate200CHRONODate + ")</b></div><br>");
         }
-        if(data[0].SodiumValproate500 != null){
-            $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>"+data[0].SodiumValproate500+" ( สั่งล่าสุด "+data[0].SodiumValproate500Date+")</b></div>");
+        if (data[0].SodiumValproate500 == value.drugName) {
+          $("#Alert_Drug").append("<div class='col-lg-12'><b style='color: yellow'>" + data[0].SodiumValproate500 + " ( สั่งล่าสุด " + data[0].SodiumValproate500Date + ")</b></div>");
         }
+      });
+    });
         $("#dxname1").empty().append(data[0].dxname1);
         $("#dxname2").empty().append(data[0].dxname2);
         $("#dxname3").empty().append(data[0].dxname3);
@@ -141,18 +143,23 @@ function AddDataDCR(json, id1, id2 ) {
         $("#cgi").empty().append(data[0].cgi);
         $("#Q9").empty().append(data[0].Q9);
         $("#Q8").empty().append(data[0].Q8);
-    
-        $.getJSON('http://1.179.191.130/API-Hosxp/API/CommuNW/allergy_Data.php', { data: data[0].hn }, function (data) {
+        // $("#cc").empty().append("CC : "+data[0].cc);
+        // $("#hpi").empty().append("HPI : "+data[0].hpi);
+        // $("#pmh").empty().append("PMH : "+data[0].pmh);
+
+        $.getJSON('../back/API/Data_allergy.php', { data: data[0].fw_id }, function (data) {
           $("#allergic").empty();
           $.each( data, function( key, value ) {
               $("#allergic").append("<div class='col-lg-12' style='color :yellow'>"+value.drugallergy+"</div><br>");
             });
-        });
-
-
+      });
+      
     });
     
   $.getJSON('../back/API/detail_DCR.php', { data2: id2 }, function (data) { 
+    $("#informaddr").empty().append(data.patient_add);
+      $("#hometel").empty().append("&nbsp; <i class='fa fa-phone-square'></i> เบอร์โทร : "+data.tel0);
+      $("#informtel").empty().append("&nbsp;&nbsp; <i class='fa fa-phone-square'></i> เบอร์โทร : "+data.tel1);
     $("#inject").append($("<HR style='width:100%;'>")
       , $("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
       , $("<div class='row col-lg-12 col-md-12 col-sm-12 ' id='inject_item'></div>"));

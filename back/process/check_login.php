@@ -6,7 +6,7 @@ function __autoload($class_name) {
 }
 include '../function/string_to_ascii.php';
 $dbh=new dbPDO_mng();
-$read="../connection/conn_DB.txt";
+$read="../connection/conn_DB.php";
 $dbh->para_read($read);
 //$dbh->Read_Text();
 $dbh->conn_PDO();

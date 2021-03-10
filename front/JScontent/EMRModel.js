@@ -41,7 +41,7 @@ function EMRModal(content, id = null) {
           var Ar = new AssEMRNW("span#EMR_detail");
           Ar.GetEMRNWForm();
 
-          var PL = new TabLayout('#Rx-body', 2, 'T');
+          var PL = new TabLayout('#Rx-tab', 2, 'T');
           PL.GetTL();
           $("#Tl0").empty().append("IPD Home Med");
           $("#Tl1").empty().append("OPD Med");
@@ -87,7 +87,7 @@ function AddDataEMR(json, id1, id2 ) {
             if (datai.cc == '') { var img = 'images/person.png' } else { var img = 'http://1.179.191.130/API-Hosxp/API/CommuNW/show_image.php?hn=' + data[0].hn }
             $("#pics-panel").attr("src", img)
         });
-        $("h4#EMRModalLabel").append("<b> AN : "+data[0].an+"</b>")
+        $("h4#EMRModalLabel").append("<b style='color:red'> AN : "+data[0].an+"</b>")
         $("#fullname").empty().append(data[0].fullname);
         $("#hn").empty().append(data[0].hn);
         $("#vn").empty().append(data[0].vn);
@@ -102,7 +102,7 @@ function AddDataEMR(json, id1, id2 ) {
         $("#blood").empty().append(data[0].bloodgrp);
         $("#disease").empty().append(data[0].disease);
         //$("#allergic").empty().append(data[0].drugallergy);
-        $("#vstdate").empty().append('วันที่รับบริการ : '+data[0].vstdate);
+        $("#vstdate").empty().append('วันที่รับ Admit : '+data[0].vstdate);
         $("#vsttime").empty().append('เวลา : ' + data[0].vsttime + ' น.');
         $("#admit").empty().append('รับรักษาครั้งที่ : '+data[0].admit);
         $("#ovstistname").empty().append('ประเภท : ' + data[0].ovstistname);
@@ -193,11 +193,10 @@ function AddDataEMR(json, id1, id2 ) {
       $("#informaddr").empty().append(data.patient_add);
       $("#hometel").empty().append("&nbsp; <i class='fa fa-phone-square'></i> เบอร์โทร : "+data.tel0);
       $("#informtel").empty().append("&nbsp;&nbsp; <i class='fa fa-phone-square'></i> เบอร์โทร : "+data.tel1);
-      $("#inject").append($("<HR style='width:100%;'>")
-        , $("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
+      $("#inject").append($("<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><u><b>ยาฉีด</b></u></div></div>")
         , $("<div class='row col-lg-12 col-md-12 col-sm-12 ' id='inject_item'></div>"));
-      if (data.iname0 != '') { $("#inject_item").append("<div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname0 + " : </b></div><div class='col-lg-8 col-md-6 col-sm-6'>" + data.inject0 + "</div></div><br>") }
-      if (data.iname1 != ''){ $("#inject_item").append("<div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname1 + " : </b></div><div class='col-lg-8 col-md-6 col-sm-6'>"+data.inject1+"</div></div>")}
+      if (data.iname0 != '') { $("#inject_item").append("<div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname0 + " : </b></div><div class='col-lg-8 col-md-6 col-sm-6'><b style='color:red'>" + data.inject0 + "</b></div></div><br>") }
+      if (data.iname1 != ''){ $("#inject_item").append("<div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>" + data.iname1 + " : </b></div><div class='col-lg-8 col-md-6 col-sm-6'><b style='color:red'>"+data.inject1+"</b></div></div>")}
         $("#cc").empty().append("CC : "+data.cc);
         $("#hpi").empty().append("HPI : "+data.hpi);;
         $("#biographer").empty().append(data.biographer);

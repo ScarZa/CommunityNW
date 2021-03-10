@@ -29,12 +29,7 @@ var AssEMRNW = function(content){
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-6 col-sm-6' style='text-align:right;'><b>สิทธิ์ : </b></div><div class='row col-lg-9 col-md-6 col-sm-6' id='ptname1'> </div></div>"
                                     +"<div class='col-lg-12 col-md-12 col-sm-12'><div class='clearfix'><div class='box' style='background-color:rgb(203, 235, 25)'><span style='color: black'  id='hometel'></span><span style='color: black'  id='informtel'></span></div></div></div></div>"
                                     + "</span></div></div></div></div></div></div><p></p>")
-                                ,$("<div class='card text-white bg-danger mb-3'><div class='card-header'><b>ประเภทผู้ป่วย</b></div><div id='' class='card-body'>"
-                                    //+"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-4 col-sm-4' style='text-align:right;'><b>คลินิคพิเศษ : </b></div><div class='row col-lg-9 col-md-8 col-sm-8' id='clinic'> </div>"
-                                    + "<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-4 col-sm-4' style='text-align:right;'><b>High Alert Drug : </b></div><div class='row col-lg-9 col-md-8 col-sm-8' id='Alert_Drug'> </div></div>"
-                                    +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-4 col-sm-4' style='text-align:right;'><b>โรคประจำตัว : </b></div><div class='row col-lg-8 col-md-8 col-sm-8' id='disease'> </div></div>"
-                                    +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-4 col-sm-4' style='text-align:right;'><b>ประวัติแพ้ยา : </b></div><div class='row col-lg-8 col-md-8 col-sm-8' id='allergic'> </div></div>"
-                                    +"</div></div><p></p>")
+                                
                                     ,$("<div class='card border-success'><div class='card-header'><b id='vstdate'></b> <b id='vsttime'></b> <b id='admit'></b> <b id='ovstistname'></b><br><b id='dchdate'></b> <b id='dchtime'></b> <b id='lastvisit'></b> <b id='nextdate' style='color: red'></b></div><div id='' class='card-body'>"
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>สิทธิรักษาประจำตัว : </b></div><div class='row col-lg-8 col-md-6 col-sm-6' id='ptname2'> </div></div>" 
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>สถานพยาบาลหลัก : </b></div><div class='row col-lg-8 col-md-6 col-sm-6' id='Dhospital'> </div></div>"
@@ -46,8 +41,7 @@ var AssEMRNW = function(content){
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>Dx.2 : </b></div><div class='row col-lg-8 col-md-6 col-sm-6' id='dxname2'> </div></div>"
                                     +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>DX.3 : </b></div><div class='row col-lg-8 col-md-6 col-sm-6' id='dxname3'> </div></div>"
                                         + "<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-4 col-md-6 col-sm-6' style='text-align:right;'><b>Dx.4 : </b></div><div class='row col-lg-8 col-md-6 col-sm-6' id='dxname4'> </div></div>"
-                                        +"<div class='col-lg-12 col-md-12 col-sm-12 row' id='inject'></div>"
-                                    +"</div></div><p></p>")
+                                        +"</div></div><p></p>")
                                 ,$("<div class='card border-success'><div class='card-header'><b>Screening</b></div><div id='' class='card-body'>"
                                 +"<div class='col-lg-12 col-md-12 col-sm-12 alert alert-success'><div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-2 col-md-4 col-sm-4' style='text-align:right;'><b>น้ำหนัก : </b></div><div class='row col-lg-2 col-md-8 col-sm-8' id='bw'></div>"
                                     +"<div class='col-lg-1 col-md-4 col-sm-4' style='text-align:right;'><b>สูง : </b></div><div class='row col-lg-2 col-md-8 col-sm-8' id='height'> </div>"
@@ -64,7 +58,16 @@ var AssEMRNW = function(content){
                                     +"<p class='row alert alert-info' id='cc'><b>CC : </b></p>"
                                     +"<p class='row alert alert-primary' role='alert' id='hpi'><b>HPI : </b></p></div>"
                                     +"</div></div><p></p>")
+                                ,$("<div class='card text-white bg-danger mb-3'><div class='card-header'><b>เฝ้าระวัง</b></div><div id='' class='card-body'>"
+                                    //+"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-4 col-sm-4' style='text-align:right;'><b>คลินิคพิเศษ : </b></div><div class='row col-lg-9 col-md-8 col-sm-8' id='clinic'> </div>"
+                                    + "<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-4 col-sm-4' style='text-align:right;'><b>High Alert Drug : </b></div><div class='row col-lg-9 col-md-8 col-sm-8' id='Alert_Drug'> </div></div>"
+                                    +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-4 col-sm-4' style='text-align:right;'><b>โรคประจำตัว : </b></div><div class='row col-lg-8 col-md-8 col-sm-8' id='disease'> </div></div>"
+                                    +"<div class='col-lg-12 col-md-12 col-sm-12 row'><div class='col-lg-3 col-md-4 col-sm-4' style='text-align:right;'><b>ประวัติแพ้ยา : </b></div><div class='row col-lg-8 col-md-8 col-sm-8' id='allergic'> </div></div>"
+                                    +"</div></div><p></p>")
                                 ,$("<div class='card border-success'><div class='card-header'><b>Rx Order</b></div><div id='Rx-body' class='card-body'>"
+                                    + "<div class='row'><div class='col-lg-12 col-md-12 col-sm-12' id='inject'></div></div>"
+                                    +"<HR style='width:100%; '>"
+                                    +"<div class='row'><div class='col-lg-12 col-md-12 col-sm-12' id='Rx-tab'></div></div>"    
                                     + "</div></div><p></p>")
                                 // ,$("<div class='card border-success'><div class='card-header'><b>Lab Order</b></div><div id='Lab-body' class='card-body'>"
                                 //     +"</div></div><p></p>")

@@ -1,20 +1,5 @@
 <?php
-header('Content-type: text/json; charset=utf-8');
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: access");
-header("Access-Control-Allow-Methods: GET,POST");
-header("Access-Control-Allow-Credentials: true");
-
-function __autoload($class_name) {
-    include '../class/' . $class_name . '.php';
-}
-include '../plugins/funcDateThai.php';
-$conn_DB = new EnDeCode();
-$conv=new convers_encode();
-$read = "../connection/conn_DB.txt";
-$conn_DB->para_read($read);
-$conn_db = $conn_DB->Read_Text();
-$conn_DB->conn_PDO();
+include 'headAPI.php';
 $rslt = array();
 $series = array();
 //$data1 = isset($_POST['data1'])?$_POST['data1']:$_GET['data1'];

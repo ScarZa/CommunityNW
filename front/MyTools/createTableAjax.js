@@ -118,7 +118,7 @@ var createTableAjax = function () {
 					cellDel.appendChild(delButton);
 					delButton.innerHTML = "<img src='images/icon_set1/file_delete.ico' width='25'>";
 					delButton.setAttribute("href","#");
-					delButton.setAttribute("onclick","DeleteData('"+$.cookie('Readerurl') + fileDel+"','"+deltable+"','"+delfield+"','"+value[0]+"','"+resend+"','html');");
+					delButton.setAttribute("onclick","DeleteData('../back/API/"+ fileDel+"','"+deltable+"','"+delfield+"','"+value[0]+"','"+resend+"','html');");
                                     }
             }
 //            	var container = document.getElementById (content);

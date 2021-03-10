@@ -71,7 +71,7 @@ function DCPModal(content, id = null) {
           }
           
             $.ajax(settings).done(function (result) {
-              
+              if(result.an_chk == 'N'){
               var form = new FormData();
               form.append("dcp_id", result.dcp_id);
               form.append("hn", result.hn);
@@ -142,7 +142,13 @@ function DCPModal(content, id = null) {
                   modal.modal('hide');
                   TB_DCPlan('#index_content');
                  })
-          })
+              })
+              
+              } else {
+                alert(result.messege);
+                  modal.modal('hide');
+                  TB_DCPlan('#index_content');
+            }
           })
       }));
         });
@@ -266,8 +272,12 @@ function AddData(json, id1, id2 ) {
         }
       });
     });
-
-    selectJSON("#dc_type", "DC_type.json", "dct_id", "dct_name", " เลือกจำหน่ายผู้ป่วย ");
+    if (data[0].nextdate == '') { 
+      selectJSON("#dc_type", "DC_type.json", "dct_id", "dct_name", " เลือกจำหน่ายผู้ป่วย ");
+    } else {
+      selectJSON("#dc_type", "DC_type.json", "dct_id", "dct_name", " เลือกจำหน่ายผู้ป่วย ",2);
+}
+    
     selectJSON("#hos_nearby", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ใกล้บ้าน ");
     selectJSON("#hos_forward", "infirmary.json", "inf_id", "hos_name", " เลือกสถานพยาบาลที่ส่งต่อ ");
 
@@ -277,15 +287,15 @@ function AddData(json, id1, id2 ) {
         $("#patient_type").append($("<div class='col-lg-11'><input  class='custom-control-input' type='checkbox' id='pt"+value.dcs_id+"' name='patient_type" + value.dcs_id + "' value='" + value.dcs_id + "' >"
           +" <label class='custom-control-label' for='pt"+value.dcs_id+"'>  " + value.dcs_name + "</label></div>"))
       });
-      
-      if (data[0].mpdx == 'F20' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type1]").attr("checked", "checked");}
-      if (data[0].mpdx == 'F32') { $("input[type=checkbox][name=patient_type2]").attr("checked", "checked"); }
-      if (data[0].mpdx == 'F10' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type3]").attr("checked", "checked"); }
-      if ((data[0].mpdx + data[0].spdx) == 'F155' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type4]").attr("checked", "checked"); }
-      if (data[0].typep_3 == '3') { $("input[type=checkbox][name=patient_type5]").attr("checked", "checked"); }
-      if (data[0].typep == '2') { $("input[type=checkbox][name=patient_type6]").attr("checked", "checked"); }
-      if (data[0].smiv != '0') { $("input[type=checkbox][name=patient_type7]").attr("checked", "checked"); }
-      if (data[0].lawpsych_chk == 'Y') { $("input[type=checkbox][name=patient_type8]").attr("checked", "checked"); }
+      $("input[type=checkbox][name=patient_type10]").prop('checked', true);
+      if (data[0].mpdx == 'F20' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type1]").attr("checked", "checked");$("input[type=checkbox][name=patient_type10]").prop('checked', false);}
+      if (data[0].mpdx == 'F32') { $("input[type=checkbox][name=patient_type2]").attr("checked", "checked"); $("input[type=checkbox][name=patient_type10]").prop('checked', false);}
+      if (data[0].mpdx == 'F10' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type3]").attr("checked", "checked"); $("input[type=checkbox][name=patient_type10]").prop('checked', false);}
+      if ((data[0].mpdx + data[0].spdx) == 'F155' && data[0].typep_1 == '1') { $("input[type=checkbox][name=patient_type4]").attr("checked", "checked"); $("input[type=checkbox][name=patient_type10]").prop('checked', false);}
+      if (data[0].typep_3 == '3') { $("input[type=checkbox][name=patient_type5]").attr("checked", "checked"); $("input[type=checkbox][name=patient_type10]").prop('checked', false);}
+      if (data[0].typep == '2') { $("input[type=checkbox][name=patient_type6]").attr("checked", "checked"); $("input[type=checkbox][name=patient_type10]").prop('checked', false);}
+      if (data[0].smiv != '0') { $("input[type=checkbox][name=patient_type7]").attr("checked", "checked"); $("input[type=checkbox][name=patient_type10]").prop('checked', false);}
+      if (data[0].lawpsych_chk == 'Y') { $("input[type=checkbox][name=patient_type8]").attr("checked", "checked"); $("input[type=checkbox][name=patient_type10]").prop('checked', false);}
 
     });
     
@@ -297,7 +307,7 @@ function AddData(json, id1, id2 ) {
       });
     });
 
-    $.getJSON('../back/API/follow10_Data.php', function (data) {
+    $.getJSON('../back/API/follow10_Data.php', function (data) { console.log(data)
       $("#dc_conclude").empty();
       $.each(data, function (key, value) {
         $("#dc_conclude").append($("<div class='col-lg-11'><input class='custom-control-input' type='checkbox' id='f10" + value.f10_id + "' name='dc_conclude" + value.f10_id + "' value='" + value.f10_id + "' >"
