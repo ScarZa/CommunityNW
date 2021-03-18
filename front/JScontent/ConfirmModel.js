@@ -33,7 +33,8 @@ function ConfirmModel() {
       var token_key = TokenEncode(data[0].cid,data[0].fullname,data[0].timestamp);
 
       $("span#regis_detail").append($("<input type='hidden' name='token_key' value='" + token_key + "'>")
-                                ,$("<input type='hidden' name='reg_id' value='"+data[0].reg_id+"'>"));       
+        , $("<input type='hidden' name='reg_id' value='" + data[0].reg_id + "'>")
+        , $("<input type='hidden' name='confirmer' value='" + $.cookie('reg_id') + "'>"));
     })
     $("span#regis_detail").append($("<input type='hidden' name='method' value='add_Confirm'>"));
     $("#frmConfirm").on('submit', (function (e) {

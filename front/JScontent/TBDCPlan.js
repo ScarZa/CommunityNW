@@ -22,7 +22,7 @@ function TB_DCPlan(content, id = null) {
             + "<div class='card border-success'>"
           + "<div class='card-header'><i  class='fa fa-search' aria-hidden='true'></i><b>  ค้นหาผู้ป่วย</b></div>"
           +"<p><div class='col-lg-10 offset-lg-2 col-md-10 offset-md-2 col-sm-12 col-xs-12' style='text-align: right;'><input type='text' id='search-patient' placeholder='ค้นหา ชื่อ/สกุล/HN/AN'></div>"
-            + "<div id='P-data' class='card-body'></div></div><p>"
+            + "<div id='P-data' class='card-body table-responsive'></div></div><p>"
             + "</div>"
             //+ "<div class='col-lg-6'><div class='row col-lg-12' id='sub-contentTB'></div><div class='row col-lg-12' id='sub-contentGr'></div></div>"
             +"</div></form>"));

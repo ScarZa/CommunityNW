@@ -13,6 +13,7 @@ function __autoload($class_name) {
     include '../class/' . $class_name . '.php';
 }
 include_once ('../plugins/funcDateThai.php');
+include '../function/string_to_ascii.php';
 set_time_limit(0);
 $connDB= new EnDeCode();
 $conv=new convers_encode();

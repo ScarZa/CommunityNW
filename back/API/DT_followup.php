@@ -4,7 +4,7 @@ $rslt = array();
 $series = array();
 $data = isset($_POST['data1'])?$_POST['data1']:(isset($_GET['data1'])?$_GET['data1']:'');
 $data2 = isset($_POST['data2'])?$_POST['data2']:(isset($_GET['data2'])?$_GET['data2']:'');
-$sql="SELECT df.cid,df.hn hn_se,df.an,df.fullname,df.address,df.dchdate
+$sql="SELECT df.cid,df.hn hn_se,df.an,df.fullname,df.address,df.mpdx,df.dchdate
 FROM data_forward df
 INNER JOIN dcplan dcp on dcp.an = df.an
 WHERE dcp.hos_nearby = ".$data; 
@@ -24,6 +24,7 @@ $conn_DB->imp_sql($sql);
     $series['fullname'] = $sensorfname.'  '.$fullname[1];
     $address = explode(" ", $num_risk[$i]['address']);
     $series['informaddr']= $address[2].' '.$address[3].' '.$address[4];
+    $series['mpdx']= $num_risk[$i]['mpdx'];
     $series['dchdate'] = DateThai1($num_risk[$i]['dchdate']);
     array_push($rslt, $series);    
     }

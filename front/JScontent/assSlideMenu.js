@@ -24,10 +24,28 @@ function AssSlideMenu(content, id = null) {
       , $("<li id='DC-reveal-menu'></li>")
     );
   }
-                            $("li#DC-plan-menu").empty().append($("<a id='DCP' href='#'><img src='images/icon_set2/compose.ico' width='25'> D/C Plan</a>")); 
-                            $("li#DC-reveal-menu").empty().append($("<a id='DCR' href='#'><img src='images/icon_set2/compose.ico' width='25'> ทะเบียนบันทึก D/C Plan</a>")); 
+
+                            $("li#confirm-menu").empty().append($("<a href='#UserSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><img src='images/icon_set2/check.ico' width='25'> Mng. User</a>")
+                            , $("<ul class='collapse list-unstyled' id='UserSubmenu'>"
+                              + "<li><a id='confirm' href='#'><img src='images/icon_set2/check.ico' width='25'> Confirm user</a></li>"
+                              + "<li><a id='usercont' href='#'><img src='images/icon_set2/check.ico' width='25'> User control</a></li>"
+                              + "</ul >"));
+                            // $("li#confirm-menu").empty().append($("<a id='confirm' href='#'><img src='images/icon_set2/check.ico' width='25'> Confirm user</a>"));
+
+  
+                            $("li#DC-plan-menu").empty().append($("<a href='#DCPSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle'><img src='images/icon_set2/compose.ico' width='25'> Mng. D/C Plan</a>")
+                            , $("<ul class='collapse list-unstyled' id='DCPSubmenu'>"
+                              + "<li><a id='DCP' href='#'><img src='images/icon_set2/compose.ico' width='25'> D/C Plan</a></li>"
+                              + "<li><a id='DCR' href='#'><img src='images/icon_set2/compose.ico' width='25'> ทะเบียนบันทึก D/C Plan</a></li>"
+                              + "</ul >"));
+  
+                            // $("li#DC-plan-menu").empty().append($("<a id='DCP' href='#'><img src='images/icon_set2/compose.ico' width='25'> D/C Plan</a>")); 
+                            // $("li#DC-reveal-menu").empty().append($("<a id='DCR' href='#'><img src='images/icon_set2/compose.ico' width='25'> ทะเบียนบันทึก D/C Plan</a>"));
+  
+  
+  
                             $("li#jwt-token-menu").empty().append($("<a id='token' href='#'><img src='images/EMR.png' width='25'> JWT Token</a>"));                          
-                            $("li#confirm-menu").empty().append($("<a id='confirm' href='#'><img src='images/icon_set2/check.ico' width='25'> Confirm user</a>"));
+                            
                             $("li#EMR-menu").empty().append($("<a id='EMR' href='#'><img src='images/EMR.png' width='25'> EMR</a>"));
                             $("li#CGI-menu").empty().append($("<a id='cgi_menu' href='#'><img src='images/cgi.png' width='25'> ประเมิน CGI</a>"));
                             $("li#SMIv-menu").empty().append($("<a id='SMI-V' href='#'><img src='images/icon_set2/compose.ico' width='25'> SMI-V</a>"));
@@ -96,5 +114,6 @@ function AssSlideMenu(content, id = null) {
   $("a#token").attr("onclick", "$('#head-detial').show();AssToken('#index_content');");
   $("a#confirm").attr("onclick","$('#head-detial').show();TB_ConfirmUser('#index_content');");
   $("a#DCP").attr("onclick","$('#head-detial').show();TB_DCPlan('#index_content');");
-  $("a#DCR").attr("onclick","$('#head-detial').show();TB_DCR('#index_content');");                                  
+  $("a#DCR").attr("onclick", "$('#head-detial').show();TB_DCR('#index_content');");
+  $("a#usercont").attr("onclick","$('#head-detial').show();TB_User('#index_content');");
 }

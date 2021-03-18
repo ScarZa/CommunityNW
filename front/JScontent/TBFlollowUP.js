@@ -21,12 +21,12 @@ function TB_FollowUP(content, province,amphur,inf) {
             + "<div class='row'><div class='col-lg-12' id='cgi-post'>"
             + "<div class='card border-success'>"
             + "<div class='card-header'><b>รายชื่อผู้ป่วยที่ยินยอมให้เปิดเผยข้อมูลเพื่อการติดตาม</b></div>"
-            + "<div id='P-data' class='card-body'></div></div><p>"
+            + "<div id='P-data' class='card-body table-responsive'></div></div><p>"
             + "</div>"
             //+ "<div class='col-lg-6'><div class='row col-lg-12' id='sub-contentTB'></div><div class='row col-lg-12' id='sub-contentGr'></div></div>"
             +"</div></form>"));
             
-                var column1 = ["AN","CID","ชื่อ - นามสกุล","ที่อยู่","วันที่ D/C","รายละเอียด"];
+                var column1 = ["AN","CID","ชื่อ - นามสกุล","ที่อยู่","PDX","วันที่ D/C","รายละเอียด"];
                 var CTb = new createTableAjax();
                 CTb.GetNewTableAjax('P-data', '../back/API/DT_followup.php?'+inf, '../back/API/tempSendDataAPI.php', column1
                 ,null,null,null,null,false,false,null,true,'EMRModal',false,null,null,null,null,null,'dbtb');

@@ -114,7 +114,32 @@
 <script src="plugins/test/aes-test.js"></script>
 <script src="plugins/test/des-test.js"></script>
 <script src="plugins/test/tripledes-test.js"></script>
+<style>
+    /* body  {
+      background-image: url("images/Phi-Ta-Khon_01.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 1440px 900px;
+    } */
+    /* html { 
+background: url(images/HOWTO.png) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
 
+background-size: 75% 100%;
+} */
+img {
+  max-width: 70%;
+  height: auto;
+}
+center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+    </style>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
        body {
@@ -336,7 +361,7 @@
                     <div class="col-lg-12 col-xl-12" id="head-detial">
                         <!-- <div class="col-lg-8 offset-lg-2 alert alert-success"><h5  id="patient-detial" style="text-align: center"></h5></div> -->
                     </div>
-                    <div class="col-lg-12 col-xl-12" id="index_content"></div>
+                    <div class="col-lg-12 col-xl-12" id="index_content"><img src="images/HOWTO.png" class="center" width="" height="" style="vertical-align:middle;align-content: center;"></div>
                     <div id='createModal'></div>
                 <!-- </section> -->
                 <!-- <p><br><br> -->
@@ -428,6 +453,9 @@
     <script src="JScontent/DCRModel.js" type="text/javascript"></script>
     <script src="masked/Ass_DCRNW.js" type="text/javascript"></script>
     <script src="JScontent/DCPlanEditModel.js" type="text/javascript"></script>
+    <script src="JScontent/TBUser.js" type="text/javascript"></script>
+    <script src="JScontent/ConfirmDetialModel.js" type="text/javascript"></script>
+    <script src="JScontent/EditRegisModel.js" type="text/javascript"></script>
     <!-- End JS content -->
     
     <script lang="javascript" type="text/javascript">
@@ -458,6 +486,7 @@
       AssSlideMenuIPD("nav#sidebar");
     }
         AssHeadPatient("#head-detial","","http://1.179.191.130/API-Hosxp/API/CommuNW/");
+        
         });
     </script>
     <script type="text/javascript">

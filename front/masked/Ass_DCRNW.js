@@ -68,57 +68,57 @@ var AssDCRNW = function(content){
                                 
                                
                  
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > ผู้ให้ข้อมูล (ผู้รับกลับ)</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <span id='biographer'></span><br></div>"
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <span id='relative'></span><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 ' style='text-align:left;' > ผู้ให้ข้อมูล (ผู้รับกลับ) </div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 '>   <span id='biographer'></span><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-2' > เกี่ยวข้องเป็น </div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 '>   <span id='relative'></span><br></div>"
 
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > ที่อยู่ที่ติดต่อได้ติดตามเยี่ยม</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 '>   <span id='patient_add'></span><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 ' style='text-align:left;' > ที่อยู่ที่ติดต่อได้ติดตามเยี่ยม </div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-9 '>   <span id='patient_add'></span><br></div>"
 
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <span id='tel0'></span><br></div>"
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <span id='relative0'></span><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 ' style='text-align:left;' > เบอร์โทร </div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 '>   <span id='tel0'></span><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-2' > เกี่ยวข้องเป็น </div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 '>   <span id='relative0'></span><br></div>"
 
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <span id='tel1'></span><br></div>"
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <span id='relative1'></sapn><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 ' style='text-align:left;' > เบอร์โทร </div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 '>   <span id='tel1'></span><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-2' > เกี่ยวข้องเป็น </div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 '>   <span id='relative1'></sapn><br></div>"
 
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align:left;' > เบอร์โทร </label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <sapn id='tel2'></span><br></div>"
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 ' style='text-align : center; ' > เกี่ยวข้องเป็น</label>  </div>"
-                                +"<div class='col-12 col-sm-12 col-md-8 col-lg-3 '>   <span id='relative2'></span><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 ' style='text-align:left;' > เบอร์โทร </div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 '>   <sapn id='tel2'></span><br></div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-2' > เกี่ยวข้องเป็น </div>"
+                                +"<div class='col-12 col-sm-12 col-md-12 col-lg-3 '>   <span id='relative2'></span><br></div>"
 
                             
                                
-                                +"<div label class='col-12 col-sm-12 col-md-4 col-lg-3 '  style='text-align : left;' > ประวัติการเจ็บป่วยสำหรับเครือข่าย </div>  "
-                                +"<div class=' col-12 col-sm-12 col-md-4 col-lg-9'  >"
+                                +"<div class='col-sm-12 col-md-12 col-lg-3 '  style='text-align : left;' > ประวัติการเจ็บป่วยสำหรับเครือข่าย </div>  "
+                                +"<div class=' col-12 col-sm-12 col-md-12 col-lg-9'  >"
                                 +"<span id='cc'></span><br>"
                                 +"<span id='hpi'></span><br>"
                                  +"</div>"
                                  +"<HR style='width:100%; '>"
                                  
-                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 mb-3 ' style='text-align:left;' > ประสงค์รับยาต่อที่รพ.ใกล้บ้าน</label>  "
+                                 +" <label class='col-12 col-sm-12 col-md-12 col-lg-6 mb-3 ' style='text-align:left;' > ประสงค์รับยาต่อที่รพ.ใกล้บ้าน</label>  "
 
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-12 col-lg-3'>"
                                  +"<span id='assent_drug'></span></div>"
                                     + "<HR style='width:100%;'>"   
                                     
-                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามทางโทรศัพท์</label>  "
+                                 +" <label class='col-12 col-sm-12 col-md-12 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามทางโทรศัพท์</label>  "
                                  
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-12 col-lg-3'>"
                                  +"<span id='assent_tel'></span></div>"
                                  
-                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย โดยรพจ.เลยฯ </label>  "
+                                 +" <label class='col-12 col-sm-12 col-md-12 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย โดยรพจ.เลยฯ </label>  "
                                  
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-12 col-lg-3'>"
                                  +"<span id='assent_jvl'></span></div>"
                                  
-                                 +" <label class='col-12 col-sm-12 col-md-4 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย จากเครือข่ายโดย จนท.สธ.</label>  "
+                                 +" <label class='col-12 col-sm-12 col-md-12 col-lg-6 ' style='text-align:left;' > การยินยอมติดตามให้ติดตามเยี่ยมหลังจำหน่วย จากเครือข่ายโดย จนท.สธ.</label>  "
                                  
-                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-4 col-lg-3'>"
+                                 +"<div class='custom-control custom-radio col-12 col-sm-12 col-md-12 col-lg-3'>"
                                  +"<span id='assent_cn'></span></div>"
                                  +"<HR style='width:100%; '>"
                                 
@@ -129,22 +129,22 @@ var AssDCRNW = function(content){
                                 +"<div class='col-12 col-sm-12 col-md-8 col-lg-9 mb-3'>   <span id='hos_forward'></span><br></div>"
                                 +"<HR style='width:100%; '>"
                             
-                                +"<div class='row col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 '  > ปัญหาที่พบโดยสหวิชาชีพระหว่างเข้ารับการรักษา</label> </div> "
-                                +"<div class='custom-control mb-3 col-12 col-sm-12 col-md-4 col-lg-8'  ><div id='problem_prof'></div>"
+                                +"<div class='row col-12 col-sm-12 col-md-12 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 '  > ปัญหาที่พบโดยสหวิชาชีพระหว่างเข้ารับการรักษา</label> </div> "
+                                +"<div class='custom-control col-12 col-sm-12 col-md-12 col-lg-8'  ><div id='problem_prof'></div>"
 
                                 
                                 +"</div>"
                                 +"<HR style='width:100%; color: 'orange; '>"
 
-                                +"<div class='row col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 ' style='text-align:left;' > สรุปปัญหาผู้ป่วย / วางแผนจำหน่าย</label> </div> "
-                                +"<div class='custom-control mb-3 col-12 col-sm-12 col-md-4 col-lg-8' ><div class='mb-3' id='dc_conclude'></div></div>"
+                                +"<div class='row col-12 col-sm-12 col-md-12 col-lg-4'><label class='col-12 col-sm-12 col-md-12 col-lg-12 ' style='text-align:left;' > สรุปปัญหาผู้ป่วย / วางแผนจำหน่าย</label> </div> "
+                                +"<div class='custom-control col-12 col-sm-12 col-md-12 col-lg-8' ><div class='mb-3' id='dc_conclude'></div></div>"
 
                               
                                 
                                 // +"<label for='exampleFormControlTextarea1'>Example textarea</label>"
                                 
-                                +"<div class='row col-12 col-sm-12 col-md-4 col-lg-4'><label class='col-12 col-sm-12 col-md-4 col-lg-12 ' style='text-align:left;' > หมายเหตุ</label> </div> "
-                                +"<div class='custom-control mb-3 col-12 col-sm-12 col-md-4 col-lg-8' ><span id='dc_con_detial'></span></div>"
+                                +"<div class='row col-12 col-sm-12 col-md-12 col-lg-4'><label class='col-12 col-sm-12 col-md-12 col-lg-12 ' style='text-align:left;' > หมายเหตุ</label> </div> "
+                                +"<div class='custom-control col-12 col-sm-12 col-md-12 col-lg-8' ><span id='dc_con_detial'></span></div>"
                                 
       )   
                      

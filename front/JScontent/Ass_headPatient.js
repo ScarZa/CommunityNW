@@ -27,7 +27,7 @@ $.getJSON(url+"panel_Dashboard.php", { data: data.province, data2: data.amphur }
     + "<div class='col-lg-3 col-md-3 col-sm-12'><a href='#' class='btn btn-success btn-lg btn-block'>ผู้ป่วยในพื้นที่ทั้งหมด : <span class='badge badge-warning'><b>"+data2.total+"</b> คน</span></a></div>"
     + "<div class='col-lg-3 col-md-3 col-sm-12'><a href='#' class='btn btn-danger btn-lg btn-block'>ผู้ป่วยในพื้นที่ ที่กำลัง Admit : <span class='badge badge-warning'><b>"+data2.admit+"</b> คน</span></a></div>"
     + "<div class='col-lg-3 col-md-3 col-sm-12'><a href='#' id='' class='btn btn-info btn-lg btn-block'>ผู้ป่วยติดตามดูแลต่อเนื่องในพื้นที่ (มีภูมิลำเนาในพื้นที่) : <span class='badge badge-warning'><b>" + data2.follow_up + "</b> คน</span></a></div>"
-    + "<div class='col-lg-3 col-md-3 col-sm-12'><a href='#' id='followup' class='btn btn-warning btn-lg btn-block'>ผู้ป่วยยินยอมติดตามที่อาศัยอยู่ในพื้นที่ : <span class='badge badge-danger'><b>"+data.hos+"</b> คน</span></a></div>"
+    + "<div class='col-lg-3 col-md-3 col-sm-12'><a href='#' id='followup' class='btn btn-warning btn-lg btn-block'>ผู้ป่วย D/C ยินยอมติดตามที่อาศัยอยู่ในพื้นที่ : <span class='badge badge-danger'><b>"+data.hos+"</b> คน</span></a></div>"
     //+ "</span>"
       +"</div > "
     //+"</div > "

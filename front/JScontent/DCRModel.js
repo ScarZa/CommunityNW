@@ -20,7 +20,6 @@ function DCRModal(content, id = null) {
       // var cid = prompt("กรุณายืนยันเลขบัตรประชาชนด้วยครับ");
       // var token_keyConf = TokenEncode($.cookie('cid'),data[0].fullname,data[0].timestamp);
       var token_key = TokenEncode(data[0].cid,data[0].fullname,data[0].timestamp);
-      
       if (token_key == $.cookie('token_key')) {
         let myForm = document.getElementById('frmEMR');
         var dataForm = new FormData(myForm);

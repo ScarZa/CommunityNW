@@ -49,9 +49,10 @@ if($member===false){
     $token_key = $_POST['token_key'];
     $confdate = date('Y-m-d H:i:s');
     $mem_status = $_POST['mem_status'];
+    $confirmer = $_POST['confirmer'];
 
-    $data = array($confirm,$confdate);
-    $field = array("reg_status","confdate");
+    $data = array($confirm,$confirmer,$confdate);
+    $field = array("reg_status","confirmer","confdate");
     $table = "registration";
     $where="reg_id=:reg_id";
     $execute=array(':reg_id' => $reg_id);
@@ -72,6 +73,58 @@ if($user_token){
     }else{
         $res = array("messege"=>'ไม่อนุมัติครับ!!!! ');
     }
+    print json_encode($res);
+    $connDB->close_PDO();
+}elseif ($method == 'edit_user') {
+    $reg_id = $_POST['reg_id'];
+    $role = $_POST['role'];
+    $pname = $_POST['pname'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $cid = $_POST['cid'];
+    $email = $_POST['email'];
+    $tel = $_POST['tel'];
+    $line = $_POST['line'];
+    $agency = $_POST['agency'];
+    $agency_tel = $_POST['agency_tel'];
+    $reg_status = $_POST['confirm'];
+    $reformer = $_POST['reformer'];
+    $update = date('Y-m-d H:i:s');
+
+    $token_key = $_POST['token_key'];
+    $mem_status = $_POST['mem_status'];
+
+    $data = array($role,$pname,$fname,$lname,$cid,$email,$tel,$line,$agency,$agency_tel,$reg_status,$reformer,$update);
+    $field = array('role','pname','fname','lname','cid','email','tell','line','inf_id','agency_tell','reg_status','reformer','dupdate');
+    $table = "registration";
+    $where="reg_id=:reg_id";
+    $execute=array(':reg_id' => $reg_id);
+    $edit_user=$connDB->update($table, $data, $where, $field, $execute);
+    if($edit_user){
+        $table = "user_member";
+        $where="reg_id=:reg_id";
+        $execute=array(':reg_id' => $reg_id);
+
+        
+        if(empty($_POST['username'])){
+            $data = array($mem_status,$token_key);
+            $field=array("mem_status", "token_key");
+            $edit_member=$connDB->update($table, $data, $where, $field, $execute);    
+            }else{
+                $username = md5(string_to_ascii(trim(filter_input(INPUT_POST, 'username',FILTER_SANITIZE_STRING))));
+                $password = md5(string_to_ascii(trim(filter_input(INPUT_POST, 'password',FILTER_SANITIZE_STRING))));
+                $data = array($username,$password,$mem_status,$token_key);
+                $field=array("username","password","mem_status", "token_key");
+                $edit_member=$connDB->update($table, $data, $where, $field, $execute); 
+            }
+if($edit_member===false){
+    $res = array("messege"=>'ไม่สามารถบันทึกลงทะเบียนได้!!!!');
+}else{
+    $res = array("messege"=>'บันทึกการแก้ไขสำเร็จ!!!!');
+}
+}else{
+  $res = array("messege"=>'บันทึกการแก้ไขไม่สำเร็จ!!!!');
+}
     print json_encode($res);
     $connDB->close_PDO();
 }

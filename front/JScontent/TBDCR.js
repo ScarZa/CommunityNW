@@ -21,7 +21,7 @@ function TB_DCR(content) {
             + "<div class='row'><div class='col-lg-12' id='cgi-post'>"
             + "<div class='card border-success'>"
             + "<div class='card-header'><b>รายชื่อผู้ป่วยที่ผู้ป่วยที่ทำ D/C plan</b></div>"
-            + "<div id='P-data' class='card-body'></div></div><p>"
+            + "<div id='P-data' class='card-body  table-responsive'></div></div><p>"
             + "</div>"
             //+ "<div class='col-lg-6'><div class='row col-lg-12' id='sub-contentTB'></div><div class='row col-lg-12' id='sub-contentGr'></div></div>"
             +"</div></form>"));

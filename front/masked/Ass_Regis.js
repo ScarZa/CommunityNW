@@ -74,7 +74,7 @@ var AssRegis = function(content){
         );
 
 
-        $("#block3").empty().append($("<div class='form-group'><label class='col-form-label'><u><b> ข้อมูลการใช้งาน   </b></u></label></div>")
+        $("#block3").empty().append($("<div class='form-group'><label class='col-form-label'><u><b id='titleUP'> ข้อมูลการใช้งาน   </b></u></label></div>")
         
         ,$("<div class='row form-group '>"
         
